@@ -16,6 +16,10 @@ export default function Home() {
           <strong>RyuWoong</strong>입니다.
         </p>
       </main>
+      <section>
+        <div>회사</div>
+        <div>프로젝트</div>
+      </section>
     </>
   );
 }
