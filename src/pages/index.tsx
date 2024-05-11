@@ -10,10 +10,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <p>안녕하세요.</p>
-        <p>어울리는 프론트 개발자</p>
+        <h3>안녕하세요.</h3>
+        <h3>어울리는 프론트 개발자</h3>
         <p>
-          <span>RyuWoong </span>입니다.
+          <strong>RyuWoong</strong>입니다.
         </p>
       </main>
     </>
