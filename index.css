@@ -1,0 +1,109 @@
+body {
+}
+
+#root {
+  width: 40rem;
+  margin: 0 auto;
+  background-color: lightgray;
+}
+
+header {
+  background-color: #fff;
+  padding: 1rem;
+}
+
+header .block {
+  gap: 1rem;
+}
+
+.button-box {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.button {
+  color: black;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+main {
+  margin-top: 0.5rem;
+}
+
+main section {
+  background-color: #fff;
+  padding: 1rem;
+}
+
+.wrap {
+  display: flex;
+}
+
+.block {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.block section > p {
+  margin: 0.2rem;
+  padding: 0;
+}
+
+.primary {
+  color: #1877f2;
+}
+
+.background {
+  background-color: red;
+}
+
+.highlight {
+  font-weight: 700;
+}
+
+.profile-box {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.profile-box:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.profile {
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  width: 10rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.history {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-top: 0;
+  list-style-type: none;
+}
+
+.description {
+  padding-left: 1rem;
+}
+
+.description li {
+  margin-bottom: 1rem;
+}
