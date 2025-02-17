@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -5,9 +6,11 @@ export default function Home() {
     <div className={styles.page}>
       <p className={styles.spotlight} />
       <section>
-        <p className={`${styles.main} ${styles.title}`}>Welcome</p>
-        <p className={`${styles.main} ${styles.title}`}>to</p>
-        <p className={`${styles.main} ${styles.title}`}>DarkRoom</p>
+        <Link href="/main/profile">
+          <p className={styles.title}>Welcome</p>
+          <p className={styles.title}>to</p>
+          <p className={styles.title}>DarkRoom</p>
+        </Link>
       </section>
     </div>
   );

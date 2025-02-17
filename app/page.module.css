@@ -11,22 +11,19 @@
   left: 50%;
   width: 400px;
   height: 100svh;
-  background: linear-gradient(to bottom, rgba(255, 255, 100, 1) 0%, rgba(0, 0, 0, 0) 60%);
+  background: linear-gradient(to bottom, rgb(255, 255, 100) 0%, rgba(0, 0, 0, 0) 60%);
   filter: blur(20px);
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
   transform: translateX(-50%);
   animation: flicker 1s infinite alternate;
 }
 
-.main {
+.title {
   z-index: 2;
   color: --foreground;
   font-family: creepster;
   text-align: center;
   animation: flicker 1s infinite alternate;
-}
-
-.title {
   font-size: 2rem;
 }
 
