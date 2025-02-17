@@ -3,8 +3,8 @@ import { Creepster, Nanum_Gothic } from "next/font/google";
 import "./reset.css";
 import "./globals.css";
 
-const nanumGothic = Nanum_Gothic({ weight: "400", variable: "--font-nanum-gothic" });
-const creepster = Creepster({ weight: "400", variable: "--font-creepster" });
+const nanumGothic = Nanum_Gothic({ weight: "400", variable: "--font-nanum-gothic", subsets: ["latin"] });
+const creepster = Creepster({ weight: "400", variable: "--font-creepster", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Welcome to DarkRoom",
