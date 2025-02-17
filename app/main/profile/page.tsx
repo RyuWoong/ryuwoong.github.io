@@ -2,6 +2,11 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import character from "@/public/ryuwoong.png";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "이력서 - 박정륭",
+};
 
 export default function Profile() {
   return (

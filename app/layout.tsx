@@ -9,6 +9,9 @@ const creepster = Creepster({ weight: "400", variable: "--font-creepster" });
 export const metadata: Metadata = {
   title: "Welcome to DarkRoom",
   description: "A developer who harmoniously solves problems with others.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
