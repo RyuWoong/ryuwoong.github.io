@@ -1,0 +1,45 @@
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-bottom: 5rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 20px;
+  height: 64px;
+  gap: 40px;
+  border-bottom: 1px solid var(--tondown);
+}
+
+.title {
+  font-size: 2.4rem;
+  font-family: creepster;
+  color: var(--foreground);
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav,
+.nav li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav li a {
+  font-family: "nanum gothic";
+  color: var(--tondown);
+  font-size: 1rem;
+  transition: color 0.5s;
+}
+
+.nav li a:hover {
+  color: var(--foreground);
+}
