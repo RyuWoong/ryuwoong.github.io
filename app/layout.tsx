@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Creepster, Nanum_Gothic } from "next/font/google";
+import { Creepster, Gowun_Batang } from "next/font/google";
 import "./reset.css";
 import "./globals.css";
 
-const nanumGothic = Nanum_Gothic({ weight: "400", variable: "--font-nanum-gothic", subsets: ["latin"] });
+const gowunBatang = Gowun_Batang({ weight: "400", variable: "--font-gowun-batang", subsets: ["latin"] });
 const creepster = Creepster({ weight: "400", variable: "--font-creepster", subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nanumGothic.variable} ${creepster.variable}`}>{children}</body>
+      <body className={`${gowunBatang.variable} ${creepster.variable}`}>{children}</body>
     </html>
   );
 }

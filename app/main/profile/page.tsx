@@ -15,7 +15,7 @@ export default function Profile() {
         <div className={styles.about}>
           <div className={styles.description}>
             <Link href={"#about"}>
-              <h1 className={`${styles["text-l"]} ${styles.title}`}>
+              <h1 className={`${styles["text-xl"]} ${styles.title}`}>
                 안녕하세요,
                 <br />
                 저는 박정륭입니다
@@ -25,7 +25,7 @@ export default function Profile() {
             <p className={styles["text-s"]}>
               서울에서 <span className={styles.highlight}>React Native</span>를 다루며 4년차 개발자로 경험을 쌓고
               있습니다. 현재는 <b>딜러타이어</b>에서 <span className={styles.highlight}>타이어픽</span> 앱 개발을 담당
-              하고 있으며, 주도적으로 업무를 진행하고 있습니다.
+              하고 있으며, <b>주도적으로</b> 업무를 진행하고 있습니다.
             </p>
             <div>
               <h2 className={styles["text-m"]}>사람들과 이야길 나누는 것을 좋아해요.</h2>
@@ -44,7 +44,7 @@ export default function Profile() {
               </p>
             </div>
           </div>
-          <div>
+          <div className={styles.information}>
             <Image src={character} alt="character" width={120} height={120} />
             <h2 className={styles["text-m"]}>
               박정륭 <span className={styles["text-s"]}>(Software Engineer)</span>
@@ -59,7 +59,7 @@ export default function Profile() {
 
       <section className={styles.section} id="experience">
         <Link href={"#experience"}>
-          <h1 className={`${styles["text-l"]} ${styles.title}`}>
+          <h1 className={`${styles["text-xl"]} ${styles.title}`}>
             Work Experience<span className={styles.point}>.</span>
           </h1>
         </Link>
@@ -69,25 +69,26 @@ export default function Profile() {
               딜러타이어<span className={styles.point}>.</span>
             </h2>
             <span className={styles.role}>Front-End</span>
-            <span>24.08 - 현재</span>
+            <span className={styles.period}>24.08 - Now</span>
           </div>
           <div className={styles["row-right"]}>
             <h3 className={styles["text-l"]}>
               타이어픽<span className={styles.point}>.</span>
             </h3>
             <div className={styles.project}>
-              <h4 className={styles["text-m"]}>Codepush 서버 구축</h4>
+              <h4 className={styles["text-m"]}>Codepush 자체 서버 구축</h4>
               <p className={styles["text-s"]}>
-                Microsoft에서 제공하는 Appcenter가 종료됨에 따라, Codepush 서버를 구축해야했습니다. Codepush Standalone
+                Microsoft에서 제공하는 AppCenter가 종료됨에 따라, Codepush 서버를 구축해야했습니다. Codepush Standalone
                 Repogitory를 활용하되, Azure 대신 AWS S3를 통해 구축했습니다. 덕분에, 기존 평균적으로 2-5초 걸리던
-                환경이 1-3초 이내로 더 빠르고 안정적인 앱 업데이트를 할 수 있게 되었습니다.
+                환경이 1-3초 이내로 더 빠르고 안정적인 앱 업데이트를 사용자가 경험 할 수 있게 되었습니다.
               </p>
             </div>
             <div className={styles.project}>
               <h4 className={styles["text-m"]}>App CI/CD</h4>
               <p className={styles["text-s"]}>
-                Codepush를 구축하며 좀더 안정적인 App 배포 환경을 구축하고 싶었습니다. github Action과 fastlane을 활용해
-                구축했습니다.
+                Codepush를 구축하면서 좀 더 안정적이고 편안한 App 배포 환경을 구축하고 싶었습니다.{" "}
+                <span className={styles.highlight}>github Action</span>과{" "}
+                <span className={styles.highlight}>fastlane</span>을 활용해 자동화 라인을 구축했습니다.
               </p>
             </div>
           </div>
@@ -99,7 +100,7 @@ export default function Profile() {
               카티니<span className={styles.point}>.</span>
             </h2>
             <span className={styles.role}>Front-End</span>
-            <span>23.04 - 24.07</span>
+            <span className={styles.period}>23.04 - 24.07</span>
           </div>
           <div className={styles["row-right"]}>
             <h3 className={styles["text-l"]}>
@@ -108,25 +109,36 @@ export default function Profile() {
             <div className={styles.project}>
               <h4 className={styles["text-m"]}>APP Size 다이어트</h4>
               <p className={styles["text-s"]}>
-                기존 앱 사이즈가 70-80MB로 너무 컸으며, Codepush BundleSize 또한 30~40MB로 매우 컸습니다. 이는 사용자가
-                Codepush를 통해 업데이트를 내려 받을 때 너무 오래 기다려야하거나 업데이트가 중단되는 문제가
-                발생했습니다. 이를 개선하여, Codepush BundleSize를 10MB로 줄여 사용자가 더 빠르고 안정적인 업데이트를
-                받을수 있도록 하였습니다.
+                기존 앱 사이즈가 70-80MB로 너무 컸으며, Codepush BundleSize 또한{" "}
+                <span className={styles.highlight}>30~40MB</span>로 매우 컸습니다. 이는 사용자가 Codepush를 통해
+                업데이트를 내려 받을 때 오래 기다려야하거나 네트워크 문제로 업데이트가 중단되는 문제가 발생했습니다.
+                이를 개선하여, Codepush BundleSize를 <span className={styles.highlight}>10MB</span>로 줄여 사용자가 더
+                빠르고 안정적인 업데이트를 받을수 있도록 개선 하였습니다.
               </p>
             </div>
             <div className={styles.project}>
               <h4 className={styles["text-m"]}>DeepLink 설계</h4>
               <p className={styles["text-s"]}>
                 유저를 원하는 화면으로 이동시키기 위해 마케팅팀의 요구가 있었으며, 이를 위해 Deeplink를 설계 했습니다.
-                Deeplink 동작과 작성방법을 문서화하여 마케팅팀에서도 쉽게 작성할 수 있게 했습니다.
+                Deeplink 동작과 작성방법을 문서화하여 개발팀과 마케팅팀에서도 Deeplink를 직접 작성할 수 있어 다양하게
+                활용할 수 있게 됐습니다.
               </p>
             </div>
             <div className={styles.project}>
               <h4 className={styles["text-m"]}>컴포넌트 제작 및 라이브러리 관리</h4>
               <p className={styles["text-s"]}>
-                몇몇 컴포넌트들을 디자인 라이브러리에 의존하는 경우가 있어, 이는 불필요한 사용인거 같아 라이브러리를
-                제거하고 컴포넌트를 직접 만들었으며 Text, TextInput, Button 같은 컴포넌트도 디자인 시스템과 유사하게
-                제작했습니다.
+                일부 컴포넌트들을 디자인 라이브러리에 의존하고 있었는데, 라이브러리 용량에 비해 사용하는 컴포넌트가 적어
+                비효율적이라고 판단했습니다. 따라서 라이브러리를 제거하고 컴포넌트를 직접 만들었으며 Text, TextInput,
+                Button 같은 컴포넌트를 디자인 시스템에서 영감을 받아 직접 제작해 재사용할 수 있게 만들었습니다.
+              </p>
+            </div>
+
+            <div className={styles.project}>
+              <h4 className={styles["text-m"]}>Data Fetching 개선</h4>
+              <p className={styles["text-s"]}>
+                React Query로 서버 상태를 관리하고 있었지만, 불필요하게 많은 호출과 Background에서 Foreground로
+                돌아왔을때 갱신하지 않는 등 문제가 있었습니다. 이를 개선하기 위해 Caching 정책을 수립하여 기존보다
+                1/3정도 api 호출수를 줄였습니다.
               </p>
             </div>
           </div>
@@ -138,7 +150,7 @@ export default function Profile() {
               디몬스터<span className={styles.point}>.</span>
             </h2>
             <span className={styles.role}>Front-End</span>
-            <span>21.04 - 22.12</span>
+            <span className={styles.period}>21.04 - 22.12</span>
           </div>
           <div className={styles["row-right"]}>
             <h3 className={styles["text-l"]}>
@@ -156,7 +168,7 @@ export default function Profile() {
               <h4 className={styles["text-m"]}>WebApp BoilerPlate 제작</h4>
               <p className={styles["text-s"]}>
                 React Native로 간단한 WebApp BoilerPlate을 제작했습니다. 이를 통해, React Native를 사용해 WebApp을 쉽고
-                빠르게 만들 수 있게 됬습니다.
+                빠르게 만들 수 있게 됐습니다.
               </p>
             </div>
             <div className={styles.project}>
@@ -181,7 +193,7 @@ export default function Profile() {
 
       <section className={styles.section} id="other">
         <Link href={"#other"}>
-          <h1 className={`${styles["text-l"]} ${styles.title}`}>
+          <h1 className={`${styles["text-xl"]} ${styles.title}`}>
             Other Experience<span className={styles.point}>.</span>
           </h1>
         </Link>
@@ -190,8 +202,8 @@ export default function Profile() {
             블로그<span className={styles.point}>.</span>
           </h4>
           <p className={styles["text-s"]}>
-            초창기에 개발 공부하며 막막했던 순간들이 많았습니다. 저의 삽질이 누군가에게 도움이 되었으면 하는 바람에
-            블로그를 운영하고 있습니다.
+            개발자가 된 후 초기에는 개발을 하면서 막막했던 순간들이 많았습니다. 저의 삽질이 누군가에게 도움이 되었으면
+            하는 바람에 블로그를 운영하고 있습니다.
           </p>
         </div>
 
@@ -208,7 +220,8 @@ export default function Profile() {
           </h4>
           <p className={styles["text-s"]}>
             장학금을 받을 정도로 준수한 성적으로 경제학 학사 졸업하였습니다. 다만, 학과와 무관하게 대학생활 동안 개발에
-            대한 꿈을 품어 개발자를 목표로 세웠고 현재는 더 나은 개발자가 되기 위해 노력하고 있습니다.
+            대한 꿈을 가졌고 디스코드 봇을 시작으로 개발자를 목표로 삼고 학교 생활을 보냈습니다. 현재는 더 나은 개발자가
+            되기 위해 정진하고 있습니다.
           </p>
         </div>
       </section>
