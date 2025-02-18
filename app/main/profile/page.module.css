@@ -23,23 +23,23 @@
 }
 
 .text-xl {
-  font-size: 2rem;
-  line-height: 2.5rem;
+  font-size: 2.5rem;
+  line-height: 2.75rem;
 }
 
 .text-l {
-  font-size: 1.5rem;
-  line-height: 1.75rem;
+  font-size: 2rem;
+  line-height: 2.25rem;
 }
 
 .text-m {
-  font-size: 1rem;
-  line-height: 1.25rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-s {
-  font-size: 0.6rem;
-  line-height: 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .section {
@@ -72,7 +72,7 @@
 }
 
 .row-left {
-  flex-basis: 24rem;
+  flex-basis: 50rem;
 }
 
 .row-right {
@@ -81,8 +81,36 @@
 
 .role {
   display: block;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.period {
+  display: block;
+  font-size: 1rem;
 }
 
 .project {
   padding-bottom: 2rem;
+}
+
+.information {
+  justify-items: center;
+}
+
+@media (max-width: 768px) {
+  .about {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .row-left {
+    flex-basis: 8rem;
+  }
 }
