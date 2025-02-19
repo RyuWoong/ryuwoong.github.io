@@ -72,7 +72,8 @@
 }
 
 .row-left {
-  flex-basis: 50rem;
+  flex-basis: 20rem;
+  flex-shrink: 0;
 }
 
 .row-right {

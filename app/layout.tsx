@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Creepster, Gowun_Batang } from "next/font/google";
+import { Creepster, Nanum_Gothic } from "next/font/google";
 import "./reset.css";
 import "./globals.css";
 
-const gowunBatang = Gowun_Batang({ weight: "400", variable: "--font-gowun-batang", subsets: ["latin"] });
+const nanumGothic = Nanum_Gothic({ weight: "400", variable: "--font-nanum-gothic", subsets: ["latin"] });
 const creepster = Creepster({ weight: "400", variable: "--font-creepster", subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  authors: [{ url: "https://github.com/RyuWoong", name: "RyuWoong" }],
+  openGraph: { images: ["https://avatars.githubusercontent.com/u/36265465?v=4"] },
 };
 
 export default function RootLayout({
@@ -20,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${gowunBatang.variable} ${creepster.variable}`}>{children}</body>
+    <html lang="ko">
+      <body className={`${nanumGothic.variable} ${creepster.variable}`}>{children}</body>
     </html>
   );
 }

@@ -34,7 +34,6 @@
 }
 
 .nav li a {
-  font-family: "nanum gothic";
   color: var(--tondown);
   font-size: 1rem;
   transition: color 0.5s;

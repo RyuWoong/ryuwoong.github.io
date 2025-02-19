@@ -3,6 +3,7 @@
   --foreground: #242424;
   --tondown: #a0a0a0;
   --primary: #61ff96;
+  --main-font: "Nanum Gothic", Arial, Helvetica, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,13 +20,16 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-size: 14px;
-  font-family: "Nanum Gothic", Arial, Helvetica, sans-serif;
+  font-family: var(--main-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
