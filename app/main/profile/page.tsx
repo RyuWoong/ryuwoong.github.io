@@ -68,13 +68,15 @@ export default function Profile() {
             <div className={styles.project}>
               <h4 className={styles["text-m"]}>Codepush 자체 서버 구축</h4>
               <p className={styles["text-s"]}>- 기존 AppCenter 종료로 인해 AWS S3 기반 CodePush 서버 구축</p>
-              <p className={styles["text-s"]}>- 배포 속도: 평균 2~5초 → 1~3초 단축 </p>
+              <p className={styles["text-s"]}>- 배포 속도: 평균 2~3초 → 1~2초 단축 </p>
             </div>
             <div className={styles.project}>
               <h4 className={styles["text-m"]}>App CI/CD</h4>
               <p className={styles["text-s"]}>
-                - <span className={styles.highlight}>GitHub Actions + Fastlane</span> 활용, 배포 과정 자동화
+                - <span className={styles.highlight}>GitHub Actions</span> 활용, 배포 과정 자동화
               </p>
+              <p className={styles["text-s"]}>- Codepush 배포 프로세스 자동화, 타겟 버전과 배포 환경 설정으로 배포</p>
+              <p className={styles["text-s"]}>- 기존에 수동 배포로 생길 수 있는 실수 예방 및 배포 후 슬랙을 통한 처리 알림</p>
             </div>
           </div>
         </div>
@@ -95,11 +97,14 @@ export default function Profile() {
               <h4 className={styles["text-m"]}>앱 사이즈 최적화</h4>
               <p className={styles["text-s"]}>- 기존 70~80MB → 50MB 이하로 경량화</p>
               <p className={styles["text-s"]}>- CodePush BundleSize 30~40MB → 10MB로 축소</p>
+              <p className={styles["text-s"]}>- CodePush 배포 속도: 평균 4~5초에서 2~3초로 단축</p>
+              <p className={styles["text-s"]}>- CodePush 롤백 수 약 50% 감소, 운영 안정성 증가</p>
             </div>
             <div className={styles.project}>
               <h4 className={styles["text-m"]}>DeepLink 시스템 설계 및 문서화</h4>
-              <p className={styles["text-s"]}>- 마케팅팀 요청으로 DeepLink 기능 설계 및 구현</p>
-              <p className={styles["text-s"]}>- 가이드 문서 작성, 비개발자도 활용 가능하도록 지원</p>
+              <p className={styles["text-s"]}>- DeepLink 기능 설계 및 구현</p>
+              <p className={styles["text-s"]}>- 가이드 문서 작성, 비개발자(마케팅팀)도 딥링크를 작성할 수 있게 시스템 설계</p>
+              <p className={styles["text-s"]}>- 마케팅팀이 캠페인 설정시 개발팀 도움 없이 캠페인 가능</p>
             </div>
             <div className={styles.project}>
               <h4 className={styles["text-m"]}>컴포넌트 제작 및 라이브러리 최적화</h4>

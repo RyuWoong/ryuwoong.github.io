@@ -1,9 +1,18 @@
 import Link from "next/link";
 import styles from "./page.module.css";
+import Script from "next/script";
 
 export default function Home() {
+  
   return (
     <div className={styles.page}>
+      <Script id="timeout-script">
+        {`
+          setTimeout(() => {
+            window.location.href = "/main/profile";
+          }, 2000);
+        `}
+      </Script>
       <p className={styles.spotlight} />
       <section>
         <Link href="/main/profile">
