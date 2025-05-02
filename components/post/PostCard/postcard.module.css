@@ -4,12 +4,11 @@
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  border-radius: 20px;
+  border-radius: 16px;
   padding: 16px;
   transition: all 0.3s ease;
   opacity: 0;
   animation: fadeInUp 0.6s ease-out forwards;
-  /* 각 카드마다 지연 시간을 다르게 설정 (인덱스 * 100ms) */
   animation-delay: calc(var(--card-index) * 100ms);
 }
 
@@ -17,6 +16,10 @@
   background-color: rgba(0, 0, 0, 0.07);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   transform: translateY(-3px);
+}
+
+.postCardContainer:hover .postTitle {
+  color: yellow;
 }
 
 .contentContainer {
@@ -36,6 +39,7 @@
 .postDescription {
   color: var(--foreground);
   margin: 0;
+  height: 50px;
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;

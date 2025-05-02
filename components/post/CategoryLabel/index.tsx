@@ -6,7 +6,9 @@ interface CategoryLabelProps {
 }
 
 const CategoryLabel: React.FC<CategoryLabelProps> = ({ category }) => {
-  return <span className={styles.categoryLabel}>{category}</span>;
+  const categoryClass = category.toLowerCase().replace(/\s+/g, "");
+
+  return <span className={`${styles.categoryLabel} ${styles[categoryClass] || ""}`}>{category}</span>;
 };
 
 export default CategoryLabel;

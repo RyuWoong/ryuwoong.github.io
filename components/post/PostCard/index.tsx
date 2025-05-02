@@ -20,7 +20,6 @@ function PostCard({ listIndex, index, title, description, createdAt, thumbnail, 
         </div>
         <h4 className={styles.postTitle}>{title}</h4>
         <p className={styles.postDescription}>{description}</p>
-
         <p className={styles.postDate}>{createdAt}</p>
       </div>
       {thumbnail && (

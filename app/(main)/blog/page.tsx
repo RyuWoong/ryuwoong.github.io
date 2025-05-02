@@ -6,7 +6,7 @@ export default async function Blog() {
 
   return (
     <div>
-      <h1>기록</h1>
+      <h1 className={styles.blogTitle}>Blog</h1>
       <div className={styles.postListContainer}>
         {postList.map((post, index) => (
           <PostCard key={post.index} listIndex={index} {...post} />

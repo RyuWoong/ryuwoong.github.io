@@ -14,3 +14,85 @@
 .categoryLabel:hover {
   background-color: var(--accent-hover, #3a6ae0);
 }
+
+/* 카테고리별 색상 */
+.react {
+  background-color: #61dafb;
+}
+
+.react:hover {
+  background-color: #4dc4e6;
+}
+
+.javascript {
+  background-color: #f7df1e;
+  color: #333;
+}
+
+.javascript:hover {
+  background-color: #e3cb1a;
+}
+
+.typescript {
+  background-color: #3178c6;
+}
+
+.typescript:hover {
+  background-color: #2a67af;
+}
+
+.nextjs {
+  background-color: #000000;
+}
+
+.nextjs:hover {
+  background-color: #333333;
+}
+
+.notice {
+  background-color: #e34c26;
+}
+
+.notice:hover {
+  background-color: #c34120;
+}
+
+.project {
+  background-color: #6f42c1;
+}
+
+.project:hover {
+  background-color: #5a34a1;
+}
+
+.essay {
+  background-color: #3bac6a;
+}
+
+.essay:hover {
+  background-color: #2f9257;
+}
+
+.book {
+  background-color: #e74c3c;
+}
+
+.book:hover {
+  background-color: #d23c2c;
+}
+
+.algorithm {
+  background-color: #f39c12;
+}
+
+.algorithm:hover {
+  background-color: #d58711;
+}
+
+.etc {
+  background-color: #95a5a6;
+}
+
+.etc:hover {
+  background-color: #7f8c8d;
+}

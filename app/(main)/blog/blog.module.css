@@ -1,5 +1,16 @@
+.blogTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 20px;
+  text-decoration: underline;
+  text-decoration-color: yellow;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 10px;
+}
+
 .postListContainer {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 0 20px;
 }
