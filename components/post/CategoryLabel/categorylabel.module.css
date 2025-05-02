@@ -1,0 +1,16 @@
+.categoryLabel {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 16px;
+  background-color: var(--accent-color, #4a7dff);
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  transition: all 0.2s ease;
+}
+
+.categoryLabel:hover {
+  background-color: var(--accent-hover, #3a6ae0);
+}

@@ -3,7 +3,11 @@ import { Creepster, Nanum_Gothic } from "next/font/google";
 import "./reset.css";
 import "./globals.css";
 
-const nanumGothic = Nanum_Gothic({ weight: "400", variable: "--font-nanum-gothic", subsets: ["latin"] });
+const nanumGothic = Nanum_Gothic({
+  weight: ["400", "700", "800"],
+  variable: "--font-nanum-gothic",
+  subsets: ["latin"],
+});
 const creepster = Creepster({ weight: "400", variable: "--font-creepster", subsets: ["latin"] });
 
 export const metadata: Metadata = {

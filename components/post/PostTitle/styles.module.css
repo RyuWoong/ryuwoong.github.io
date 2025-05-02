@@ -1,0 +1,31 @@
+.container {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+}
+
+.date {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--foreground);
+
+  text-align: right;
+  margin: 0px !important;
+}
+
+.author {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--foreground);
+  text-align: right;
+}
+
+.thumbnail {
+  width: 100%;
+  object-fit: cover;
+}
