@@ -9,13 +9,13 @@ export default function Home() {
       <Script id="timeout-script">
         {`
           setTimeout(() => {
-            window.location.href = "/main/profile";
+            window.location.href = "/profile";
           }, 2000);
         `}
       </Script>
       <p className={styles.spotlight} />
       <section>
-        <Link href="/main/profile">
+        <Link href="/profile">
           <p className={styles.title}>Welcome</p>
           <p className={styles.title}>to</p>
           <p className={styles.title}>DarkRoom</p>

@@ -13,10 +13,10 @@ export default function RootLayout({
 
         <ul className={styles.nav}>
           <li>
-            <Link href="/main/profile">Profile</Link>
+            <Link href="/profile">Profile</Link>
           </li>
           <li>
-            <Link href="https://darkroom.kr/">Blog</Link>
+            <Link href="/blog">Blog</Link>
           </li>
           <li>
             <Link href="https://github.com/RyuWoong">Github</Link>

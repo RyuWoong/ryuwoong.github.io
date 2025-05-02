@@ -1,0 +1,18 @@
+.postCardContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  border-top: 1px solid var(--foreground);
+  border-bottom: 1px solid var(--foreground);
+  padding: 10px;
+}
+
+.postDate {
+  font-size: 12px;
+  color: var(--foreground);
+}
+
+.postTitle {
+  font-weight: bold;
+  color: var(--foreground);
+}
