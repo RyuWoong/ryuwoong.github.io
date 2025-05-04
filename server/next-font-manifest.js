@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/Users/ryuwoong/Programming/Web/ryuwoong.github.io/app/layout":["static/media/55cef9a7d3b0657c-s.p.woff2","static/media/51ebfbcd531b7e4d-s.p.woff2","static/media/f2d0f003b050def4-s.p.woff2","static/media/aacc77daa6a2f7d6-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';
