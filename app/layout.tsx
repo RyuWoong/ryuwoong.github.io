@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Creepster, Nanum_Gothic } from "next/font/google";
+import { Birthstone_Bounce, Nanum_Gothic } from "next/font/google";
 import "./reset.css";
 import "./globals.css";
 
-const nanumGothic = Nanum_Gothic({ weight: "400", variable: "--font-nanum-gothic", subsets: ["latin"] });
-const creepster = Creepster({ weight: "400", variable: "--font-creepster", subsets: ["latin"] });
+const nanumGothic = Nanum_Gothic({
+  weight: ["400", "700", "800"],
+  variable: "--font-nanum-gothic",
+  subsets: ["latin"],
+});
+
+const birthstoneBounce = Birthstone_Bounce({ weight: "400", variable: "--font-bounce", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Welcome to DarkRoom",
@@ -23,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${nanumGothic.variable} ${creepster.variable}`}>{children}</body>
+      <body className={`${nanumGothic.variable} ${birthstoneBounce.variable}`}>{children}</body>
     </html>
   );
 }

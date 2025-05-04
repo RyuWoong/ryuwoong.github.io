@@ -74,8 +74,8 @@ export default function Profile() {
             </div>
             <div className={styles.project}>
               <h4 className={styles["text-m"]}>Codepush에서 HotUpdater로 전환</h4>
-              <p className={styles["text-s"]}>- 앱 배포 안정성 항샹</p>
-              <p className={styles["text-s"]}>- 라이브러리 유지보수성 개선 </p>
+              <p className={styles["text-s"]}>- 앱 배포 안정성 개선</p>
+              <p className={styles["text-s"]}>- 라이브러리 유지보수성 개선</p>
               <p className={styles["text-s"]}>- 서버 운영비용 절감 (AWS ECS에서 AWS S3와 Lambda로 변경)</p>
             </div>
             <div className={styles.project}>
@@ -187,7 +187,7 @@ export default function Profile() {
           <h4 className={styles["text-m"]}>
             병역<span className={styles.point}>.</span>
           </h4>
-          <p className={styles["text-s"]}>해군 운전병 복무 중 고위 인사 의전 및 중요 상황 대응을 맡으며, 책임감과 신속한 의사결정 능력을 키웠습니다.</p>
+          <p className={styles["text-s"]}>해군 병장 만기 전역 하였으며, 해군 운전병 복무 중 고위 인사 의전 및 중요 상황 대응을 통해, 책임감과 신속한 의사결정 능력을 키웠습니다.</p>
         </div>
 
         <div className={styles.project}>
@@ -195,7 +195,7 @@ export default function Profile() {
             학력<span className={styles.point}>.</span>
           </h4>
           <p className={styles["text-s"]}>
-          경제학을 전공하던 중 디스코드 봇을 직접 개발하며, 처음으로 ‘코드를 통해 문제를 해결하는’ 성취를 경험했습니다. 이 계기를 시작으로 본격적인 개발 공부를 시작해 현재까지 개발자로서의 성장을 이어오고 있습니다.”
+          경제학을 전공하던 중 디스코드 봇을 직접 개발하며, 처음으로 ‘코드를 통해 문제를 해결하는’ 성취를 경험했습니다. 이 계기를 시작으로 본격적인 개발 공부를 시작해 현재까지 개발자로서의 성장을 이어오고 있습니다.
           </p>
         </div>
       </section>

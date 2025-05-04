@@ -4,6 +4,7 @@
   --tondown: #a0a0a0;
   --primary: #61ff96;
   --main-font: "Nanum Gothic", Arial, Helvetica, sans-serif;
+  --bounce-font: "Birthstone Bounce", Arial, Helvetica, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {

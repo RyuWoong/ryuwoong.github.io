@@ -21,7 +21,7 @@
 .title {
   z-index: 2;
   color: --foreground;
-  font-family: creepster;
+  font-family: var(--bounce-font);
   text-align: center;
   animation: flicker 1s infinite alternate;
   font-size: 2rem;

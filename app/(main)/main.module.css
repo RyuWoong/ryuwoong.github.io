@@ -17,7 +17,7 @@
 
 .title {
   font-size: 2.4rem;
-  font-family: creepster;
+  font-family: var(--bounce-font);
   color: var(--foreground);
 }
 

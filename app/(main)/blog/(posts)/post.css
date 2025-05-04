@@ -1,0 +1,8 @@
+.markdown-body {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--main-font);
+}
