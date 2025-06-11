@@ -138,3 +138,11 @@
     flex-basis: 8rem;
   }
 }
+
+.link {
+  display: block;
+  margin-top: 1rem;
+  color: var(--tondown);
+  font-size: 1rem;
+  font-weight: 600;
+}

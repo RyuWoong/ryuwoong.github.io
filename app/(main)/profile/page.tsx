@@ -173,6 +173,29 @@ export default function Profile() {
         </div>
       </section>
 
+      <section className={styles.section} id="project">
+        <Link href={"#project"}>
+          <h1 className={`${styles["text-xl"]} ${styles.title}`}>
+            Project<span className={styles.point}>.</span>
+          </h1>
+        </Link>
+        <div className={styles.project}>
+          <h4 className={styles["text-m"]}>
+            CLIP<span className={styles.point}>.</span>
+          </h4>
+          <p className={styles["text-s"]}>
+            아이폰, 아이패드, 맥북과 회사 맥북 등 다양한 기기를 사용하면서 다양한 웹 컨텐츠들을 저장하게 되는데,
+            브라우저에 의존하는 북마크는 불편하다고 느꼈습니다. 그래서 Swift 공부로 이 불편함을 해소하기 위한 앱을
+            개발했습니다.
+          </p>
+          <Link href={"https://oneclip.app"} className={styles.link} target="_blank">
+            CLIP 소개 페이지 바로가기
+          </Link>
+          <Link href={"https://github.com/RyuWoong/ClipWeb"} className={styles.link} target="_blank">
+            CLIP Web Github 바로가기
+          </Link>
+        </div>
+      </section>
       <section className={styles.section} id="other">
         <Link href={"#other"}>
           <h1 className={`${styles["text-xl"]} ${styles.title}`}>
@@ -187,6 +210,10 @@ export default function Profile() {
             개발 과정에서 얻은 문제 해결 경험과 기술 지식을 체계적으로 정리하고 공유하기 위해 블로그를 운영하고 있으며,
             이를 통해 개인 역량 강화뿐만 아니라 커뮤니티 기여에도 힘쓰고 있습니다.
           </p>
+
+          <Link href={"https://darkroom.kr"} className={styles.link} target="_blank">
+            블로그 바로가기
+          </Link>
         </div>
 
         <div className={styles.project}>

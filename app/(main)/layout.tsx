@@ -16,10 +16,14 @@ export default function RootLayout({
             <Link href="/profile">Profile</Link>
           </li>
           <li>
-            <Link href="/blog">Blog</Link>
+            <Link href="https://darkroom.kr" target="_blank">
+              Blog
+            </Link>
           </li>
           <li>
-            <Link href="https://github.com/RyuWoong">Github</Link>
+            <Link href="https://github.com/RyuWoong" target="_blank">
+              Github
+            </Link>
           </li>
         </ul>
       </header>
