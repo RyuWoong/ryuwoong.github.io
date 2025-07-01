@@ -10,13 +10,12 @@ export default function RootLayout({
     <div className={styles.main}>
       <header className={styles.header}>
         <span className={styles.title}>Dark Room</span>
-
         <ul className={styles.nav}>
           <li>
             <Link href="/profile">Profile</Link>
           </li>
           <li>
-            <Link href="https://darkroom.kr" target="_blank">
+            <Link href="/blog" target="_blank">
               Blog
             </Link>
           </li>
