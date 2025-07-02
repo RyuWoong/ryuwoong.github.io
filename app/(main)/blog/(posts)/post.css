@@ -1,6 +1,12 @@
+.post-container {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  padding: 20px 0;
+}
+
 .markdown-body {
   box-sizing: border-box;
-  padding: 20px;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--main-font);
@@ -16,31 +22,14 @@
   color: var(--primary);
 }
 
-#post-content {
-  position: relative;
-  width: 100%;
-  padding-right: 200px;
-}
-
-.post-toc-container {
-  position: absolute;
-  top: 100px;
-  left: calc(100% - 200px);
-  width: 200px;
-}
-
 .post-toc {
-  display: block;
-  position: fixed;
+  position: sticky;
+  top: 0px;
   width: 200px;
-  background: var(--background);
+  top: 44px;
+  padding-top: 98px;
+  align-self: start;
   font-family: var(--main-font);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 16px;
-  max-height: calc(100vh - 200px);
-  overflow-y: auto;
-  z-index: 1000000;
 }
 
 .post-toc ol {
@@ -61,6 +50,8 @@
   font-size: 14px;
   line-height: 1.4;
   transition: color 0.2s ease;
+  display: block;
+  padding: 4px 0;
 }
 
 .post-toc a:hover {
@@ -69,8 +60,12 @@
 
 /* 모바일 반응형 */
 @media (max-width: 768px) {
+  .post-container {
+    padding: 0 16px;
+  }
+
   #post-content {
-    padding: 20px;
+    padding: 16px;
   }
 
   .post-toc {

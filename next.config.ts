@@ -17,7 +17,10 @@ const withMDX = createMDX({
       rehypeCodeTitles,
       rehypePrismPlus,
       [rehypeAutolinkHeadings, { behavior: "wrap" }],
-      [rehypeToc, { headings: ["h1", "h2", "h3"], cssClasses: { toc: "post-toc", link: "post-link" } }],
+      [
+        rehypeToc,
+        { position: "beforeend", headings: ["h1", "h2", "h3"], cssClasses: { toc: "post-toc", link: "post-link" } },
+      ],
     ],
   },
 });

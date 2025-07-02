@@ -13,10 +13,8 @@ export default function PostLayout({ children }: { children: React.ReactNode }) 
         {/* HTML가 렌더된 후에 TOC가 생성되면, TOC를 감싸는 div 추가. */}
         {`
           const targetDiv = document.querySelector(".post-toc");
-          const wrapperDiv = document.createElement("div");
-          wrapperDiv.className = "post-toc-container";
-          targetDiv.replaceWith(wrapperDiv);
-          wrapperDiv.appendChild(targetDiv);
+          const containerDiv = document.querySelector(".post-container");
+          containerDiv.appendChild(targetDiv);
         `}
       </Script>
     </div>
