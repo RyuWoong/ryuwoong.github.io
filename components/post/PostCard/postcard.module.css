@@ -19,7 +19,7 @@
 }
 
 .postCardContainer:hover .postTitle {
-  color: yellow;
+  color: var(--primary);
 }
 
 .contentContainer {

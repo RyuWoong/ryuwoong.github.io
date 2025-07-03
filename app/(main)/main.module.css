@@ -16,7 +16,7 @@
 }
 
 .title {
-  font-size: 2.4rem;
+  font-size: 1.6rem;
   font-family: var(--bounce-font);
   color: var(--foreground);
 }
@@ -41,10 +41,4 @@
 
 .nav li a:hover {
   color: var(--foreground);
-}
-
-@media (max-width: 768px) {
-  .title {
-    font-size: 1.6rem;
-  }
 }

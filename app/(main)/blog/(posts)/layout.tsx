@@ -1,6 +1,7 @@
 import "github-markdown-css";
-import "./post.css";
 import "./code.css";
+import "./post.css";
+import Script from "next/script";
 
 export default function PostLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,6 +9,14 @@ export default function PostLayout({ children }: { children: React.ReactNode }) 
       <div id="post-content" className="markdown-body">
         {children}
       </div>
+      <Script id="post-content-script" strategy="afterInteractive">
+        {/* HTML가 렌더된 후에 TOC가 생성되면, TOC를 감싸는 div 추가. */}
+        {`
+          const targetDiv = document.querySelector(".post-toc");
+          const containerDiv = document.querySelector(".post-container");
+          containerDiv.appendChild(targetDiv);
+        `}
+      </Script>
     </div>
   );
 }

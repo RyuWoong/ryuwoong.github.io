@@ -1,10 +1,74 @@
-.markdown-body {
+.post-container {
   position: relative;
-  flex-grow: 9;
+  display: flex;
+  gap: 12px;
+  padding: 20px 0;
+}
+
+.markdown-body {
   box-sizing: border-box;
-  margin: 0 auto;
-  padding: 20px;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--main-font);
+}
+
+.markdown-body > h1 a {
+  color: var(--primary);
+}
+.markdown-body > h2 a {
+  color: var(--primary);
+}
+.markdown-body > h3 a {
+  color: var(--primary);
+}
+
+.post-toc {
+  position: sticky;
+  top: 0px;
+  width: 200px;
+  top: 44px;
+  padding-top: 98px;
+  align-self: start;
+  font-family: var(--main-font);
+}
+
+.post-toc ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 1em;
+}
+
+.post-toc li {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.post-toc a {
+  color: var(--foreground);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+  display: block;
+  padding: 4px 0;
+}
+
+.post-toc a:hover {
+  color: var(--accent);
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .post-container {
+    padding: 0 16px;
+  }
+
+  #post-content {
+    padding: 16px;
+  }
+
+  .post-toc {
+    display: none;
+  }
 }
