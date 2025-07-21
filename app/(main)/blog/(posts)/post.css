@@ -1,8 +1,11 @@
 .post-container {
   position: relative;
   display: flex;
-  gap: 12px;
   padding: 20px 0;
+}
+
+#post-content {
+  padding: 20px;
 }
 
 .markdown-body {
@@ -60,14 +63,6 @@
 
 /* 모바일 반응형 */
 @media (max-width: 768px) {
-  .post-container {
-    padding: 0 16px;
-  }
-
-  #post-content {
-    padding: 16px;
-  }
-
   .post-toc {
     display: none;
   }
