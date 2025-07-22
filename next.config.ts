@@ -11,6 +11,7 @@ import slug from "rehype-slug";
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
+    providerImportSource: "@mdx-js/react",
     remarkPlugins: [remarkGfm, remarkBreaks],
     rehypePlugins: [
       slug,
@@ -28,6 +29,9 @@ const withMDX = createMDX({
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default withMDX(nextConfig);
