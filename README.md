@@ -6,7 +6,7 @@
 
 # 문의
 
-@. wjdfbd1121@gmail.com
+@. ryuwoong.dev@gmail.com
 
 # 작업 예정
 
