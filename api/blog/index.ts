@@ -26,7 +26,7 @@ export async function getCategories(): Promise<string[]> {
 export async function getPostsByCategory(category: string): Promise<Post[]> {
   const posts = await getPosts();
 
-  if (category === "all") {
+  if (category.toLowerCase() === "all") {
     return posts;
   }
 
