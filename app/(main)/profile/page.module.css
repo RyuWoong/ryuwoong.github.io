@@ -13,7 +13,7 @@
 }
 
 .point {
-  color: #ffff64;
+  color: var(--accent-color);
   font-size: 2rem;
   font-weight: bold;
 }
@@ -101,25 +101,34 @@
   align-items: center;
 }
 
+.characterWrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
 .character {
   width: 120px;
   height: 120px;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
-.character:hover {
-  content: url("/explorer.png");
+.characterHover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
   opacity: 0;
-  animation: fadeIn 0.3s ease-in-out forwards;
+  transition: opacity 0.5s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.characterWrapper:hover .character {
+  opacity: 0;
+}
+
+.characterWrapper:hover .characterHover {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {

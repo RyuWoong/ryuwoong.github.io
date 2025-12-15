@@ -3,6 +3,8 @@
   --foreground: #242424;
   --tondown: #a0a0a0;
   --primary: #61ff96;
+  --accent-color: #61ff96;
+  --accent-rgb: 97, 255, 150;
   --main-font: "Nanum Gothic", Arial, Helvetica, sans-serif;
   --bounce-font: "Birthstone Bounce", Arial, Helvetica, sans-serif;
 }
@@ -13,6 +15,8 @@
     --foreground: #ededed;
     --tondown: #a0a0a0;
     --primary: #61ff96;
+    --accent-color: #61ff96;
+    --accent-rgb: 97, 255, 150;
   }
 }
 
@@ -29,7 +33,6 @@ body {
 
 body {
   color: var(--foreground);
-  max-width: 1200px;
   background: var(--background);
   font-size: 14px;
   font-family: var(--main-font);
@@ -62,7 +65,7 @@ code {
 }
 
 @media (min-width: 1200px) {
-  body {
+  #main {
     max-width: 1200px;
   }
 }

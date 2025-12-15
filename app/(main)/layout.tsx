@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className={styles.main}>
+    <div id="main" className={styles.container}>
       <header className={styles.header}>
         <span className={styles.title}>Dark Room</span>
         <ul className={styles.nav}>
