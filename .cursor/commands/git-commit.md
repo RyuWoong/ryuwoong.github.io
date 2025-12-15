@@ -76,17 +76,17 @@ for file in $ALL_CHANGED_FILES; do
     if [[ "$file" == *.md ]] || [[ "$file" == *README* ]] || [[ "$file" == *CHANGELOG* ]] || [[ "$file" == *docs/* ]]; then
         HAS_DOCS=true
     fi
-    
+
     # 스타일 관련 (CSS, 스타일 파일)
     if [[ "$file" == *.css ]] || [[ "$file" == *.module.css ]] || [[ "$file" == *styles* ]]; then
         HAS_STYLE=true
     fi
-    
+
     # 테스트 관련
     if [[ "$file" == *test* ]] || [[ "$file" == *spec* ]] || [[ "$file" == *.test.* ]] || [[ "$file" == *.spec.* ]]; then
         HAS_TEST=true
     fi
-    
+
     # 설정 파일 (chore)
     if [[ "$file" == package.json ]] || [[ "$file" == package-lock.json ]] || [[ "$file" == pnpm-lock.yaml ]] || \
        [[ "$file" == tsconfig.json ]] || [[ "$file" == next.config.* ]] || [[ "$file" == eslint.config.* ]] || \
@@ -184,7 +184,7 @@ FILE_COUNT=$(echo "$ALL_CHANGED_FILES" | wc -l | tr -d ' ')
 if [ "$FILE_COUNT" -gt 5 ]; then
     echo -e "${YELLOW}⚠️  변경된 파일이 많습니다 ($FILE_COUNT개).${NC}"
     echo -e "${YELLOW}💡 커밋을 더 작은 단위로 나누는 것을 고려해보세요.${NC}\n"
-    
+
     read -p "커밋을 나누시겠습니까? (y/N): " SPLIT_COMMIT
     if [[ "$SPLIT_COMMIT" =~ ^[Yy]$ ]]; then
         echo -e "${BLUE}💡 git reset HEAD~ 명령어로 커밋을 취소하고 파일을 다시 staging한 후,${NC}"
@@ -217,13 +217,14 @@ echo -e "${BLUE}🚀 커밋 실행 중...${NC}\n"
 if git commit -m "$COMMIT_MESSAGE"; then
     echo -e "\n${GREEN}✅ 커밋이 완료되었습니다!${NC}"
     echo -e "${GREEN}📝 커밋 메시지: $COMMIT_MESSAGE${NC}\n"
-    
+
     # 최근 커밋 정보 표시
     echo -e "${BLUE}📋 최근 커밋 정보:${NC}"
-    git log -1 --pretty=format:"  %h - %s (%an, %ar)" 
+    git log -1 --pretty=format:"  %h - %s (%an, %ar)"
     echo -e "\n"
 else
     echo -e "\n${RED}❌ 커밋 중 오류가 발생했습니다.${NC}"
     exit 1
 fi
 
+```
