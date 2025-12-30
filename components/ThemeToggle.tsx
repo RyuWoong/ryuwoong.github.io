@@ -47,15 +47,16 @@ function MoonIcon() {
 }
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme | null>(null);
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme") as Theme | null;
-    if (saved) {
-      setTheme(saved);
-      document.documentElement.setAttribute("data-theme", saved);
-    }
+    const saved = (localStorage.getItem("theme") as Theme) || "dark";
+    setTheme(saved);
+    document.documentElement.setAttribute("data-theme", saved);
   }, []);
+
+  // 마운트 전에는 렌더링하지 않음 (hydration mismatch 방지)
+  if (theme === null) return null;
 
   const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark";

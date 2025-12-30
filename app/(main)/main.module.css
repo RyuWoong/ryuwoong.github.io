@@ -40,7 +40,7 @@
 }
 
 .nav li a {
-  color: var(--text-muted);
+  color: var(--text-primary);
   font-size: var(--text-base);
   font-weight: var(--weight-medium);
   transition: color 0.3s ease;
