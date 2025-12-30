@@ -45,17 +45,18 @@ app/
 │   ├── layout.tsx
 │   ├── dashboard/
 │   │   ├── page.tsx
-│   │   └── components/         # 페이지 전용 컴포넌트
+│   │   └── _components/         # 페이지 전용 컴포넌트
 │   └── profile/
 │       ├── page.tsx
 │       ├── page.module.css     # 페이지 전용 스타일
-│       └── components/
+│       └── _components/
 └── api/                        # Route Handlers
     └── [domain]/
         └── route.ts
 ```
 
 **App Router 규칙:**
+
 - `page.tsx`: 라우트의 UI
 - `layout.tsx`: 공유 레이아웃
 - `loading.tsx`: 로딩 UI
@@ -108,11 +109,11 @@ services/
 
 **models vs services 역할 분리:**
 
-| models | services |
-|--------|----------|
-| 데이터의 "형태" 정의 | 데이터를 "가져오는 방법" |
-| 순수 타입 정의 | 비동기 로직, 사이드 이펙트 |
-| 변경 빈도 낮음 | API 스펙 변경 시 수정 |
+| models               | services                   |
+| -------------------- | -------------------------- |
+| 데이터의 "형태" 정의 | 데이터를 "가져오는 방법"   |
+| 순수 타입 정의       | 비동기 로직, 사이드 이펙트 |
+| 변경 빈도 낮음       | API 스펙 변경 시 수정      |
 
 **의존성 흐름:**
 
@@ -227,11 +228,11 @@ locales/
 ### 1. 서버 컴포넌트 vs 클라이언트 컴포넌트
 
 | Server Component (기본) | Client Component ("use client") |
-|------------------------|--------------------------------|
-| 데이터 페칭 | 이벤트 핸들러 (onClick 등) |
-| 민감한 정보 접근 | useState, useEffect 사용 |
-| 큰 의존성 서버에 유지 | 브라우저 API 사용 |
-| SEO에 유리 | 인터랙티브 UI |
+| ----------------------- | ------------------------------- |
+| 데이터 페칭             | 이벤트 핸들러 (onClick 등)      |
+| 민감한 정보 접근        | useState, useEffect 사용        |
+| 큰 의존성 서버에 유지   | 브라우저 API 사용               |
+| SEO에 유리              | 인터랙티브 UI                   |
 
 **규칙:** 가능한 Server Component를 사용하고, 필요한 부분만 Client Component로 분리합니다.
 
@@ -247,38 +248,38 @@ locales/
 
 ### 4. 서버 상태 vs 클라이언트 상태 분리
 
-| 서버 상태 | 클라이언트 상태 |
-|----------|----------------|
-| API에서 받아온 데이터 | UI 상태 (모달 열림, 탭 선택) |
-| 다른 사용자와 공유됨 | 이 세션에서만 유효 |
-| TanStack Query 또는 Server Component | useState, Zustand |
+| 서버 상태                            | 클라이언트 상태              |
+| ------------------------------------ | ---------------------------- |
+| API에서 받아온 데이터                | UI 상태 (모달 열림, 탭 선택) |
+| 다른 사용자와 공유됨                 | 이 세션에서만 유효           |
+| TanStack Query 또는 Server Component | useState, Zustand            |
 
 **핵심 규칙:** 서버에서 온 데이터는 절대 클라이언트 스토어에 복사하지 않습니다.
 
 ### 5. Data Fetching 전략
 
-| 방식 | 사용 시점 |
-|------|----------|
-| Server Component + fetch | 정적/동적 페이지 렌더링 |
-| Server Actions | 폼 제출, 데이터 뮤테이션 |
-| TanStack Query | 클라이언트 캐싱, 실시간 업데이트 |
-| Route Handlers | 외부 API 프록시, Webhook |
+| 방식                     | 사용 시점                        |
+| ------------------------ | -------------------------------- |
+| Server Component + fetch | 정적/동적 페이지 렌더링          |
+| Server Actions           | 폼 제출, 데이터 뮤테이션         |
+| TanStack Query           | 클라이언트 캐싱, 실시간 업데이트 |
+| Route Handlers           | 외부 API 프록시, Webhook         |
 
 ### 6. config vs constants 구분
 
-| config | constants |
-|--------|-----------|
-| 환경/배포에 따라 달라질 수 있음 | 절대 안 바뀜 |
-| 런타임에 참조 | 코드에 고정 |
-| `env.ts`, `app.ts` | 정규식, enum, 고정 키 |
+| config                          | constants             |
+| ------------------------------- | --------------------- |
+| 환경/배포에 따라 달라질 수 있음 | 절대 안 바뀜          |
+| 런타임에 참조                   | 코드에 고정           |
+| `env.ts`, `app.ts`              | 정규식, enum, 고정 키 |
 
 ### 7. DTO vs 도메인 타입 분리
 
-| DTO | 도메인 타입 |
-|-----|------------|
-| API 스펙에 종속 | 앱 로직에 최적화 |
-| snake_case 가능 | camelCase 통일 |
-| string 날짜 | Date 객체 |
+| DTO                    | 도메인 타입             |
+| ---------------------- | ----------------------- |
+| API 스펙에 종속        | 앱 로직에 최적화        |
+| snake_case 가능        | camelCase 통일          |
+| string 날짜            | Date 객체               |
 | API 바뀌면 여기만 수정 | 앱 전체에서 안정적 사용 |
 
 **핵심 규칙:** API 응답을 그대로 사용하지 않고, mapper를 통해 도메인 타입으로 변환 후 사용합니다.
@@ -292,17 +293,13 @@ locales/
 #### services/api-client.ts
 
 ```typescript
-import { env } from '@/config/env';
-import { appConfig } from '@/config/app';
+import { env } from "@/config/env";
+import { appConfig } from "@/config/app";
 
 export class ApiError extends Error {
-  constructor(
-    public code: string,
-    public message: string,
-    public status?: number,
-  ) {
+  constructor(public code: string, public message: string, public status?: number) {
     super(message);
-    this.name = 'ApiError';
+    this.name = "ApiError";
   }
 }
 
@@ -323,7 +320,7 @@ async function request<T>(endpoint: string, options: RequestOptions = {}): Promi
   const response = await fetch(url.toString(), {
     ...init,
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       ...init.headers,
     },
   });
@@ -331,8 +328,8 @@ async function request<T>(endpoint: string, options: RequestOptions = {}): Promi
   if (!response.ok) {
     const error = await response.json().catch(() => ({}));
     throw new ApiError(
-      error.code ?? 'UNKNOWN_ERROR',
-      error.message ?? '알 수 없는 오류가 발생했습니다',
+      error.code ?? "UNKNOWN_ERROR",
+      error.message ?? "알 수 없는 오류가 발생했습니다",
       response.status,
     );
   }
@@ -341,25 +338,23 @@ async function request<T>(endpoint: string, options: RequestOptions = {}): Promi
 }
 
 export const apiClient = {
-  get: <T>(endpoint: string, options?: RequestOptions) =>
-    request<T>(endpoint, { ...options, method: 'GET' }),
+  get: <T>(endpoint: string, options?: RequestOptions) => request<T>(endpoint, { ...options, method: "GET" }),
 
   post: <T>(endpoint: string, data?: unknown, options?: RequestOptions) =>
     request<T>(endpoint, {
       ...options,
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(data),
     }),
 
   patch: <T>(endpoint: string, data?: unknown, options?: RequestOptions) =>
     request<T>(endpoint, {
       ...options,
-      method: 'PATCH',
+      method: "PATCH",
       body: JSON.stringify(data),
     }),
 
-  delete: <T>(endpoint: string, options?: RequestOptions) =>
-    request<T>(endpoint, { ...options, method: 'DELETE' }),
+  delete: <T>(endpoint: string, options?: RequestOptions) => request<T>(endpoint, { ...options, method: "DELETE" }),
 };
 ```
 
@@ -398,8 +393,8 @@ export interface User {
 #### models/user/mapper.ts
 
 ```typescript
-import { UserResponseDto } from './dto';
-import { User } from './types';
+import { UserResponseDto } from "./dto";
+import { User } from "./types";
 
 export const userMapper = {
   toEntity: (dto: UserResponseDto): User => ({
@@ -408,8 +403,7 @@ export const userMapper = {
     createdAt: new Date(dto.created_at),
   }),
 
-  toEntityList: (dtos: UserResponseDto[]): User[] =>
-    dtos.map(userMapper.toEntity),
+  toEntityList: (dtos: UserResponseDto[]): User[] => dtos.map(userMapper.toEntity),
 };
 ```
 
@@ -420,59 +414,58 @@ export const userMapper = {
 #### services/user/api.ts
 
 ```typescript
-import { apiClient } from '@/services/api-client';
-import { UserResponseDto, CreateUserRequestDto } from '@/models/user/dto';
+import { apiClient } from "@/services/api-client";
+import { UserResponseDto, CreateUserRequestDto } from "@/models/user/dto";
 
 export const userApi = {
-  getById: (id: string) =>
-    apiClient.get<UserResponseDto>(`/users/${id}`),
+  getById: (id: string) => apiClient.get<UserResponseDto>(`/users/${id}`),
 
-  getList: () =>
-    apiClient.get<UserResponseDto[]>('/users'),
+  getList: () => apiClient.get<UserResponseDto[]>("/users"),
 
-  create: (data: CreateUserRequestDto) =>
-    apiClient.post<UserResponseDto>('/users', data),
+  create: (data: CreateUserRequestDto) => apiClient.post<UserResponseDto>("/users", data),
 };
 ```
 
 #### services/user/queries.ts (클라이언트)
 
 ```typescript
-import { queryOptions } from '@tanstack/react-query';
-import { userApi } from './api';
-import { userMapper } from '@/models/user/mapper';
+import { queryOptions } from "@tanstack/react-query";
+import { userApi } from "./api";
+import { userMapper } from "@/models/user/mapper";
 
 export const userQueries = {
-  detail: (id: string) => queryOptions({
-    queryKey: ['user', id],
-    queryFn: async () => {
-      const dto = await userApi.getById(id);
-      return userMapper.toEntity(dto);
-    },
-  }),
+  detail: (id: string) =>
+    queryOptions({
+      queryKey: ["user", id],
+      queryFn: async () => {
+        const dto = await userApi.getById(id);
+        return userMapper.toEntity(dto);
+      },
+    }),
 
-  list: () => queryOptions({
-    queryKey: ['users'],
-    queryFn: async () => {
-      const dtos = await userApi.getList();
-      return userMapper.toEntityList(dtos);
-    },
-  }),
+  list: () =>
+    queryOptions({
+      queryKey: ["users"],
+      queryFn: async () => {
+        const dtos = await userApi.getList();
+        return userMapper.toEntityList(dtos);
+      },
+    }),
 };
 ```
 
 #### services/user/actions.ts (서버)
 
 ```typescript
-'use server';
+"use server";
 
-import { revalidatePath } from 'next/cache';
-import { userApi } from './api';
-import { CreateUserRequestDto } from '@/models/user/dto';
+import { revalidatePath } from "next/cache";
+import { userApi } from "./api";
+import { CreateUserRequestDto } from "@/models/user/dto";
 
 export async function createUser(data: CreateUserRequestDto) {
   const result = await userApi.create(data);
-  revalidatePath('/users');
+  revalidatePath("/users");
   return result;
 }
 ```
@@ -489,14 +482,14 @@ const getEnv = (key: string, required = true): string => {
   if (required && !value) {
     throw new Error(`Missing env: ${key}`);
   }
-  return value ?? '';
+  return value ?? "";
 };
 
 export const env = {
-  apiBaseUrl: getEnv('NEXT_PUBLIC_API_BASE_URL'),
-  appEnv: getEnv('NEXT_PUBLIC_APP_ENV') as 'dev' | 'staging' | 'prod',
+  apiBaseUrl: getEnv("NEXT_PUBLIC_API_BASE_URL"),
+  appEnv: getEnv("NEXT_PUBLIC_APP_ENV") as "dev" | "staging" | "prod",
   // 서버 전용 (NEXT_PUBLIC_ 없음)
-  databaseUrl: getEnv('DATABASE_URL', false),
+  databaseUrl: getEnv("DATABASE_URL", false),
 } as const;
 ```
 
@@ -504,12 +497,12 @@ export const env = {
 
 ```typescript
 export const siteConfig = {
-  name: 'My App',
-  description: 'My awesome Next.js app',
-  url: 'https://example.com',
-  ogImage: 'https://example.com/og.png',
+  name: "My App",
+  description: "My awesome Next.js app",
+  url: "https://example.com",
+  ogImage: "https://example.com/og.png",
   links: {
-    github: 'https://github.com/username',
+    github: "https://github.com/username",
   },
 } as const;
 ```
@@ -521,10 +514,10 @@ export const siteConfig = {
 #### stores/common/useThemeStore.ts
 
 ```typescript
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-type Theme = 'light' | 'dark';
+type Theme = "light" | "dark";
 
 interface ThemeStore {
   theme: Theme;
@@ -535,14 +528,15 @@ interface ThemeStore {
 export const useThemeStore = create<ThemeStore>()(
   persist(
     (set) => ({
-      theme: 'dark',
+      theme: "dark",
       setTheme: (theme) => set({ theme }),
-      toggle: () => set((state) => ({
-        theme: state.theme === 'dark' ? 'light' : 'dark'
-      })),
+      toggle: () =>
+        set((state) => ({
+          theme: state.theme === "dark" ? "light" : "dark",
+        })),
     }),
-    { name: 'theme-storage' }
-  )
+    { name: "theme-storage" },
+  ),
 );
 ```
 
@@ -553,12 +547,12 @@ export const useThemeStore = create<ThemeStore>()(
 #### hooks/user/useUser.ts
 
 ```typescript
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { userQueries } from '@/services/user/queries';
-import { userApi } from '@/services/user/api';
+import { useState } from "react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { userQueries } from "@/services/user/queries";
+import { userApi } from "@/services/user/api";
 
 export const useUser = (id: string) => {
   const queryClient = useQueryClient();
@@ -568,7 +562,7 @@ export const useUser = (id: string) => {
   const { mutate: updateUser } = useMutation({
     mutationFn: (data) => userApi.update(id, data),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['user', id] });
+      queryClient.invalidateQueries({ queryKey: ["user", id] });
       setIsEditing(false);
     },
   });
