@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import character from "@/public/ryuwoong.png";
+import character from "@/public/profile.png";
 import Link from "next/link";
 import { Metadata } from "next";
 import FadeInSection from "@/components/FadeInSection";
@@ -15,7 +15,7 @@ export default function Profile() {
     <div className={styles.container}>
       <section className={styles.section} id="about">
         <div className={styles.about}>
-          <FadeInSection className={styles.description}>
+          <div className={styles.description}>
             <Link href={"#about"}>
               <h1 className={`typo-hero ${styles.title}`}>
                 안녕하세요,
@@ -37,9 +37,9 @@ export default function Profile() {
               <span className={styles.highlight}>타이어픽</span> 앱 개발을 담당하고 있으며 단독으로 2년간 안정적으로
               운영 및 관리하고 있습니다.
             </p>
-          </FadeInSection>
-          <FadeInSection className={styles.information} delay={200}>
-            <Image className={styles.character} src={character} alt="character" width={120} height={120} unoptimized />
+          </div>
+          <div className={styles.information}>
+            <Image className={styles.character} src={character} alt="character" width={120} height={120} priority />
             <h2 className="typo-h3">
               박정륭 <span className="typo-body">(Software Engineer)</span>
             </h2>
@@ -47,7 +47,7 @@ export default function Profile() {
               <span className={styles.highlight}>@</span>{" "}
               <Link href={"mailto:wjdfbd1121@gmail.com"}>wjdfbd1121@gmail.com</Link>
             </p>
-          </FadeInSection>
+          </div>
         </div>
       </section>
 
@@ -89,9 +89,7 @@ export default function Profile() {
                 - <span className={styles.highlight}>GitHub Actions</span> 활용, 배포 과정 자동화
               </p>
               <p className="typo-body">- Codepush 배포 프로세스 자동화, 타겟 버전과 배포 환경 설정으로 배포</p>
-              <p className="typo-body">
-                - 기존에 수동 배포로 생길 수 있는 실수 예방 및 배포 후 슬랙을 통한 처리 알림
-              </p>
+              <p className="typo-body">- 기존에 수동 배포로 생길 수 있는 실수 예방 및 배포 후 슬랙을 통한 처리 알림</p>
             </div>
           </div>
         </FadeInSection>
@@ -118,9 +116,7 @@ export default function Profile() {
             <div className={styles.project}>
               <h4 className="typo-h3">DeepLink 시스템 설계 및 문서화</h4>
               <p className="typo-body">- DeepLink 기능 설계 및 구현</p>
-              <p className="typo-body">
-                - 가이드 문서 작성, 비개발자(마케팅팀)도 딥링크를 작성할 수 있게 시스템 설계
-              </p>
+              <p className="typo-body">- 가이드 문서 작성, 비개발자(마케팅팀)도 딥링크를 작성할 수 있게 시스템 설계</p>
               <p className="typo-body">- 마케팅팀이 캠페인 설정시 개발팀 도움 없이 캠페인 가능</p>
             </div>
             <div className={styles.project}>
@@ -169,9 +165,7 @@ export default function Profile() {
             </div>
             <div className={styles.project}>
               <h4 className="typo-h3">사내 React 세미나 진행</h4>
-              <p className="typo-body">
-                - 신규 개발자 및 백엔드 개발자 대상 React 원리 및 최신 Front 트렌드 공유
-              </p>
+              <p className="typo-body">- 신규 개발자 및 백엔드 개발자 대상 React 원리 및 최신 Front 트렌드 공유</p>
             </div>
           </div>
         </FadeInSection>

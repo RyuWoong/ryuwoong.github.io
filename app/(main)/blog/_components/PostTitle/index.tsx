@@ -22,7 +22,7 @@ const PostTitle: FC<PostTitleProps> = ({ title, createdAt, updatedAt, thumbnail,
       <p className={styles.date}>{dayjs(updatedAt ?? createdAt).format("YY년 MM월 DD일")}</p>
       <p className={styles.author}>RyuWoong</p>
       {thumbnail && (
-        <Image src={thumbnail} alt={title} className={styles.thumbnail} width={1200} height={630} unoptimized />
+        <Image src={thumbnail} alt={title} className={styles.thumbnail} width={1200} height={630} priority />
       )}
     </div>
   );

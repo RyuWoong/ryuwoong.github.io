@@ -24,7 +24,7 @@ function PostCard({ listIndex, index, title, description, createdAt, thumbnail, 
       </div>
       {thumbnail && (
         <div className={styles.thumbnailContainer}>
-          <Image src={thumbnail} alt={title} width={100} height={100} className={styles.thumbnail} unoptimized />
+          <Image src={thumbnail} alt={title} width={100} height={100} className={styles.thumbnail} />
         </div>
       )}
     </Link>
