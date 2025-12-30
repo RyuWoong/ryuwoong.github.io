@@ -13,18 +13,18 @@
   padding: 0 20px;
   height: 64px;
   gap: 20px;
-  border-bottom: 1px solid var(--tondown);
+  border-bottom: 1px solid var(--border-default);
 }
 
 .title {
-  font-size: 1.6rem;
+  font-size: var(--text-2xl);
   font-family: var(--bounce-font);
-  color: var(--foreground);
+  color: var(--text-primary);
   transition: color 0.3s ease;
 }
 
 .title:hover {
-  color: var(--accent-color);
+  color: var(--interactive-default);
 }
 
 .nav {
@@ -40,11 +40,12 @@
 }
 
 .nav li a {
-  color: var(--tondown);
-  font-size: 1rem;
+  color: var(--text-muted);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
   transition: color 0.3s ease;
 }
 
 .nav li a:hover {
-  color: var(--accent-color);
+  color: var(--interactive-default);
 }

@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import { Birthstone_Bounce, Nanum_Gothic } from "next/font/google";
+import { Birthstone_Bounce } from "next/font/google";
+import localFont from "next/font/local";
+
 import "./reset.css";
 import "./globals.css";
+import ThemeToggle from "@/components/ThemeToggle";
 
-const nanumGothic = Nanum_Gothic({
-  weight: ["400", "700", "800"],
-  variable: "--font-nanum-gothic",
-  subsets: ["latin"],
+const pretendard = localFont({
+  src: "../styles/fonts/PretendardVariable.woff2",
+  display: "swap",
+  weight: "100 900",
+  variable: "--font-pretendard",
 });
 
 const birthstoneBounce = Birthstone_Bounce({ weight: "400", variable: "--font-bounce", subsets: ["latin"] });
@@ -28,7 +32,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${nanumGothic.variable} ${birthstoneBounce.variable}`}>{children}</body>
+      <body className={`${pretendard.variable} ${birthstoneBounce.variable}`}>
+        <ThemeToggle />
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,23 +1,8 @@
-:root {
-  --background: #ededed;
-  --foreground: #242424;
-  --tondown: #a0a0a0;
-  --primary: #61ff96;
-  --accent-color: #61ff96;
-  --accent-rgb: 97, 255, 150;
-  --main-font: "Nanum Gothic", Arial, Helvetica, sans-serif;
-  --bounce-font: "Birthstone Bounce", Arial, Helvetica, sans-serif;
-}
+@import "../styles/tokens/colors.css";
+@import "../styles/tokens/typography.css";
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #242424;
-    --foreground: #ededed;
-    --tondown: #a0a0a0;
-    --primary: #61ff96;
-    --accent-color: #61ff96;
-    --accent-rgb: 97, 255, 150;
-  }
+:root {
+  --bounce-font: "Birthstone Bounce", Arial, Helvetica, sans-serif;
 }
 
 html,
@@ -32,12 +17,10 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-size: 14px;
-  font-family: var(--main-font);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
 }
 
 * {
@@ -51,17 +34,17 @@ a {
   text-decoration: none;
 }
 
-code {
-  background-color: var(--foreground);
-  color: var(--background);
-  font-weight: 600;
-  padding: 2px;
+a:hover {
+  color: var(--interactive-default);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+code {
+  background-color: var(--bg-inverse);
+  color: var(--text-inverse);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-semi);
+  padding: 2px 4px;
+  border-radius: 4px;
 }
 
 @media (min-width: 1200px) {

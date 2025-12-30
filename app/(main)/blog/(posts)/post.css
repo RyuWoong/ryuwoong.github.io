@@ -10,19 +10,19 @@
 
 .markdown-body {
   box-sizing: border-box;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--main-font);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
 }
 
 .markdown-body > h1 a {
-  color: var(--primary);
+  color: var(--interactive-default);
 }
 .markdown-body > h2 a {
-  color: var(--primary);
+  color: var(--interactive-default);
 }
 .markdown-body > h3 a {
-  color: var(--primary);
+  color: var(--interactive-default);
 }
 
 .post-toc {
@@ -32,7 +32,7 @@
   top: 44px;
   padding-top: 98px;
   align-self: start;
-  font-family: var(--main-font);
+  font-family: var(--font-sans);
 }
 
 .post-toc ol {
@@ -48,17 +48,17 @@
 }
 
 .post-toc a {
-  color: var(--foreground);
+  color: var(--text-primary);
   text-decoration: none;
-  font-size: 14px;
-  line-height: 1.4;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
   transition: color 0.2s ease;
   display: block;
   padding: 4px 0;
 }
 
 .post-toc a:hover {
-  color: var(--accent);
+  color: var(--interactive-default);
 }
 
 /* 모바일 반응형 */

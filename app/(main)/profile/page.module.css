@@ -5,48 +5,28 @@
 }
 
 .highlight {
-  background-color: var(--foreground);
-  color: var(--background);
-  font-weight: 600;
-  padding: 2px;
-  border-radius: 2px;
+  background-color: var(--bg-inverse);
+  color: var(--text-inverse);
+  font-weight: var(--weight-semi);
+  padding: 2px 4px;
+  border-radius: 4px;
 }
 
 .point {
-  color: var(--accent-color);
-  font-size: 2rem;
-  font-weight: bold;
+  color: var(--interactive-default);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
 }
 
 .title {
   margin-bottom: 1rem;
 }
 
-.text-xl {
-  font-size: 2.5rem;
-  line-height: 2.75rem;
-}
-
-.text-l {
-  font-size: 2rem;
-  line-height: 2.25rem;
-}
-
-.text-m {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.text-s {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 .section {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border-bottom: 1px dashed var(--tondown);
+  border-bottom: 1px dashed var(--border-default);
 }
 
 .about {
@@ -68,7 +48,7 @@
 }
 
 .row:not(:last-child) {
-  border-bottom: 1px dashed var(--tondown);
+  border-bottom: 1px dashed var(--text-muted);
 }
 
 .row-left {
@@ -82,13 +62,13 @@
 
 .role {
   display: block;
-  font-weight: 600;
-  font-size: 1.2rem;
+  font-weight: var(--weight-semi);
+  font-size: var(--text-lg);
 }
 
 .period {
   display: block;
-  font-size: 1rem;
+  font-size: var(--text-base);
 }
 
 .project {
@@ -151,7 +131,7 @@
 .link {
   display: block;
   margin-top: 1rem;
-  color: var(--tondown);
-  font-size: 1rem;
-  font-weight: 600;
+  color: var(--text-muted);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semi);
 }
