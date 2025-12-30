@@ -19,9 +19,7 @@ export default function Home() {
               <span className={styles.titleLine}>DarkRoom</span>
             </h1>
           </div>
-          <div className={styles.subtitle}>
-            Press Enter or Click to Continue
-          </div>
+          <div className={styles.subtitle}>Press Enter or Click to Continue</div>
         </Link>
       </main>
 
