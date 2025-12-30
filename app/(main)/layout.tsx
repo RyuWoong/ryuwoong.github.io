@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./main.module.css";
+import Snow from "@/components/Snow";
 
 export default function RootLayout({
   children,
@@ -8,6 +9,7 @@ export default function RootLayout({
 }>) {
   return (
     <div id="main" className={styles.container}>
+      <Snow />
       <header className={styles.header}>
         <span className={styles.title}>Dark Room</span>
         <ul className={styles.nav}>
