@@ -1,0 +1,173 @@
+/* ==============================================
+   Design Tokens - Colors
+   ============================================== */
+
+/* ----------------------------------------------
+   Primitive Tokens
+   ---------------------------------------------- */
+:root {
+  /* Gray Scale */
+  --gray-1: #111111;
+  --gray-2: #191919;
+  --gray-3: #222222;
+  --gray-4: #2a2a2a;
+  --gray-5: #313131;
+  --gray-6: #3a3a3a;
+  --gray-7: #484848;
+  --gray-8: #606060;
+  --gray-9: #6e6e6e;
+  --gray-10: #7b7b7b;
+  --gray-11: #b4b4b4;
+  --gray-12: #eeeeee;
+
+  /* Primary Scale (#61ff96 based) */
+  --primary-1: #0d1f12;
+  --primary-2: #132d19;
+  --primary-3: #1a4024;
+  --primary-4: #1f5a2e;
+  --primary-5: #237538;
+  --primary-6: #2a9d47;
+  --primary-7: #3ec463;
+  --primary-8: #61ff96;
+  --primary-9: #8affb3;
+  --primary-10: #c5ffd9;
+
+  /* Error Scale (Red) */
+  --error-1: #1f1315;
+  --error-2: #291519;
+  --error-3: #481a1d;
+  --error-4: #5e1f22;
+  --error-5: #7d2828;
+  --error-6: #9e2b2b;
+  --error-7: #c53030;
+  --error-8: #e53e3e;
+  --error-9: #f56565;
+  --error-10: #fc8181;
+  --error-11: #feb2b2;
+  --error-12: #fff5f5;
+
+  /* Warning Scale (Amber) */
+  --warning-1: #1f1a0d;
+  --warning-2: #2d2305;
+  --warning-3: #493c00;
+  --warning-4: #634e00;
+  --warning-5: #7c5a00;
+  --warning-6: #a67c00;
+  --warning-7: #c99a00;
+  --warning-8: #d69e2e;
+  --warning-9: #ecc94b;
+  --warning-10: #f6e05e;
+  --warning-11: #faf089;
+  --warning-12: #fffff0;
+
+  /* Info Scale (Blue) */
+  --info-1: #0d1520;
+  --info-2: #0d1d31;
+  --info-3: #0c2948;
+  --info-4: #0e3a68;
+  --info-5: #1e4e8c;
+  --info-6: #2b6cb0;
+  --info-7: #3182ce;
+  --info-8: #4299e1;
+  --info-9: #63b3ed;
+  --info-10: #90cdf4;
+  --info-11: #bee3f8;
+  --info-12: #ebf8ff;
+
+  /* Success Scale (Green) */
+  --success-1: #0d1f14;
+  --success-2: #0f2918;
+  --success-3: #14412a;
+  --success-4: #1a5739;
+  --success-5: #22704a;
+  --success-6: #25855a;
+  --success-7: #2f9e6a;
+  --success-8: #38a169;
+  --success-9: #48bb78;
+  --success-10: #68d391;
+  --success-11: #9ae6b4;
+  --success-12: #f0fff4;
+}
+
+/* ----------------------------------------------
+   Semantic Tokens - Dark Theme (Default)
+   ---------------------------------------------- */
+:root,
+[data-theme="dark"] {
+  /* Background */
+  --bg-primary: var(--gray-1);
+  --bg-secondary: var(--gray-2);
+  --bg-elevated: var(--gray-3);
+  --bg-inverse: var(--gray-12);
+
+  /* Text */
+  --text-primary: var(--gray-12);
+  --text-secondary: var(--gray-11);
+  --text-muted: var(--gray-9);
+  --text-inverse: var(--gray-1);
+
+  /* Border */
+  --border-default: var(--gray-4);
+  --border-strong: var(--gray-6);
+  --border-subtle: var(--gray-3);
+
+  /* Interactive (Primary) */
+  --interactive-default: var(--primary-8);
+  --interactive-hover: var(--primary-7);
+  --interactive-active: var(--primary-6);
+  --interactive-disabled: var(--gray-6);
+  --interactive-on-primary: var(--gray-1);
+
+  /* Feedback */
+  --feedback-success: var(--success-9);
+  --feedback-warning: var(--warning-9);
+  --feedback-error: var(--error-9);
+  --feedback-info: var(--info-9);
+
+  /* Feedback Background */
+  --feedback-success-bg: var(--success-1);
+  --feedback-warning-bg: var(--warning-1);
+  --feedback-error-bg: var(--error-1);
+  --feedback-info-bg: var(--info-1);
+}
+
+/* ----------------------------------------------
+   Semantic Tokens - Light Theme
+   ---------------------------------------------- */
+[data-theme="light"] {
+  /* Background */
+  --bg-primary: #ffffff;
+  --bg-secondary: var(--gray-12);
+  --bg-elevated: #ffffff;
+  --bg-inverse: var(--gray-1);
+
+  /* Text */
+  --text-primary: var(--gray-1);
+  --text-secondary: var(--gray-7);
+  --text-muted: var(--gray-9);
+  --text-inverse: var(--gray-12);
+
+  /* Border */
+  --border-default: var(--gray-11);
+  --border-strong: var(--gray-9);
+  --border-subtle: var(--gray-12);
+
+  /* Interactive (Primary) */
+  --interactive-default: var(--primary-6);
+  --interactive-hover: var(--primary-5);
+  --interactive-active: var(--primary-4);
+  --interactive-disabled: var(--gray-11);
+  --interactive-on-primary: #ffffff;
+
+  /* Feedback */
+  --feedback-success: var(--success-7);
+  --feedback-warning: var(--warning-7);
+  --feedback-error: var(--error-7);
+  --feedback-info: var(--info-7);
+
+  /* Feedback Background */
+  --feedback-success-bg: var(--success-12);
+  --feedback-warning-bg: var(--warning-12);
+  --feedback-error-bg: var(--error-12);
+  --feedback-info-bg: var(--info-12);
+}
