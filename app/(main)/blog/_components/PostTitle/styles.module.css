@@ -10,26 +10,26 @@
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
   margin-top: 0 !important;
   margin-bottom: 0.5rem;
-  color: var(--foreground);
+  color: var(--text-primary);
 }
 
 .date {
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: var(--foreground);
-
+  font-size: var(--text-sm);
+  font-weight: var(--weight-light);
+  color: var(--text-muted);
   text-align: right;
   margin: 0px !important;
 }
 
 .author {
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: var(--foreground);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
   text-align: right;
 }
 

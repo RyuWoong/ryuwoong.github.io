@@ -1,5 +1,5 @@
 import { getPosts } from "@/api/blog";
-import { PostCard } from "@/components/post";
+import { PostCard } from "./_components";
 import styles from "./blog.module.css";
 export default async function Blog() {
   const postList = await getPosts();

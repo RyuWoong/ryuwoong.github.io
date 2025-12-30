@@ -1,5 +1,5 @@
 import type { MDXComponents } from "mdx/types";
-import { PostTitle } from "@/components/post";
+import { PostTitle } from "@/app/(main)/blog/_components";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

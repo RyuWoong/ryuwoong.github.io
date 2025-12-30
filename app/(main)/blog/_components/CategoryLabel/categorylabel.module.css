@@ -2,17 +2,17 @@
   display: inline-block;
   padding: 4px 8px;
   border-radius: 16px;
-  background-color: var(--accent-color, #4a7dff);
-  color: white;
-  font-size: 12px;
-  font-weight: 500;
+  background-color: var(--interactive-default);
+  color: var(--gray-1);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
   margin-right: 6px;
   margin-bottom: 6px;
   transition: all 0.2s ease;
 }
 
 .categoryLabel:hover {
-  background-color: var(--accent-hover, #3a6ae0);
+  background-color: var(--interactive-hover);
 }
 
 /* 카테고리별 색상 */
@@ -26,7 +26,7 @@
 
 .javascript {
   background-color: #f7df1e;
-  color: #333;
+  color: var(--gray-1);
 }
 
 .javascript:hover {
@@ -51,10 +51,12 @@
 
 .notice {
   background-color: #e34c26;
+  color: var(--gray-12);
 }
 
 .notice:hover {
   background-color: #c34120;
+  color: var(--gray-12);
 }
 
 .project {
