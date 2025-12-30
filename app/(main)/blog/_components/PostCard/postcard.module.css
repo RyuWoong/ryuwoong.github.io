@@ -39,7 +39,6 @@
 .postDescription {
   color: var(--text-secondary);
   margin: 0;
-  height: 50px;
   font-size: var(--text-sm);
   line-height: var(--leading-normal);
   overflow: hidden;
