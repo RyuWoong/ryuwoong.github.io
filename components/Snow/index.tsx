@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import styles from "./snow.module.css";
 
 const SNOWFLAKE_COUNT = 50;
@@ -26,4 +27,4 @@ function Snow() {
   );
 }
 
-export default Snow;
+export default memo(Snow);
