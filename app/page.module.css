@@ -5,7 +5,7 @@
   height: 100svh;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+  background: linear-gradient(135deg, var(--gray-1) 0%, var(--gray-3) 50%, var(--gray-1) 100%);
 }
 
 .background {
@@ -22,7 +22,7 @@
   transform: translate(-50%, -50%);
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(97, 255, 150, 0.15) 0%, transparent 70%);
   filter: blur(80px);
   animation: orbPulse 8s ease-in-out infinite;
 }
@@ -64,14 +64,14 @@
 .title {
   font-family: var(--bounce-font);
   font-size: 5rem;
-  font-weight: 700;
-  line-height: 1.1;
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
   text-align: center;
   margin: 0;
-  color: #fff;
+  color: var(--gray-12);
   text-shadow:
-    0 0 20px rgba(var(--accent-rgb), 0.3),
-    0 0 40px rgba(var(--accent-rgb), 0.2),
+    0 0 20px rgba(97, 255, 150, 0.3),
+    0 0 40px rgba(97, 255, 150, 0.2),
     0 4px 20px rgba(0, 0, 0, 0.5);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -96,27 +96,27 @@
 }
 
 .enterLink:hover .title {
-  color: var(--accent-color);
+  color: var(--primary-8);
   text-shadow:
-    0 0 30px rgba(var(--accent-rgb), 0.6),
-    0 0 60px rgba(var(--accent-rgb), 0.4),
-    0 0 100px rgba(var(--accent-rgb), 0.2),
+    0 0 30px rgba(97, 255, 150, 0.6),
+    0 0 60px rgba(97, 255, 150, 0.4),
+    0 0 100px rgba(97, 255, 150, 0.2),
     0 4px 30px rgba(0, 0, 0, 0.8);
 }
 
 .subtitle {
-  font-family: var(--main-font);
-  font-size: 0.875rem;
-  font-weight: 400;
-  letter-spacing: 0.15em;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-normal);
+  letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--gray-9);
   animation: fadeIn 1s ease-out 0.5s backwards;
   transition: color 0.3s ease;
 }
 
 .enterLink:hover .subtitle {
-  color: rgba(var(--accent-rgb), 0.8);
+  color: var(--primary-7);
 }
 
 @keyframes orbPulse {
@@ -152,7 +152,7 @@
 
 @media (max-width: 768px) {
   .title {
-    font-size: 3.5rem;
+    font-size: var(--text-5xl);
   }
 
   .gradientOrb {
