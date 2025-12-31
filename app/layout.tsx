@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import "./reset.css";
 import "./globals.css";
 import ThemeToggle from "@/components/ThemeToggle";
+import Snow from "@/components/Snow";
 
 const pretendard = localFont({
   src: "../styles/fonts/PretendardVariable.woff2",
@@ -34,6 +35,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`${pretendard.variable} ${birthstoneBounce.variable}`}>
         <ThemeToggle />
+        <Snow />
         {children}
       </body>
     </html>
