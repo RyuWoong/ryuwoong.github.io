@@ -14,9 +14,8 @@ export default function Home() {
         <Link href="/profile" className={styles.enterLink}>
           <div className={styles.titleWrapper}>
             <h1 className={styles.title}>
-              <span className={styles.titleLine}>Enter</span>
-              <span className={styles.titleLine}>the</span>
-              <span className={styles.titleLine}>DarkRoom</span>
+              <span className={styles.titleLine}>Hello</span>
+              <span className={styles.titleLine}>World</span>
             </h1>
           </div>
           <div className={styles.subtitle}>Press Enter or Click to Continue</div>

@@ -34,8 +34,8 @@ export default function Profile() {
               <span className={styles.highlight}>비용 절감</span> 아이디어를 제안하고, 실현해 재정에 도움을 주고자 하며,{" "}
               오픈소스 프로젝트에도 참여해 이슈 제기 및 PR 기여를 통해 커뮤니티 발전에 힘쓰고 있습니다. 현재는{" "}
               <span className={styles.highlight}>딜러타이어</span>에서 40만명의 회원을 보유한{" "}
-              <span className={styles.highlight}>타이어픽</span> 앱 개발을 담당하고 있으며 단독으로 2년간 안정적으로
-              운영 및 관리하고 있습니다.
+              <span className={styles.highlight}>타이어픽</span> 앱 개발을 담당하고 있으며 3년간 안정적으로 운영 및
+              관리하고 있습니다.
             </p>
           </div>
           <div className={styles.information}>
@@ -45,7 +45,7 @@ export default function Profile() {
             </h2>
             <p className="typo-body">
               <span className={styles.highlight}>@</span>{" "}
-              <Link href={"mailto:wjdfbd1121@gmail.com"}>wjdfbd1121@gmail.com</Link>
+              <Link href={"mailto:ryuwoong.dev@gmail.com"}>ryuwoong.dev@gmail.com</Link>
             </p>
           </div>
         </div>
@@ -72,6 +72,11 @@ export default function Profile() {
             <h3 className="typo-h1">
               타이어픽<span className={styles.point}>.</span>
             </h3>
+            <div className={styles.project}>
+              <h4 className="typo-h3">사내 WiKi 구축</h4>
+              <p className="typo-body">- 문서관리가 제대로 되지 않아, 담당자 부재 시 문제 발생.</p>
+              <p className="typo-body">- 사내 위키를 통한 쉬운 온보딩, 히스토리 기록으로 인한 업무 효율 증대.</p>
+            </div>
             <div className={styles.project}>
               <h4 className="typo-h3">Codepush 자체 서버 구축</h4>
               <p className="typo-body">- 기존 AppCenter 종료로 인해 CodePush StandAlone 서버 구축</p>
@@ -181,19 +186,14 @@ export default function Profile() {
         </FadeInSection>
         <FadeInSection className={styles.project}>
           <h4 className="typo-h3">
-            CLIP<span className={styles.point}>.</span>
+            게임파티<span className={styles.point}>.</span>
           </h4>
           <p className="typo-body">
-            아이폰, 아이패드, 맥북과 회사 맥북 등 다양한 기기를 사용하면서 다양한 웹 컨텐츠들을 저장하게 되는데,
-            브라우저에 의존하는 북마크는 불편하다고 느꼈습니다. 그래서 Swift 공부로 이 불편함을 해소하기 위한 앱을
-            개발했습니다.
+            AI 시대로 오면서 Builder로서 다양한 시도와 경험을 할 수 있게 되었다고 생각해 게임 커뮤니티를 개발 및
+            운영하고 있습니다.
+            <br />
+            개발 이외에 마케팅, 비즈니스 등 압축된 경험을 해보고 있습니다.
           </p>
-          <Link href={"https://oneclip.app"} className={styles.link} target="_blank">
-            CLIP 소개 페이지 바로가기
-          </Link>
-          <Link href={"https://github.com/RyuWoong/ClipWeb"} className={styles.link} target="_blank">
-            CLIP Web Github 바로가기
-          </Link>
         </FadeInSection>
       </section>
 
@@ -204,6 +204,14 @@ export default function Profile() {
               Other Experience<span className={styles.point}>.</span>
             </h1>
           </Link>
+        </FadeInSection>
+
+        <FadeInSection className={styles.project}>
+          <h4 className="typo-h3">
+            오픈 소스 기여<span className={styles.point}>.</span>
+          </h4>
+          <p className="typo-body">- React Native Naver Login</p>
+          <p className="typo-body">- React Native Naver Map</p>
         </FadeInSection>
 
         <FadeInSection className={styles.project}>
