@@ -1,0 +1,603 @@
+export const metadata = {
+  title: "Front Project Structure",
+  description:
+    "FSD의 핵심 철학인 기능 단위 응집도를 참고하되, 과도한 레이어 분리를 피한 실용적인 프론트엔드 프로젝트 구조를 정리했습니다.",
+  createdAt: "2026-03-09",
+  thumbnail: "/images/blog/develop.png",
+  categories: ["개발"],
+};
+
+<PostTitle {...metadata} />
+
+바이브 코딩이 유행하면서 가장 먼저 들었던 고민은 "이 코드를 어떻게 더 깔끔하게 정리할까"였습니다.
+AI가 코드를 수정해 줄 수는 있지만, 그 변경을 이해하고 유지보수하는 책임은 결국 사람에게 있습니다.
+그래서 저는 구조를 한눈에 읽을 수 있도록 만들고 싶었고, 그 출발점은 규칙성을 부여하는 일이었습니다.
+
+프론트엔드는 백엔드에 비해 아키텍처나 디자인 패턴이 조금 더 흐릿하게 받아들여지는 경우가 많다고 느꼈습니다. FSD라는 좋은 방법론도 있었지만, 개인적으로는 레이어 분리가 다소 과해서 처음 구조를 읽을 때 직관성이 떨어진다고 느꼈습니다.
+
+그래서 저는 조금 더 직관적으로 이해되고, 실무에서도 부담 없이 유지할 수 있는 구조를 설계하고자 했습니다.
+
+FSD(Feature-Sliced Design)의 핵심 철학인 "기능 단위 응집도"를 참고하되, 과도한 레이어 분리를 피한 실용적인 구조입니다.
+
+---
+
+## 전체 구조
+
+```text
+src/
+├── assets/                     # 전역 공용 에셋
+├── components/                 # 공용 컴포넌트
+├── screens/                    # 도메인별 화면 단위
+├── models/                     # 도메인 모델 (타입, DTO, 변환)
+├── services/                   # API 레이어 (호출, 쿼리)
+├── stores/                     # 클라이언트 상태 (Zustand)
+├── hooks/                      # 공용 훅
+├── utils/                      # 유틸리티 함수
+├── config/                     # 환경 설정
+├── constants/                  # 상수
+└── locales/                    # 다국어
+```
+
+---
+
+## 상세 구조
+
+### assets/
+
+전역에서 공용으로 사용하는 에셋만 위치합니다.
+
+```text
+assets/
+├── images/
+├── icons/
+└── fonts/
+```
+
+### components/
+
+공용 컴포넌트를 관리합니다.
+
+```text
+components/
+├── common/                     # 범용 UI (Button, Input, Modal 등)
+└── [domain]/                   # 도메인별 공용 컴포넌트
+    └── [ComponentName]/
+        ├── index.tsx
+        ├── __test__/
+        │   └── [ComponentName].test.ts
+        └── assets/             # 컴포넌트 전용 에셋
+```
+
+### screens/
+
+도메인별로 화면을 분류하고, 각 화면에서만 사용하는 요소들을 내부에 배치합니다.
+
+```text
+screens/
+└── [domain]/
+    └── [ScreenName]/
+        ├── index.tsx
+        ├── components/         # 화면 전용 컴포넌트
+        ├── hooks/              # 화면 전용 훅
+        ├── __test__/           # 화면 전용 테스트
+        │   └── [ScreenName].test.ts
+        └── assets/             # 화면 전용 에셋
+```
+
+**파일 기반 라우팅을 쓰는 경우**
+
+`Next.js App Router`나 `Expo Router`처럼 `app/` 폴더가 라우트 기준이 되는 환경에서는, 화면 파일의 실제 위치를 어디에 둘지 혼란이 생길 수 있습니다.
+
+이 경우 `app/` 폴더는 라우트 엔트리 역할만 맡기고, 실제 화면 구현은 `screens/`에 둔 뒤 import 해서 사용하는 방식을 추천합니다.
+
+```text
+app/
+└── users/
+    └── page.tsx                # screens/users/UserListScreen import
+
+screens/
+└── users/
+    └── UserListScreen/
+        ├── index.tsx
+        ├── components/
+        └── hooks/
+```
+
+즉, `app/`은 "경로 선언", `screens/`는 "화면 구현"으로 역할을 분리하면 구조를 더 일관되게 유지할 수 있습니다.
+
+### models/
+
+도메인 모델의 형태를 정의합니다. "무엇"을 다루는가에 집중합니다.
+
+```text
+models/
+└── [domain]/
+    ├── types.ts                # 도메인 타입 (앱 내부용)
+    ├── dto.ts                  # API 요청/응답 DTO
+    ├── schema.ts               # zod 스키마 검증
+    └── mapper.ts               # DTO ↔ Entity 변환
+```
+
+### services/
+
+데이터를 가져오는 방법을 정의합니다. "어떻게" 가져오는가에 집중합니다.
+
+```text
+services/
+└── [domain]/
+    ├── api.ts                  # 순수 API 함수 (axios)
+    └── queries.ts              # TanStack Query 훅
+```
+
+**models vs services 역할 분리:**
+
+| models | services |
+| --- | --- |
+| 데이터의 "형태" 정의 | 데이터를 "가져오는 방법" |
+| 순수 타입 정의 | 비동기 로직, 사이드 이펙트 |
+| 변경 빈도 낮음 | API 스펙 변경 시 수정 |
+
+**의존성 흐름:**
+
+```text
+services/queries.ts
+    ↓ import
+services/api.ts
+    ↓ import
+models/dto.ts, models/schema.ts, models/mapper.ts
+    ↓ import
+models/types.ts
+```
+
+### stores/
+
+Zustand를 사용한 클라이언트 상태를 관리합니다.
+
+```text
+stores/
+├── common/                     # 공용 UI 상태 (toast, modal 등)
+└── [domain]/                   # 도메인별 클라이언트 상태
+```
+
+### hooks/
+
+공용 훅과 도메인별 조합 훅을 관리합니다.
+
+```text
+hooks/
+├── common/                     # 공용 유틸 훅 (useDebounce 등)
+└── [domain]/                   # 도메인별 조합 훅
+```
+
+### utils/
+
+유틸리티 함수와 서드파티 래퍼를 관리합니다.
+
+```text
+utils/
+├── common/                     # 순수 유틸 함수
+└── thirdparty/                 # 외부 라이브러리 래퍼
+    └── api-client.ts           # axios 래퍼
+```
+
+### config/
+
+환경 설정과 앱 설정을 관리합니다.
+
+```text
+config/
+├── env.ts                      # 환경변수 래핑 + 타입 안전성
+└── app.ts                      # 앱 설정 (타임아웃, 페이지네이션 등)
+```
+
+### constants/
+
+변하지 않는 상수값을 관리합니다.
+
+```text
+constants/
+├── common/
+│   ├── regex.ts                # 정규식 패턴
+│   ├── keys.ts                 # storage key, query key prefix 등
+│   └── errorCodes.ts           # API 에러 코드
+└── [domain]/
+    └── user.ts                 # 도메인별 상수
+```
+
+### locales/
+
+필요시, 선택사항입니다. 다국어 지원을 위한 번역 파일을 관리하며, 타입 안전한 키 관리 방식을 사용합니다.
+
+```text
+locales/
+├── index.ts                    # i18n 설정 + 초기화
+├── types.ts                    # 번역 키 타입 정의
+├── ko/
+│   ├── index.ts                # ko 번역 통합 export
+│   ├── common.json
+│   └── [domain].json
+└── en/
+    ├── index.ts
+    ├── common.json
+    └── [domain].json
+```
+
+---
+
+## 핵심 설계 원칙
+
+### 1. 사용처 근접 배치
+
+- 특정 컴포넌트/화면에서만 사용하는 요소는 해당 폴더 내에 배치
+- 에셋, 훅, 컴포넌트 모두 동일한 원칙 적용
+
+### 2. 승격 규칙
+
+- **3개 이상 화면**에서 사용되면 공용 레벨로 승격
+- `Typography`, `Input`, `Button`처럼 디자인 시스템 성격의 컴포넌트는 사용처 수와 무관하게 공용 컴포넌트로 관리
+- 화면 전용 → 도메인 공용 → 전역 공용 순으로 승격
+
+### 3. 서버 상태 vs 클라이언트 상태 분리
+
+| 서버 상태 | 클라이언트 상태 |
+| --- | --- |
+| API에서 받아온 데이터 | UI 상태 (모달 열림, 탭 선택) |
+| 다른 사용자와 공유됨 | 이 세션에서만 유효 |
+| TanStack Query가 관리 | useState, Zustand |
+
+**핵심 규칙:** 서버에서 온 데이터는 절대 클라이언트 스토어에 복사하지 않습니다.
+
+### 4. useState vs Zustand 기준
+
+| useState | Zustand |
+| --- | --- |
+| 단일 컴포넌트/화면 내 상태 | 여러 화면에서 공유 |
+| 간단한 토글, 입력값 | 복잡한 상태 로직 |
+| 컴포넌트 언마운트 시 초기화 OK | 세션 동안 유지 필요 |
+
+### 5. config vs constants 구분
+
+| config | constants |
+| --- | --- |
+| 환경/배포에 따라 달라질 수 있음 | 절대 안 바뀜 |
+| 런타임에 참조 | 코드에 고정 |
+| `env.ts`, `app.ts` | 정규식, enum, 고정 키 |
+
+### 6. DTO vs 도메인 타입 분리
+
+| DTO | 도메인 타입 |
+| --- | --- |
+| API 스펙에 종속 | 앱 로직에 최적화 |
+| snake_case 가능 | camelCase 통일 |
+| string 날짜 | Date 객체 |
+| API 바뀌면 여기만 수정 | 앱 전체에서 안정적 사용 |
+
+**핵심 규칙:** API 응답을 그대로 사용하지 않고, mapper를 통해 도메인 타입으로 변환 후 사용합니다.
+
+### 7. 런타임 검증은 zod로 처리
+
+- TypeScript 타입만으로는 런타임 응답을 보장할 수 없으므로 DTO 경계에서 `zod`로 검증
+- `services`에서 받은 원본 응답은 `schema.ts`로 파싱하고, 통과한 값만 mapper로 전달
+- 검증 실패는 조기 감지하고, UI 레이어까지 잘못된 데이터가 퍼지지 않도록 차단
+
+### 8. 테스트 위치 규칙
+
+- 테스트는 대상 파일과 같은 폴더 내부의 `__test__/` 디렉터리에 배치
+- 파일명은 `.test.ts` 또는 React 컴포넌트면 `.test.tsx` 사용
+- 예시: `components/common/Button/__test__/Button.test.tsx`
+- 예시: `services/user/__test__/api.test.ts`
+
+---
+
+## 코드 예시
+
+### 에러 처리
+
+#### utils/thirdparty/api-client.ts
+
+```typescript
+import axios, { AxiosError } from 'axios';
+import { env } from '@/config/env';
+import { appConfig } from '@/config/app';
+
+// 앱 전체에서 사용할 에러 타입
+export class ApiError extends Error {
+  constructor(
+    public code: string,
+    public message: string,
+    public status?: number,
+    public data?: unknown,
+  ) {
+    super(message);
+    this.name = 'ApiError';
+  }
+}
+
+const apiClient = axios.create({
+  baseURL: env.apiBaseUrl,
+  timeout: appConfig.api.timeout,
+});
+
+// 응답 인터셉터에서 에러 정규화
+apiClient.interceptors.response.use(
+  (response) => response,
+  (error: AxiosError<{ code?: string; message?: string }>) => {
+    const apiError = new ApiError(
+      error.response?.data?.code ?? 'UNKNOWN_ERROR',
+      error.response?.data?.message ?? '알 수 없는 오류가 발생했습니다',
+      error.response?.status,
+      error.response?.data,
+    );
+    return Promise.reject(apiError);
+  },
+);
+
+export { apiClient };
+```
+
+#### constants/common/errorCodes.ts
+
+```typescript
+export const ERROR_CODES = {
+  // 인증
+  UNAUTHORIZED: 'UNAUTHORIZED',
+  TOKEN_EXPIRED: 'TOKEN_EXPIRED',
+
+  // 공통
+  NETWORK_ERROR: 'NETWORK_ERROR',
+  UNKNOWN_ERROR: 'UNKNOWN_ERROR',
+
+  // 도메인별
+  USER_NOT_FOUND: 'USER_NOT_FOUND',
+} as const;
+
+export type ErrorCode = typeof ERROR_CODES[keyof typeof ERROR_CODES];
+```
+
+#### hooks/common/useApiError.ts
+
+```typescript
+import { useCallback } from 'react';
+import { ApiError } from '@/utils/thirdparty/api-client';
+import { ERROR_CODES } from '@/constants/common/errorCodes';
+import { useToastStore } from '@/stores/common/useToastStore';
+
+export const useApiError = () => {
+  const { show } = useToastStore();
+
+  const handleError = useCallback((error: unknown) => {
+    if (error instanceof ApiError) {
+      switch (error.code) {
+        case ERROR_CODES.TOKEN_EXPIRED:
+          // 토큰 갱신 로직
+          break;
+        case ERROR_CODES.NETWORK_ERROR:
+          show('네트워크 연결을 확인해주세요');
+          break;
+        default:
+          show(error.message);
+      }
+    }
+  }, [show]);
+
+  return { handleError };
+};
+```
+
+### DTO와 도메인 타입
+
+#### models/user/dto.ts
+
+```typescript
+// 응답 DTO - API가 주는 형태 그대로
+export interface UserResponseDto {
+  user_id: string;
+  user_name: string;
+  created_at: string;
+}
+
+// 요청 DTO
+export interface CreateUserRequestDto {
+  user_name: string;
+  email: string;
+}
+
+export interface UpdateUserRequestDto {
+  user_name?: string;
+}
+```
+
+#### models/user/schema.ts
+
+```typescript
+import { z } from 'zod';
+
+export const userResponseDtoSchema = z.object({
+  user_id: z.string(),
+  user_name: z.string(),
+  created_at: z.string().datetime(),
+});
+
+export const userResponseDtoListSchema = z.array(userResponseDtoSchema);
+```
+
+#### models/user/types.ts
+
+```typescript
+// 앱 내부에서 사용하는 도메인 타입 (camelCase, 정제된 형태)
+export interface User {
+  id: string;
+  name: string;
+  createdAt: Date;
+}
+```
+
+#### models/user/mapper.ts
+
+```typescript
+import { UserResponseDto } from './dto';
+import { User } from './types';
+
+export const userMapper = {
+  toEntity: (dto: UserResponseDto): User => ({
+    id: dto.user_id,
+    name: dto.user_name,
+    createdAt: new Date(dto.created_at),
+  }),
+
+  toEntityList: (dtos: UserResponseDto[]): User[] =>
+    dtos.map(userMapper.toEntity),
+};
+```
+
+#### services/user/queries.ts
+
+```typescript
+import { queryOptions } from '@tanstack/react-query';
+import { userApi } from './api';
+import { userMapper } from '@/models/user/mapper';
+
+export const userQueries = {
+  detail: (id: string) => queryOptions({
+    queryKey: ['user', id],
+    queryFn: async () => {
+      const dto = await userApi.getById(id);
+      return userMapper.toEntity(dto); // 변환 후 반환
+    },
+  }),
+
+  list: () => queryOptions({
+    queryKey: ['users'],
+    queryFn: async () => {
+      const dtos = await userApi.getList();
+      return userMapper.toEntityList(dtos);
+    },
+  }),
+};
+```
+
+### 환경 설정
+
+#### config/env.ts
+
+```typescript
+const getEnv = (key: string, required = true): string => {
+  const value = process.env[key];
+  if (required && !value) {
+    throw new Error(`Missing env: ${key}`);
+  }
+  return value ?? '';
+};
+
+export const env = {
+  apiBaseUrl: getEnv('EXPO_PUBLIC_API_BASE_URL'),
+  sentryDsn: getEnv('EXPO_PUBLIC_SENTRY_DSN', false),
+  appEnv: getEnv('EXPO_PUBLIC_APP_ENV') as 'dev' | 'staging' | 'prod',
+} as const;
+```
+
+#### config/app.ts
+
+```typescript
+export const appConfig = {
+  api: {
+    timeout: 10_000,
+    retryCount: 3,
+  },
+  pagination: {
+    defaultPageSize: 20,
+  },
+  cache: {
+    staleTime: 5 * 60 * 1000,
+  },
+} as const;
+```
+
+### API 레이어
+
+#### services/[domain]/api.ts
+
+```typescript
+import { apiClient } from '@/utils/thirdparty/api-client';
+import { UserResponseDto, UpdateUserRequestDto } from '@/models/user/dto';
+import { userResponseDtoListSchema, userResponseDtoSchema } from '@/models/user/schema';
+
+export const userApi = {
+  getById: async (id: string): Promise<UserResponseDto> => {
+    const response = await apiClient.get<UserResponseDto>(`/users/${id}`);
+    return userResponseDtoSchema.parse(response.data);
+  },
+
+  getList: async (): Promise<UserResponseDto[]> => {
+    const response = await apiClient.get<UserResponseDto[]>('/users');
+    return userResponseDtoListSchema.parse(response.data);
+  },
+
+  update: async ({ id, data }: { id: string; data: UpdateUserRequestDto }): Promise<UserResponseDto> => {
+    const response = await apiClient.patch<UserResponseDto>(`/users/${id}`, data);
+    return userResponseDtoSchema.parse(response.data);
+  },
+};
+```
+
+### 커스텀 훅
+
+#### hooks/[domain]/useUser.ts
+
+```typescript
+import { useState } from 'react';
+import { useQuery, useMutation } from '@tanstack/react-query';
+import { userQueries } from '@/services/user/queries';
+import { userApi } from '@/services/user/api';
+
+export const useUser = (id: string) => {
+  const { data: user, isLoading } = useQuery(userQueries.detail(id));
+  const [isEditing, setIsEditing] = useState(false);
+
+  const { mutate: updateUser } = useMutation({
+    mutationFn: userApi.update,
+    onSuccess: () => setIsEditing(false),
+  });
+
+  return {
+    user,
+    isLoading,
+    isEditing,
+    startEdit: () => setIsEditing(true),
+    cancelEdit: () => setIsEditing(false),
+    save: (data: { user_name?: string }) => updateUser({ id, data }),
+  };
+};
+```
+
+### 다국어 (i18n)
+
+#### locales/types.ts
+
+```typescript
+import ko from './ko';
+
+type NestedKeys<T, Prefix extends string = ''> = T extends object
+  ? {
+      [K in keyof T]: K extends string
+        ? T[K] extends object
+          ? NestedKeys<T[K], `${Prefix}${K}.`>
+          : `${Prefix}${K}`
+        : never;
+    }[keyof T]
+  : never;
+
+export type TranslationKeys = NestedKeys<typeof ko>;
+```
+
+#### locales/ko/index.ts
+
+```typescript
+import common from './common.json';
+import user from './user.json';
+
+export default {
+  common,
+  user,
+} as const;
+```

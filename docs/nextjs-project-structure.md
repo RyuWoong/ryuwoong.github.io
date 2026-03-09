@@ -415,14 +415,28 @@ export const userMapper = {
 
 ```typescript
 import { apiClient } from "@/services/api-client";
-import { UserResponseDto, CreateUserRequestDto } from "@/models/user/dto";
+import { UserResponseDto, CreateUserRequestDto, UpdateUserRequestDto } from "@/models/user/dto";
 
 export const userApi = {
-  getById: (id: string) => apiClient.get<UserResponseDto>(`/users/${id}`),
+  getById: async (id: string): Promise<UserResponseDto> => {
+    const response = await apiClient.get<UserResponseDto>(`/users/${id}`);
+    return response.data;
+  },
 
-  getList: () => apiClient.get<UserResponseDto[]>("/users"),
+  getList: async (): Promise<UserResponseDto[]> => {
+    const response = await apiClient.get<UserResponseDto[]>("/users");
+    return response.data;
+  },
 
-  create: (data: CreateUserRequestDto) => apiClient.post<UserResponseDto>("/users", data),
+  create: async (data: CreateUserRequestDto): Promise<UserResponseDto> => {
+    const response = await apiClient.post<UserResponseDto>("/users", data);
+    return response.data;
+  },
+
+  update: async ({ id, data }: { id: string; data: UpdateUserRequestDto }): Promise<UserResponseDto> => {
+    const response = await apiClient.patch<UserResponseDto>(`/users/${id}`, data);
+    return response.data;
+  },
 };
 ```
 
@@ -553,6 +567,7 @@ import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { userQueries } from "@/services/user/queries";
 import { userApi } from "@/services/user/api";
+import { UpdateUserRequestDto } from "@/models/user/dto";
 
 export const useUser = (id: string) => {
   const queryClient = useQueryClient();
@@ -560,7 +575,7 @@ export const useUser = (id: string) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const { mutate: updateUser } = useMutation({
-    mutationFn: (data) => userApi.update(id, data),
+    mutationFn: userApi.update,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["user", id] });
       setIsEditing(false);
@@ -573,7 +588,7 @@ export const useUser = (id: string) => {
     isEditing,
     startEdit: () => setIsEditing(true),
     cancelEdit: () => setIsEditing(false),
-    save: updateUser,
+    save: (data: UpdateUserRequestDto) => updateUser({ id, data }),
   };
 };
 ```

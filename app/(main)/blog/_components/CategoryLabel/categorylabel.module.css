@@ -11,6 +11,10 @@
   transition: all 0.2s ease;
 }
 
+[data-theme="dark"] .categoryLabel {
+  color: var(--gray-12);
+}
+
 .categoryLabel:hover {
   background-color: var(--interactive-hover);
 }
@@ -56,6 +60,24 @@
 
 .notice:hover {
   background-color: #c34120;
+  color: var(--gray-12);
+}
+
+.development {
+  background-color: #2563eb;
+}
+
+.development:hover {
+  background-color: #1d4ed8;
+}
+
+.dailylife {
+  background-color: #f97316;
+  color: var(--gray-12);
+}
+
+.dailylife:hover {
+  background-color: #ea580c;
   color: var(--gray-12);
 }
 

@@ -1,16 +1,9 @@
 .blogTitle {
   font-size: var(--text-2xl);
   font-weight: var(--weight-semi);
-  padding: 20px;
+  padding: 20px 20px 16px;
   text-decoration: underline;
   text-decoration-color: var(--interactive-default);
   text-decoration-thickness: 3px;
   text-underline-offset: 10px;
-}
-
-.postListContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 0 20px;
 }

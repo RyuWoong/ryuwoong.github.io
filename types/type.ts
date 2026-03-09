@@ -1,5 +1,5 @@
 export type Post = {
-  index: number;
+  index: string;
   title: string;
   description: string;
   createdAt: string;

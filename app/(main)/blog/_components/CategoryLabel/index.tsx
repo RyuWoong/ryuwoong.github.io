@@ -1,4 +1,5 @@
 import React from "react";
+import { getCategoryStyleName } from "../category";
 import styles from "./categorylabel.module.css";
 
 interface CategoryLabelProps {
@@ -6,7 +7,7 @@ interface CategoryLabelProps {
 }
 
 const CategoryLabel: React.FC<CategoryLabelProps> = ({ category }) => {
-  const categoryClass = category.toLowerCase().replace(/\s+/g, "");
+  const categoryClass = getCategoryStyleName(category);
 
   return <span className={`${styles.categoryLabel} ${styles[categoryClass] || ""}`}>{category}</span>;
 };
