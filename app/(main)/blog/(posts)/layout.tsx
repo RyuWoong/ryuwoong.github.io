@@ -14,7 +14,9 @@ export default function PostLayout({ children }: { children: React.ReactNode }) 
         {`
           const targetDiv = document.querySelector(".post-toc");
           const containerDiv = document.querySelector(".post-container");
-          containerDiv.appendChild(targetDiv);
+          if (targetDiv && containerDiv) {
+            containerDiv.appendChild(targetDiv);
+          }
         `}
       </Script>
     </div>
