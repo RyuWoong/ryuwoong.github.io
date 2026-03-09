@@ -77,41 +77,149 @@
 }
 
 .post-toc {
+  --toc-accent: var(--primary-8);
+  --toc-shell: color-mix(in srgb, var(--gray-1) 92%, var(--success-1));
+  --toc-shell-top: color-mix(in srgb, var(--gray-3) 88%, var(--success-3));
+  --toc-shell-border: color-mix(in srgb, var(--primary-8) 32%, var(--border-default));
+  --toc-shell-muted: color-mix(in srgb, var(--primary-10) 48%, var(--text-muted));
   position: sticky;
   top: 84px;
-  width: 200px;
+  width: 240px;
+  max-width: 100%;
+  min-width: 0;
   max-height: calc(100vh - 96px);
-  overflow: auto;
-  padding-top: 12px;
+  overflow: hidden;
+  padding-top: 32px;
   align-self: start;
-  font-family: var(--font-sans);
+  color: var(--toc-accent);
+  font-family: var(--font-mono);
   flex-shrink: 0;
+  border: 1px solid var(--toc-shell-border);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--toc-shell-top) 100%, transparent), var(--toc-shell));
+  box-shadow:
+    0 18px 38px color-mix(in srgb, var(--success-1) 38%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 8%, transparent);
 }
 
-.post-toc ol {
+.post-toc[hidden] {
+  display: none;
+}
+
+.post-toc::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 32px;
+  border-bottom: 1px solid var(--toc-shell-border);
+  border-radius: 16px 16px 0 0;
+  background:
+    radial-gradient(circle at 18px 16px, #ff5f57 0 4px, transparent 5px),
+    radial-gradient(circle at 34px 16px, #febc2e 0 4px, transparent 5px),
+    radial-gradient(circle at 50px 16px, #28c840 0 4px, transparent 5px),
+    linear-gradient(180deg, color-mix(in srgb, var(--gray-6) 64%, transparent), transparent);
+  pointer-events: none;
+}
+
+.post-toc-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px 0 72px;
+  border: 0;
+  background: transparent;
+  color: var(--toc-shell-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: default;
+  z-index: 1;
+}
+
+.post-toc-toggle__label,
+.post-toc-toggle__state {
+  pointer-events: none;
+}
+
+.post-toc-toggle__state {
+  color: var(--toc-accent);
+}
+
+.post-toc-body {
+  max-height: calc(100vh - 128px);
+  max-width: 100%;
+  padding: 12px 14px 14px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.post-toc-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  padding-left: 1em;
 }
 
-.post-toc li {
+.post-toc-list li {
   list-style-type: none;
   padding-left: 0;
 }
 
 .post-toc a {
-  color: var(--text-primary);
+  position: relative;
+  color: color-mix(in srgb, var(--toc-accent) 76%, var(--text-primary));
   text-decoration: none;
   font-size: var(--text-sm);
   line-height: var(--leading-snug);
-  transition: color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
   display: block;
-  padding: 4px 0;
+  max-width: 100%;
+  margin-bottom: 2px;
+  padding: 6px 10px;
+  border-left: 2px solid transparent;
+  border-radius: 8px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.post-toc-list li[data-level="2"] a {
+  padding-left: 22px;
+}
+
+.post-toc-list li[data-level="3"] a {
+  padding-left: 34px;
 }
 
 .post-toc a:hover {
-  color: var(--interactive-default);
+  color: var(--toc-accent);
+  background: color-mix(in srgb, var(--toc-accent) 10%, transparent);
+}
+
+.post-toc a.is-active {
+  color: var(--toc-accent);
+  border-left-color: var(--toc-accent);
+  background: color-mix(in srgb, var(--toc-accent) 16%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--toc-accent) 14%, transparent);
+  text-shadow: 0 0 12px color-mix(in srgb, var(--toc-accent) 32%, transparent);
+  transform: translateX(2px);
+}
+
+.post-toc a.is-active::before {
+  color: var(--toc-accent);
+  opacity: 1;
 }
 
 /* 모바일 반응형 */
@@ -127,15 +235,33 @@
   }
 
   .post-toc {
-    position: static;
-    order: -1;
+    position: relative;
+    top: auto;
     width: auto;
     max-height: min(40vh, 280px);
     margin: 0 16px;
+    padding-top: 32px;
+  }
+
+  .post-toc.is-inline {
+    margin: 16px 0 8px;
+  }
+
+  .post-toc-body {
+    max-height: calc(min(40vh, 280px) - 32px);
     padding: 12px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-default);
-    border-radius: 12px;
-    overflow: auto;
+  }
+
+  .post-toc:not(.is-open) {
+    max-height: 32px;
+    overflow: hidden;
+  }
+
+  .post-toc:not(.is-open) .post-toc-body {
+    display: none;
+  }
+
+  .post-toc .post-toc-toggle {
+    cursor: pointer;
   }
 }

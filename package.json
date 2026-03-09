@@ -21,7 +21,6 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@jsdevtools/rehype-toc": "^3.0.2",
     "@types/mdx": "^2.0.13",
     "@types/node": "^20",
     "@types/react": "^19",
