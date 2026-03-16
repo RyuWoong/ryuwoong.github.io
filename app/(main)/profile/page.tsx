@@ -6,7 +6,7 @@ import character from "@/public/profile.png";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "박정륭 | Frontend Developer",
+  title: "박정륭 | Software Developer",
   description: "React / React Native 기반 모바일 서비스를 개발해온 6년 차 프론트엔드 개발자 박정륭의 프로필입니다.",
 };
 
@@ -26,7 +26,7 @@ const skillGroups = [
 const experiences = [
   {
     company: "딜러타이어",
-    role: "Frontend Developer",
+    role: "Software Developer",
     period: "2024.08 - 현재",
     note: "카티니 영업양수도 이후 근무",
     bullets: [
@@ -43,7 +43,7 @@ const experiences = [
   },
   {
     company: "카티니",
-    role: "Frontend Developer",
+    role: "Software Developer",
     period: "2023.04 - 2024.07",
     bullets: [
       "빠른 기능 출시와 안정적인 배포를 위해 앱 배포 환경과 운영 구조 개선에 집중했습니다.",
@@ -58,7 +58,7 @@ const experiences = [
   },
   {
     company: "디몬스터",
-    role: "Frontend Developer",
+    role: "Software Developer",
     period: "2021.04 - 2022.12",
     bullets: [
       "React Native 기반 오픈마켓, 쇼핑몰, 예약, 결제 도메인의 4~5개 프로젝트에 참여했습니다.",
@@ -107,7 +107,7 @@ export default function Profile() {
             <div className={styles.heroIdentity}>
               <h1 className={`typo-hero ${styles.heroTitle}`}>박정륭</h1>
               <div className={styles.heroMeta}>
-                <span className={styles.heroRole}>Frontend Developer</span>
+                <span className={styles.heroRole}>Software Developer</span>
                 <span className={styles.metaDivider} />
                 <Link href="mailto:wjdfbd1121@gmail.com" className={styles.heroEmail}>
                   wjdfbd1121@gmail.com
