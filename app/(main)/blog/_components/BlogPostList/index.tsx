@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
+
 import { Post } from "@/types/type";
-import PostCard from "../PostCard";
+
 import { getBlogCategoryFilters } from "../category";
+import PostCard from "../PostCard";
+
 import styles from "./blogpostlist.module.css";
 
 interface BlogPostListProps {

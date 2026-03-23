@@ -1,8 +1,10 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Metadata } from "next";
+
 import FadeInSection from "@/components/FadeInSection";
 import character from "@/public/profile.png";
+
 import styles from "./ProfilePageBackup.module.css";
 
 export const profileBackupMetadata: Metadata = {
@@ -243,7 +245,7 @@ export default function ProfilePageBackup() {
             학력<span className={styles.point}>.</span>
           </h4>
           <p className="typo-body">
-            경제학을 전공하던 중 디스코드 봇을 직접 개발하며, 처음으로 '코드를 통해 문제를 해결하는' 성취를
+            경제학을 전공하던 중 디스코드 봇을 직접 개발하며, 처음으로 &apos;코드를 통해 문제를 해결하는&apos; 성취를
             경험했습니다. 이 계기를 시작으로 본격적인 개발 공부를 시작해 현재까지 개발자로서의 성장을 이어오고 있습니다.
           </p>
         </FadeInSection>

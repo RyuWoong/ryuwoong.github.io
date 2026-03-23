@@ -1,6 +1,36 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import styles from "./page.module.css";
 import Script from "next/script";
+
+import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "RyuWoong | A Developer Worth Working With",
+  },
+  description: "문제를 함께 해결하는 프론트엔드 개발자 박정륭의 포트폴리오 메인 페이지입니다.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    url: "/",
+    title: "RyuWoong | A Developer Worth Working With",
+    description: "문제를 함께 해결하는 프론트엔드 개발자 박정륭의 포트폴리오 메인 페이지입니다.",
+    images: [
+      {
+        url: "/profile.png",
+        width: 1000,
+        height: 1000,
+        alt: "박정륭 프로필 캐릭터",
+      },
+    ],
+  },
+  twitter: {
+    title: "RyuWoong | A Developer Worth Working With",
+    description: "문제를 함께 해결하는 프론트엔드 개발자 박정륭의 포트폴리오 메인 페이지입니다.",
+    images: ["/profile.png"],
+  },
+};
 
 export default function Home() {
   return (

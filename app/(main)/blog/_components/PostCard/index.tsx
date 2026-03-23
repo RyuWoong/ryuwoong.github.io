@@ -1,8 +1,12 @@
-import { Post } from "@/types/type";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./postcard.module.css";
+
+import { Post } from "@/types/type";
+
 import CategoryLabel from "../CategoryLabel";
+
+import styles from "./postcard.module.css";
+
 
 interface PostCardProps extends Post {
   listIndex: number;

@@ -1,11 +1,11 @@
-import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
-import remarkGfm from "remark-gfm";
+import type { NextConfig } from "next";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypePrismPlus from "rehype-prism-plus";
 import rehypeCodeTitles from "rehype-code-titles";
-import remarkBreaks from "remark-breaks";
+import rehypePrismPlus from "rehype-prism-plus";
 import slug from "rehype-slug";
+import remarkBreaks from "remark-breaks";
+import remarkGfm from "remark-gfm";
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,

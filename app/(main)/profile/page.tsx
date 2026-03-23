@@ -1,13 +1,41 @@
-import Image from "next/image";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+
 import FadeInSection from "@/components/FadeInSection";
 import character from "@/public/profile.png";
+
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "박정륭 | Software Developer",
-  description: "React / React Native 기반 모바일 서비스를 개발해온 6년 차 프론트엔드 개발자 박정륭의 프로필입니다.",
+  title: {
+    absolute: "박정륭 | 보고싶은 개발자",
+  },
+  description:
+    "React / React Native 기반 모바일 서비스를 개발해온 프론트엔드 개발자 박정륭의 경력, 기술 스택, 오픈소스 활동을 정리한 프로필입니다.",
+  alternates: {
+    canonical: "/profile",
+  },
+  openGraph: {
+    url: "/profile",
+    title: "박정륭 | 보고싶은 개발자",
+    description:
+      "React / React Native 기반 모바일 서비스를 개발해온 프론트엔드 개발자 박정륭의 경력, 기술 스택, 오픈소스 활동을 정리한 프로필입니다.",
+    images: [
+      {
+        url: "/profile.png",
+        width: 1000,
+        height: 1000,
+        alt: "박정륭 프로필 캐릭터",
+      },
+    ],
+  },
+  twitter: {
+    title: "박정륭 | 보고싶은 개발자",
+    description:
+      "React / React Native 기반 모바일 서비스를 개발해온 프론트엔드 개발자 박정륭의 경력, 기술 스택, 오픈소스 활동을 정리한 프로필입니다.",
+    images: ["/profile.png"],
+  },
 };
 
 const summary = [

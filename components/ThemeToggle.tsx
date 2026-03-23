@@ -51,12 +51,19 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     const saved = (localStorage.getItem("theme") as Theme) || "dark";
-    setTheme(saved);
     document.documentElement.setAttribute("data-theme", saved);
+
+    const frameId = window.requestAnimationFrame(() => {
+      setTheme(saved);
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
   }, []);
 
   // 마운트 전에는 렌더링하지 않음 (hydration mismatch 방지)
-  if (theme === null) return null;
+  if (theme === null) {
+    return null;
+  }
 
   const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark";

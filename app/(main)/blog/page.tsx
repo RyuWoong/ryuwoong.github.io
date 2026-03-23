@@ -1,4 +1,5 @@
 import { getPosts } from "@/api/blog";
+
 import { BlogPostList } from "./_components";
 import styles from "./blog.module.css";
 

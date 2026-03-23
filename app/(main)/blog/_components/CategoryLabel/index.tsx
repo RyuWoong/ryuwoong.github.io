@@ -1,5 +1,7 @@
 import React from "react";
+
 import { getCategoryStyleName } from "../category";
+
 import styles from "./categorylabel.module.css";
 
 interface CategoryLabelProps {

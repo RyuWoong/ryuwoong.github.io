@@ -1,4 +1,5 @@
-import { memo, useState, useEffect } from "react";
+import { memo } from "react";
+
 import styles from "./snow.module.css";
 
 const SNOWFLAKE_COUNT = 50;

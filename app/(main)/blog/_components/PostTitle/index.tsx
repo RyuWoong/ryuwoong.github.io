@@ -1,8 +1,11 @@
-import React, { FC } from "react";
-import styles from "./styles.module.css";
-import Image from "next/image";
-import CategoryLabel from "../CategoryLabel";
 import dayjs from "dayjs";
+import Image from "next/image";
+import React, { FC } from "react";
+
+import CategoryLabel from "../CategoryLabel";
+
+import styles from "./styles.module.css";
+
 
 interface PostTitleProps {
   title: string;
