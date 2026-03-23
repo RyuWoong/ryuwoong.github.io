@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Birthstone_Bounce } from "next/font/google";
 import localFont from "next/font/local";
@@ -63,6 +65,8 @@ export default function RootLayout({
       <body className={`${pretendard.variable} ${birthstoneBounce.variable}`}>
         <ThemeToggle />
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
