@@ -277,13 +277,13 @@
   list-style: none;
 }
 
-.bulletList li {
+.bulletList > li {
   position: relative;
   padding-left: 1.15rem;
   color: var(--text-secondary);
 }
 
-.bulletList li::before {
+.bulletList > li::before {
   content: "";
   position: absolute;
   top: 0.6rem;
@@ -293,6 +293,97 @@
   border-radius: 999px;
   background: var(--interactive-default);
   box-shadow: 0 0 12px rgb(97 255 150 / 28%);
+}
+
+.bulletGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bulletTitleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.bulletCluster {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.bulletClusterTitle {
+  color: var(--text-primary);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semi);
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+}
+
+.bulletClusterItems {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid rgb(97 255 150 / 12%);
+  border-radius: 1rem;
+  background: rgb(97 255 150 / 04%);
+}
+
+.bulletTitle {
+  color: var(--text-primary);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semi);
+  line-height: 1.6;
+}
+
+.bulletLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.9rem;
+  padding: 0 0.7rem;
+  border: 1px solid rgb(97 255 150 / 18%);
+  border-radius: 999px;
+  color: var(--interactive-default);
+  background: rgb(97 255 150 / 06%);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semi);
+  line-height: 1;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bulletLink:hover {
+  border-color: rgb(97 255 150 / 30%);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.bulletDetailList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  list-style: none;
+}
+
+.bulletDetailItem {
+  position: relative;
+  padding-left: 0.95rem;
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  line-height: 1.7;
+}
+
+.bulletDetailItem::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  color: var(--interactive-default);
+  font-weight: var(--weight-semi);
 }
 
 .infoGrid {
@@ -410,7 +501,7 @@
   .heroTop {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    align-items: start;
+    align-items: flex-start;
     gap: 1rem;
   }
 
@@ -425,7 +516,7 @@
     grid-column: 2;
     grid-row: 1;
     justify-content: flex-end;
-    align-self: start;
+    align-self: flex-start;
     padding-top: 0;
   }
 }
