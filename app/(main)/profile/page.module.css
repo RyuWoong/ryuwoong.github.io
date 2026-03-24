@@ -113,7 +113,8 @@
 .summary p {
   letter-spacing: -0.03em;
   line-height: 1.72;
-  text-wrap: pretty;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .summary p:first-child {
@@ -406,7 +407,13 @@
     gap: 1.5rem;
   }
 
-  .heroTop,
+  .heroTop {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 1rem;
+  }
+
   .experienceRow,
   .infoGrid,
   .skillGrid {
@@ -415,21 +422,39 @@
   }
 
   .heroVisual {
-    justify-content: flex-start;
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: flex-end;
+    align-self: start;
     padding-top: 0;
   }
 }
 
 @media (max-width: 640px) {
   .container {
-    padding: 1rem 1rem 4rem;
+    padding: 1rem 0.75rem 4rem;
+  }
+
+  .heroTop {
+    gap: 0.75rem;
   }
 
   .heroSection,
   .skillCard,
   .infoCard {
-    padding: 1.25rem;
+    padding: 1rem;
     border-radius: 1.25rem;
+  }
+
+  .avatarWrap {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 1.25rem;
+  }
+
+  .avatar {
+    width: 4.25rem;
+    height: 4.25rem;
   }
 
   .heroTitle {
