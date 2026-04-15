@@ -64,11 +64,13 @@
 }
 
 .development {
-  background-color: #2563eb;
+  background-color: var(--category-development-bg);
+  color: var(--category-development-text);
 }
 
 .development:hover {
-  background-color: #1d4ed8;
+  background-color: var(--category-development-hover);
+  color: var(--category-development-text);
 }
 
 .dailylife {

@@ -129,6 +129,11 @@
   --feedback-warning-bg: var(--warning-1);
   --feedback-error-bg: var(--error-1);
   --feedback-info-bg: var(--info-1);
+
+  /* Category */
+  --category-development-bg: var(--info-5);
+  --category-development-hover: var(--info-6);
+  --category-development-text: var(--gray-12);
 }
 
 /* ----------------------------------------------
@@ -170,4 +175,9 @@
   --feedback-warning-bg: var(--warning-12);
   --feedback-error-bg: var(--error-12);
   --feedback-info-bg: var(--info-12);
+
+  /* Category */
+  --category-development-bg: var(--info-6);
+  --category-development-hover: var(--info-5);
+  --category-development-text: var(--gray-12);
 }
