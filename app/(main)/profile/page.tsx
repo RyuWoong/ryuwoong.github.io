@@ -65,9 +65,9 @@ type Experience = {
 };
 
 const summary = [
-  "React / React Native 기반 모바일 서비스를 개발해온 6년차 개발자 RyuWoong입니다.",
-  "저는 두 가지 영역에서 즐거움을 찾습니다. 하나는 사용자의 일상을 편리하게 만드는 생산성 도구를 직접 고민하고 제작하는 것이고, 다른 하나는 사용자가 마주하는 화면 너머의 데이터를 읽어 비즈니스 문제를 해결하는 것입니다.",
-  "특히 구매 퍼널 어디에서 이탈이 심한지 분석하여 원인을 찾아내고, 실제 지표가 상승하는 추이를 확인하며 마케팅 비용의 효율을 높이는 과정에 몰입합니다. 빠른 실험과 성능 최적화로 서비스와 사용자가 함께 성장하는 발판을 만듭니다.",
+  "React / React Native로 모바일 서비스의 화면, 인터랙션, 공통 컴포넌트를 설계하고 구현합니다.",
+  "사용자 행동 데이터를 읽어 구매 퍼널의 병목을 찾고, UX와 성능을 함께 개선해 전환과 운영 효율을 끌어올립니다.",
+  "CI/CD, OTA 배포, 문서화와 개발 표준을 정리해 팀이 더 빠르고 안정적으로 제품을 낼 수 있는 환경을 만듭니다.",
 ];
 
 const skillGroups = [
@@ -338,7 +338,14 @@ export default function Profile() {
 
           <div className={styles.heroVisual} aria-hidden="true">
             <div className={styles.avatarWrap}>
-              <Image className={styles.avatar} src={character} alt="박정륭 프로필 캐릭터" width={120} height={120} priority />
+              <Image
+                className={styles.avatar}
+                src={character}
+                alt="박정륭 프로필 캐릭터"
+                width={120}
+                height={120}
+                priority
+              />
             </div>
           </div>
         </div>
@@ -353,8 +360,8 @@ export default function Profile() {
 
         <div className={styles.heroHighlights}>
           <span className={styles.badge}>React / React Native</span>
-          <span className={styles.badge}>Mobile Service</span>
-          <span className={styles.badge}>Reusable UI</span>
+          <span className={styles.badge}>Design System</span>
+          <span className={styles.badge}>Funnel 개선</span>
           <span className={styles.badge}>CI/CD & OTA</span>
         </div>
       </FadeInSection>
@@ -410,11 +417,7 @@ export default function Profile() {
                 {experience.bullets.map((bullet) => (
                   <li
                     key={
-                      typeof bullet === "string"
-                        ? bullet
-                        : "groupTitle" in bullet
-                          ? bullet.groupTitle
-                          : bullet.title
+                      typeof bullet === "string" ? bullet : "groupTitle" in bullet ? bullet.groupTitle : bullet.title
                     }
                     className="typo-body"
                   >
