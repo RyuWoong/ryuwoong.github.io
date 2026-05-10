@@ -85,6 +85,25 @@ const experiences: Experience[] = [
     note: "카티니 영업양수도 이후 근무",
     bullets: [
       {
+        groupTitle: "클라우드 인프라 최적화 및 배포 자동화",
+        items: [
+          {
+            title: "배포 인프라 Serverless 전환을 통한 고정 비용 및 관리 리소스 절감",
+            details: [
+              "Microsoft App Center 서비스 종료 대응을 위해 초기 CodePush Standalone 서버 구축 후, EC2 인프라 유지 비용 절감을 위한 HotUpdater 기반 아키텍처 재설계.",
+              "기존 AWS ECS 기반 구조를 AWS S3 + Lambda 중심의 Serverless 환경으로 개편, 인프라 관리 포인트 최소화 및 운영 비용 절감.",
+            ],
+          },
+          {
+            title: "OTA(Over-the-Air) 배포 프로세스 고도화 및 속도 최적화",
+            details: [
+              "OTA 배포 속도를 기존 4~5초에서 1~2초대로 50% 이상 단축, 긴급 대응 및 서비스 운영 효율 극대화.",
+              "GitHub Actions와 Fastlane을 결합한 CI/CD 파이프라인 구축, 빌드부터 Firebase App Distribution / TestFlight 배포, Slack 알림까지 전 과정 자동화 및 안정성 개선.",
+            ],
+          },
+        ],
+      },
+      {
         groupTitle: "아키텍처 현대화 및 개발 표준 수립",
         items: [
           {
@@ -107,25 +126,6 @@ const experiences: Experience[] = [
             details: [
               "팀 내 일관된 코드 품질 유지를 위한 코딩 컨벤션 및 ESLint 설정 자체 라이브러리(NPM 패키지 등) 구축.",
               "신규 프로젝트 세팅 시간 단축, 코드 리뷰 효율 향상으로 팀 전체의 기술 부채 발생 사전 방지.",
-            ],
-          },
-        ],
-      },
-      {
-        groupTitle: "클라우드 인프라 최적화 및 배포 자동화",
-        items: [
-          {
-            title: "배포 인프라 Serverless 전환을 통한 고정 비용 및 관리 리소스 절감",
-            details: [
-              "Microsoft App Center 서비스 종료 대응을 위해 초기 CodePush Standalone 서버 구축 후, EC2 인프라 유지 비용 절감을 위한 HotUpdater 기반 아키텍처 재설계.",
-              "기존 AWS ECS 기반 구조를 AWS S3 + Lambda 중심의 Serverless 환경으로 개편, 인프라 관리 포인트 최소화 및 운영 비용 절감.",
-            ],
-          },
-          {
-            title: "OTA(Over-the-Air) 배포 프로세스 고도화 및 속도 최적화",
-            details: [
-              "OTA 배포 속도를 기존 4~5초에서 1~2초대로 50% 이상 단축, 긴급 대응 및 서비스 운영 효율 극대화.",
-              "GitHub Actions와 Fastlane을 결합한 CI/CD 파이프라인 구축, 빌드부터 Firebase App Distribution / TestFlight 배포, Slack 알림까지 전 과정 자동화 및 안정성 개선.",
             ],
           },
         ],
@@ -294,13 +294,13 @@ const experiences: Experience[] = [
 const openSourceActivities = [
   {
     name: "react-native-naver-login",
-    description: "기능 추가, 오류 수정, 에러 핸들링 개선에 기여했습니다.",
+    description: "기능 추가, 오류 수정, 에러 핸들링 개선 기여.",
     linkLabel: "Repository",
     href: "https://github.com/crossplatformkorea/react-native-naver-login",
   },
   {
     name: "react-native-naver-map",
-    description: "앱 크래시를 유발할 수 있는 엣지 케이스를 이슈로 제보했습니다.",
+    description: "앱 크래시를 유발할 수 있는 엣지 케이스 이슈 제보.",
     linkLabel: "Issue",
     href: "https://github.com/mym0404/react-native-naver-map/issues/143",
   },
@@ -327,7 +327,7 @@ export default function Profile() {
             <div className={styles.heroIdentity}>
               <h1 className={`typo-hero ${styles.heroTitle}`}>박정륭</h1>
               <div className={styles.heroMeta}>
-                <span className={styles.heroRole}>효율을 만드는 개발자</span>
+                <span className={styles.heroRole}>React Native 모바일 제품의 구조, 성능, 배포 효율을 개선하는 개발자</span>
                 <span className={styles.metaDivider} />
                 <Link href="mailto:wjdfbd1121@gmail.com" className={styles.heroEmail}>
                   wjdfbd1121@gmail.com
