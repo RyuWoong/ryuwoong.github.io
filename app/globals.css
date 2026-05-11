@@ -51,3 +51,9 @@ code {
     max-width: 1200px;
   }
 }
+
+@media print {
+  button[aria-label^="Switch to"] {
+    display: none !important;
+  }
+}
