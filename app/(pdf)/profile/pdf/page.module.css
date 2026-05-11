@@ -167,24 +167,41 @@
   object-fit: contain;
 }
 
-.summary {
-  display: grid;
-  grid-template-columns: 25mm minmax(0, 1fr);
-  gap: 6mm;
-  padding: 5mm;
+.capabilityBox {
+  display: flex;
+  flex-direction: column;
+  gap: 2.8mm;
+  padding: 4.8mm 5mm;
   border: 1px solid #dfe4ea;
   background: #f7faf8;
 }
 
-.summary p {
+.capabilityBox ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+  list-style: none;
+}
+
+.capabilityBox li {
+  position: relative;
+  padding-left: 4mm;
   color: #2e343b;
-  font-size: 9.5pt;
-  line-height: 1.62;
+  font-size: 9.2pt;
+  font-weight: 600;
+  line-height: 1.5;
   word-break: keep-all;
 }
 
-.summary p + p {
-  margin-top: 1.5mm;
+.capabilityBox li::before {
+  content: "";
+  position: absolute;
+  top: 0.62em;
+  left: 0;
+  width: 1.5mm;
+  height: 1.5mm;
+  border-radius: 999px;
+  background: #0f8f45;
 }
 
 .section {
@@ -194,7 +211,7 @@
 }
 
 .section h2,
-.summary h2 {
+.capabilityBox h2 {
   color: #101214;
   font-size: 11pt;
   font-weight: 800;

@@ -26,17 +26,18 @@ export type Experience = {
 
 export const profile = {
   name: "박정륭",
-  role: "React Native 모바일 제품의 구조, 성능, 배포 효율을 개선하는 개발자",
+  role: "6년차 Front/React Native 개발자",
   email: "wjdfbd1121@gmail.com",
   location: "Seoul, Korea",
   website: "https://ryuwoong.me",
   github: "https://github.com/RyuWoong",
 };
 
-export const summary = [
-  "React / React Native로 모바일 서비스의 화면, 인터랙션, 공통 컴포넌트를 설계하고 구현합니다.",
-  "사용자 행동 데이터를 읽어 구매 퍼널의 병목을 찾고, UX와 성능을 함께 개선해 전환과 운영 효율을 끌어올립니다.",
-  "CI/CD, OTA 배포, 문서화와 개발 표준을 정리해 팀이 더 빠르고 안정적으로 제품을 낼 수 있는 환경을 만듭니다.",
+export const whatIDo = [
+  "6년차 React Native 개발자로 모바일 앱 화면과 기능을 구현합니다.",
+  "프로젝트 요구사항을 정리하고 일정, 우선순위, 기술 방향을 리딩합니다.",
+  "앱 구조, 상태 관리, 네이티브 연동, 배포 방식을 설계합니다.",
+  "성능 최적화, OTA 배포 자동화, 퍼널 분석 기반 개선을 수행합니다.",
 ];
 
 export const skillGroups = [

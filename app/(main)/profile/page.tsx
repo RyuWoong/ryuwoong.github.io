@@ -6,7 +6,15 @@ import FadeInSection from "@/components/FadeInSection";
 import character from "@/public/profile.png";
 
 import styles from "./page.module.css";
-import { education, experiences, militaryService, openSourceActivities, profile, skillGroups, summary } from "./profile-data";
+import {
+  education,
+  experiences,
+  militaryService,
+  openSourceActivities,
+  profile,
+  skillGroups,
+  whatIDo,
+} from "./profile-data";
 
 export const metadata: Metadata = {
   title: {
@@ -73,7 +81,7 @@ export default function Profile() {
         </div>
 
         <div className={styles.summary}>
-          {summary.map((paragraph) => (
+          {whatIDo.map((paragraph) => (
             <p key={paragraph} className="typo-body-lg">
               {paragraph}
             </p>
@@ -81,9 +89,9 @@ export default function Profile() {
         </div>
 
         <div className={styles.heroHighlights}>
-          <span className={styles.badge}>React / React Native</span>
+          <span className={styles.badge}>Front / React Native</span>
+          <span className={styles.badge}>Project Leading</span>
           <span className={styles.badge}>Design System</span>
-          <span className={styles.badge}>Funnel 개선</span>
           <span className={styles.badge}>CI/CD & OTA</span>
         </div>
       </FadeInSection>
