@@ -19,7 +19,12 @@ export default function RootLayout({
             <Link href="/blog">Blog</Link>
           </li>
           <li>
-            <Link href="https://github.com/RyuWoong" target="_blank">
+            <Link href="https://studio.cogicode.com" target="_blank" rel="noreferrer">
+              Studio
+            </Link>
+          </li>
+          <li>
+            <Link href="https://github.com/RyuWoong" target="_blank" rel="noreferrer">
               Github
             </Link>
           </li>
