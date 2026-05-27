@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 const selectedOutcomes = [
   "OTA 배포 속도 4~5초에서 1~2초대로 50% 이상 단축",
-  "CodePush 번들 30~40MB에서 10MB 수준으로 70% 이상 축소",
+  "딥링크 시스템 구축으로 마케팅 캠페인 운영 리드타임 단축",
   "앱 크기 70~80MB 수준에서 50MB 이하로 경량화",
   "GitHub Actions와 Fastlane 기반 앱 배포 자동화 구축",
   "Firebase Analytics와 Amplitude 기반 구매 퍼널 이탈 지점 분석",
@@ -230,28 +230,26 @@ export default function ResumePdfPage() {
       </section>
 
       <section className={`${styles.sheet} ${styles.activitiesSheet}`} aria-label="기타 활동 및 학력">
-        <div className={styles.sheetHeader}>
+        <header className={styles.sheetHeader}>
           <p>Activities & Background</p>
           <span>{profile.name}</span>
-        </div>
+        </header>
 
-        <div className={styles.bottomGrid}>
-          <section className={styles.sideSection}>
-            <h3>Open Source</h3>
-            <ul className={styles.activityList}>
-              {openSourceActivities.map((activity) => (
-                <li key={activity.name}>
-                  <strong>{activity.name}</strong>
-                  <p>{activity.description}</p>
-                  <span>{activity.href.replace("https://github.com/", "github.com/")}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
+        <section className={styles.sideSection}>
+          <h3>Open Source</h3>
+          <ul className={styles.activityList}>
+            {openSourceActivities.map((activity) => (
+              <li key={activity.name}>
+                <strong>{activity.name}</strong>
+                <p>{activity.description}</p>
+                <span>{activity.href.replace("https://github.com/", "github.com/")}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-          {renderTimeline("Education", education)}
-          {renderTimeline("Military Service", militaryService)}
-        </div>
+        {renderTimeline("Education", education)}
+        {renderTimeline("Military Service", militaryService)}
 
         <footer className={styles.pageFooter}>4 / 4</footer>
       </section>

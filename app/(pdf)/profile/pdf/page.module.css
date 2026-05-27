@@ -440,12 +440,8 @@
   word-break: keep-all;
 }
 
-.bottomGrid {
-  display: flex;
-  flex-direction: column;
+.activitiesSheet {
   gap: 6mm;
-  padding-top: 4mm;
-  border-top: 1px solid #dfe4ea;
 }
 
 .sideSection {
