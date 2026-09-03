@@ -11,6 +11,11 @@
   font-family: var(--font-sans);
 }
 
+.cjResume {
+  --cj-body-copy-size: 8.7pt;
+  --cj-small-copy-size: 8.3pt;
+}
+
 .toolbar {
   display: flex;
   width: 210mm;
@@ -38,6 +43,20 @@
 .printButton {
   border-color: #0f6b36;
   background: #0f6b36;
+  color: #ffffff;
+}
+
+.toolbar .backLink:hover,
+.toolbar .backLink:focus-visible {
+  border-color: #94a3b8;
+  background: #f8fafc;
+  color: #101214;
+}
+
+.toolbar .printButton:hover,
+.toolbar .printButton:focus-visible {
+  border-color: #0b5a2d;
+  background: #0b5a2d;
   color: #ffffff;
 }
 
@@ -501,6 +520,55 @@
   color: #7b858f;
   font-size: 7.5pt;
   font-weight: 700;
+}
+
+.cjResume .outcomeGrid li,
+.cjResume .workItem li,
+.cjResume .plainBullet,
+.cjResume .capabilityBox li {
+  display: grid;
+  grid-template-columns: 1.8mm minmax(0, 1fr);
+  gap: 0 2.2mm;
+  align-items: start;
+  padding-left: 0;
+}
+
+.cjResume .outcomeGrid li::before,
+.cjResume .workItem li::before,
+.cjResume .plainBullet::before,
+.cjResume .capabilityBox li::before {
+  position: static;
+  width: 1.55mm;
+  height: 1.55mm;
+  margin-top: 0.54em;
+}
+
+.cjResume .capabilityBox li {
+  font-size: 9.5pt;
+}
+
+.cjResume .outcomeGrid li {
+  font-size: 9.3pt;
+}
+
+.cjResume .workTitle {
+  font-size: 9pt;
+}
+
+.cjResume .workItem li,
+.cjResume .plainBullet {
+  font-size: var(--cj-body-copy-size);
+}
+
+.cjResume .activityList strong,
+.cjResume .timeline span {
+  font-size: var(--cj-small-copy-size);
+}
+
+.cjResume .activityList p,
+.cjResume .activityList span,
+.cjResume .timeline p {
+  font-size: var(--cj-small-copy-size);
 }
 
 @media screen and (max-width: 900px) {
