@@ -74,15 +74,8 @@ export default function PostLayout({ children }: { children: React.ReactNode }) 
 
             const placeToc = () => {
               if (mobileQuery.matches) {
-                const anchor = postContent.firstElementChild;
-
                 targetDiv.classList.add("is-inline");
-
-                if (anchor) {
-                  anchor.insertAdjacentElement("afterend", targetDiv);
-                } else {
-                  postContent.prepend(targetDiv);
-                }
+                postContent.prepend(targetDiv);
               } else {
                 targetDiv.classList.remove("is-inline");
                 postContent.insertAdjacentElement("afterend", targetDiv);
