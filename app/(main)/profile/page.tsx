@@ -93,6 +93,7 @@ export default function Profile() {
           <span className={styles.badge}>Project Leading</span>
           <span className={styles.badge}>Design System</span>
           <span className={styles.badge}>CI/CD & OTA</span>
+          <span className={styles.badge}>Notion / AX</span>
         </div>
       </FadeInSection>
 

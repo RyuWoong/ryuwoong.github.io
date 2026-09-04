@@ -35,6 +35,7 @@ const selectedOutcomes = [
   "GitHub Actions와 Fastlane 기반 앱 배포 자동화 구축",
   "Firebase Analytics와 Amplitude 기반 구매 퍼널 이탈 지점 분석",
   "퍼널 분석 기반 UI/UX 개선으로 결제 전환과 ROAS 효율 개선",
+  "Notion·미러 DB·Slack 기반 내부 에이전트봇 구축 및 응답 시간 1분 이내 개선",
 ];
 
 function MailIcon() {

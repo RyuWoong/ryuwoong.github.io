@@ -1,6 +1,6 @@
 import type { Experience } from "@/app/(main)/profile/profile-data";
 
-export const cjProfile = {
+export const skProfile = {
   name: "박정륭",
   role: "React Native / Frontend Developer",
   email: "wjdfbd1121@gmail.com",
@@ -8,13 +8,14 @@ export const cjProfile = {
   github: "https://github.com/RyuWoong",
 };
 
-export const cjSummary = [
+export const skSummary = [
   "React / React Native 기반 모바일 서비스를 개발해온 6년 차 프론트엔드 개발자입니다.",
   "앱 구조 설계, 네이티브 연동, OTA 배포 자동화, 데이터 기반 퍼널 개선, 재사용 가능한 UI 컴포넌트 설계에 강점이 있습니다.",
+  "사내 AX 도입을 위해 Notion과 미러 DB에 업무 데이터를 모으고 내부 에이전트가 활용할 수 있는 기반을 구축해왔습니다.",
   "고객 접점이 많은 서비스에서 안정적인 앱 경험과 빠른 운영 대응 체계를 만드는 데 기여하고 싶습니다.",
 ];
 
-export const cjCoreStrengths = [
+export const skCoreStrengths = [
   "React Native 기반 모바일 앱 개발 및 운영",
   "CodePush / HotUpdater 기반 OTA 배포 구조 구축 및 최적화",
   "GitHub Actions, Fastlane 기반 모바일 CI/CD 자동화",
@@ -22,26 +23,28 @@ export const cjCoreStrengths = [
   "딥링크, 유니버설 링크, 캠페인 링크 운영 체계 설계 및 문서화",
   "Firebase Analytics, Amplitude 기반 구매 퍼널 분석 및 UI/UX 개선",
   "디자인 시스템 및 재사용 가능한 컴포넌트 구축",
+  "Notion·미러 DB·Slack 기반 내부 에이전트봇 구축 및 Skills/MCP 기반 응답 최적화",
   "Codex, Claude Code 등 생성형 AI를 활용한 코드 구조화, 리팩토링, 문서화 생산성 개선",
 ];
 
-export const cjSelectedOutcomes = [
+export const skSelectedOutcomes = [
   "OTA 배포 속도 4~5초에서 1~2초대로 50% 이상 단축",
   "CodePush 번들 30~40MB에서 10MB 수준으로 70% 이상 축소",
   "앱 크기 70~80MB 수준에서 50MB 이하로 경량화",
   "CodePush 롤백 발생 건수 약 50% 감소",
   "RN WebApp Boilerplate 구축으로 신규 프로젝트 착수 리소스 약 30% 절감",
   "마케팅팀이 직접 캠페인 링크를 운영할 수 있는 딥링크 가이드라인 문서화",
+  "Notion·미러 DB·Slack 기반 내부 에이전트봇 구축, 응답 시간 1분 이내 개선",
 ];
 
-export const cjSkillGroups = [
+export const skSkillGroups = [
   { label: "Frontend / Mobile", items: ["React", "React Native", "TypeScript", "JavaScript", "Reanimated", "React Query"] },
   { label: "Delivery / Operation", items: ["CodePush", "HotUpdater", "GitHub Actions", "Fastlane", "Firebase App Distribution", "TestFlight"] },
   { label: "Data / Growth", items: ["Firebase Analytics", "Amplitude", "DeepLink", "Universal Links", "Funnel Analysis"] },
-  { label: "Collaboration", items: ["Product / Design / Marketing 협업", "Git-based 문서 협업", "MDX/Nextra", "개발 컨벤션 정리"] },
+  { label: "Collaboration", items: ["Product / Design / Marketing 협업", "Git-based 문서 협업", "Notion·미러 DB / Agent", "MDX/Nextra", "개발 컨벤션 정리"] },
 ];
 
-export const cjExperiences: Experience[] = [
+export const skExperiences: Experience[] = [
   {
     company: "딜러타이어",
     role: "Software Developer",
@@ -107,20 +110,23 @@ export const cjExperiences: Experience[] = [
         ],
       },
       {
-        groupTitle: "사내 위키 및 협업 프로세스 구축",
+        groupTitle: "사내 지식 자산화 및 AX 기반 협업 프로세스 구축",
         items: [
           {
-            title: "Nextra / MDX 기반 기술 문서 시스템 구축",
+            title: "Nextra / MDX 위키의 한계 분석 및 Notion 기반 전환",
             details: [
-              "파편화된 기술 문서와 온보딩 가이드를 통합하기 위해 Nextra와 MDX 기반 사내 위키를 직접 설계하고 개발했습니다.",
-              "문서 변경을 GitHub PR 기반으로 검토하고 반영하는 흐름을 도입해, 개발자와 비개발 직군이 같은 기준의 운영 문서를 참고할 수 있게 했습니다.",
+              "Nextra / MDX 기반 사내 위키를 구축했지만, 개발자 중심의 작성·배포 방식으로 모든 조직원이 편하게 사용하기 어려운 한계를 확인했습니다.",
+              "전 조직원이 업무 중 자연스럽게 기록하고 기존 자료도 쉽게 정리할 수 있도록 Notion 기반 업무 데이터 공간으로 전환하는 방향을 제안했습니다.",
+              "업무 문서와 온보딩 자료를 한곳에 모아 검색·재사용할 수 있도록 데이터베이스와 문서화 흐름을 정리했습니다.",
             ],
           },
           {
-            title: "온보딩 및 부서 간 정보 비대칭 개선",
+            title: "Notion·미러 DB·Slack 기반 내부 에이전트봇 구축 및 응답 시간 개선",
             details: [
-              "신규 입사자 가이드, 기술 스택 문서, 운영 가이드를 표준화해 온보딩 리소스를 줄였습니다.",
-              "반복 질문이 발생하던 업무 흐름을 문서와 가이드로 정리하고, 비개발 직군도 마크다운 기반 협업 흐름에 참여할 수 있도록 안내했습니다.",
+              "팀원이 자연어로 질문하면 Notion과 미러 DB를 읽고 필요한 업무 답변을 제공하는 내부 에이전트봇을 구축했습니다.",
+              "Slack 스레드에서 공유된 유용한 이야기와 업무 인사이트를 토막 지식으로 저장할 수 있도록 해, 대화 속 정보가 업무 데이터로 축적되게 했습니다.",
+              "초기에는 답변 시간이 오래 걸렸지만, 실제 사용 요구사항을 수집하며 Skills와 MCP를 활용한 처리 흐름으로 개선했습니다.",
+              "반복적인 탐색·정리 과정을 자동화하고 답변 시간을 1분 이내로 단축해 사내 AX 활용성을 높였습니다.",
             ],
           },
         ],
@@ -226,7 +232,7 @@ export const cjExperiences: Experience[] = [
   },
 ];
 
-export const cjOpenSourceActivities = [
+export const skOpenSourceActivities = [
   {
     name: "react-native-naver-login",
     description: "기능 추가, 오류 수정, 에러 핸들링 개선에 기여했습니다.",
@@ -239,15 +245,15 @@ export const cjOpenSourceActivities = [
   },
 ];
 
-export const cjGrowthDirection = [
+export const skGrowthDirection = [
   "React Native New Architecture, OTA 배포 인프라, 서버리스 운영 구조, AI 기반 개발 환경처럼 실제 서비스 운영에 영향을 주는 기술을 중심으로 학습하고 적용해왔습니다.",
   "생성형 AI를 단순 코드 작성 보조 도구가 아니라, 코드 구조를 예측 가능하게 만들고 문서화와 리팩토링 속도를 높이는 협업 도구로 활용하고 있습니다.",
   "고객 접점이 많은 서비스에서 빠르게 실험하고 안정적으로 배포할 수 있는 개발 환경을 만드는 데 집중하고자 합니다.",
 ];
 
-export const cjEducation = [
+export const skEducation = [
   { period: "2019.02", detail: "경제학 학사 졸업" },
   { period: "2019.05", detail: "정보처리기사 취득" },
 ];
 
-export const cjMilitaryService = [{ period: "2014.03 - 2016.02", detail: "해군 병장 만기 전역" }];
+export const skMilitaryService = [{ period: "2014.03 - 2016.02", detail: "해군 병장 만기 전역" }];

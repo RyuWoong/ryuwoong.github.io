@@ -5,28 +5,28 @@ import type { Experience } from "@/app/(main)/profile/profile-data";
 
 import styles from "../pdf/page.module.css";
 
-import {
-  cjCoreStrengths,
-  cjEducation,
-  cjExperiences,
-  cjGrowthDirection,
-  cjMilitaryService,
-  cjOpenSourceActivities,
-  cjProfile,
-  cjSkillGroups,
-  cjSummary,
-} from "./cj-food-resume-data";
 import PrintButton from "./PrintButton";
 import ProfileVisual from "./ProfileVisual";
 import ScrollTopButton from "./ScrollTopButton";
+import {
+  skCoreStrengths,
+  skEducation,
+  skExperiences,
+  skGrowthDirection,
+  skMilitaryService,
+  skOpenSourceActivities,
+  skProfile,
+  skSkillGroups,
+  skSummary,
+} from "./sk-electlink-resume-data";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "박정륭 CJ푸드빌 맞춤 이력서",
+    absolute: "박정륭 SK Electlink 이력서",
   },
-  description: "CJ푸드빌 지원을 위한 박정륭 맞춤형 A4 PDF 출력용 이력서입니다.",
+  description: "SK Electlink 지원을 위한 박정륭 A4 PDF 출력용 이력서입니다.",
   alternates: {
-    canonical: "/profile/cj-food",
+    canonical: "/profile/sk-electlink",
   },
 };
 
@@ -124,11 +124,11 @@ function renderTimeline(title: string, items: { period: string; detail: string }
   );
 }
 
-export default function CjFoodResumePage() {
-  const currentExperience = cjExperiences[0];
+export default function SkElectlinkResumePage() {
+  const currentExperience = skExperiences[0];
 
   return (
-    <main className={`${styles.page} ${styles.cjResume}`}>
+    <main className={`${styles.page} ${styles.skResume}`}>
       <div className={styles.toolbar}>
         <Link href="/profile" className={styles.backLink}>
           프로필로 돌아가기
@@ -140,20 +140,20 @@ export default function CjFoodResumePage() {
       </div>
       <ScrollTopButton />
 
-      <section className={`${styles.sheet} ${styles.coverSheet}`} aria-label="CJ푸드빌 맞춤 이력서 첫 페이지">
+      <section className={`${styles.sheet} ${styles.coverSheet}`} aria-label="SK Electlink 이력서 첫 페이지">
         <header className={styles.hero}>
           <div>
-            <p className={styles.eyebrow}>CJ Foodville Resume</p>
-            <h1>{cjProfile.name}</h1>
-            <p className={styles.role}>{cjProfile.role}</p>
+            <p className={styles.eyebrow}>SK Electlink Resume</p>
+            <h1>{skProfile.name}</h1>
+            <p className={styles.role}>{skProfile.role}</p>
             <address className={styles.heroContact}>
-              <a href={`mailto:${cjProfile.email}`}>
+              <a href={`mailto:${skProfile.email}`}>
                 <MailIcon />
-                {cjProfile.email}
+                {skProfile.email}
               </a>
-              <a href={cjProfile.website}>
+              <a href={skProfile.website}>
                 <AtSignIcon />
-                {cjProfile.website.replace("https://", "")}
+                {skProfile.website.replace("https://", "")}
               </a>
             </address>
           </div>
@@ -162,7 +162,7 @@ export default function CjFoodResumePage() {
 
         <section className={styles.capabilityBox}>
           <ul>
-            {cjSummary.map((item) => (
+            {skSummary.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
@@ -171,7 +171,7 @@ export default function CjFoodResumePage() {
         <section className={styles.section}>
           <h2>매칭 포인트</h2>
           <ul className={styles.outcomeGrid}>
-            {cjCoreStrengths.map((strength) => (
+            {skCoreStrengths.map((strength) => (
               <li key={strength}>{strength}</li>
             ))}
           </ul>
@@ -180,7 +180,7 @@ export default function CjFoodResumePage() {
         <section className={styles.section}>
           <h2>Skills</h2>
           <div className={styles.skillGrid}>
-            {cjSkillGroups.map((group) => (
+            {skSkillGroups.map((group) => (
               <div key={group.label} className={styles.skillGroup}>
                 <h3>{group.label}</h3>
                 <p>{group.items.join(" / ")}</p>
@@ -195,7 +195,7 @@ export default function CjFoodResumePage() {
       <section className={styles.sheet} aria-label="현재 경력 상세">
         <div className={styles.sheetHeader}>
           <p>Experience Detail</p>
-          <span>{cjProfile.name}</span>
+          <span>{skProfile.name}</span>
         </div>
         {renderExperience(currentExperience, true)}
         <footer className={styles.pageFooter}>2 / 4</footer>
@@ -204,9 +204,9 @@ export default function CjFoodResumePage() {
       <section className={styles.sheet} aria-label="이전 경력 상세">
         <div className={styles.sheetHeader}>
           <p>Previous Experience</p>
-          <span>{cjProfile.name}</span>
+          <span>{skProfile.name}</span>
         </div>
-        <div className={styles.compactCareer}>{cjExperiences.slice(1).map((experience) => renderExperience(experience, true))}</div>
+        <div className={styles.compactCareer}>{skExperiences.slice(1).map((experience) => renderExperience(experience, true))}</div>
         <footer className={styles.pageFooter}>3 / 4</footer>
       </section>
 
@@ -214,7 +214,7 @@ export default function CjFoodResumePage() {
         <section className={styles.sideSection}>
           <h3>Growth Direction</h3>
           <ul className={styles.activityList}>
-            {cjGrowthDirection.map((item) => (
+            {skGrowthDirection.map((item) => (
               <li key={item}>
                 <p>{item}</p>
               </li>
@@ -225,7 +225,7 @@ export default function CjFoodResumePage() {
         <section className={styles.sideSection}>
           <h3>Open Source</h3>
           <ul className={styles.activityList}>
-            {cjOpenSourceActivities.map((activity) => (
+            {skOpenSourceActivities.map((activity) => (
               <li key={activity.name}>
                 <strong>{activity.name}</strong>
                 <p>{activity.description}</p>
@@ -235,8 +235,8 @@ export default function CjFoodResumePage() {
           </ul>
         </section>
 
-        {renderTimeline("Education / Certification", cjEducation)}
-        {renderTimeline("Military Service", cjMilitaryService)}
+        {renderTimeline("Education / Certification", skEducation)}
+        {renderTimeline("Military Service", skMilitaryService)}
 
         <footer className={styles.pageFooter}>4 / 4</footer>
       </section>

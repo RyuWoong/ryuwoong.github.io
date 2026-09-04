@@ -38,13 +38,14 @@ export const whatIDo = [
   "프로젝트 요구사항을 정리하고 일정, 우선순위, 기술 방향을 리딩합니다.",
   "앱 구조, 상태 관리, 네이티브 연동, 배포 방식을 설계합니다.",
   "성능 최적화, OTA 배포 자동화, 퍼널 분석 기반 개선을 수행합니다.",
+  "사내 AX 도입을 위해 Notion과 미러 DB에 업무 데이터를 모으고 내부 에이전트가 활용할 수 있는 기반을 만듭니다.",
 ];
 
 export const skillGroups = [
   { label: "Frontend", items: ["React", "React Native", "TypeScript", "JavaScript"] },
   { label: "UI/UX", items: ["Reanimated", "Design System", "Reusable Component", "Interaction"] },
   { label: "Delivery", items: ["GitHub Actions", "Fastlane", "CodePush", "HotUpdater"] },
-  { label: "Collaboration", items: ["Product / Design / Marketing 협업", "문서화", "운영 자동화"] },
+  { label: "Collaboration", items: ["Product / Design / Marketing 협업", "문서화", "Notion·미러 DB / Agent", "운영 자동화"] },
 ];
 
 export const experiences: Experience[] = [
@@ -120,20 +121,23 @@ export const experiences: Experience[] = [
         ],
       },
       {
-        groupTitle: "사내 지식 자산화 및 협업 프로세스 혁신",
+        groupTitle: "사내 지식 자산화 및 AX 기반 협업 프로세스 혁신",
         items: [
           {
-            title: "Nextra 기반의 마크다운(MDX) 사내 위키 시스템 구축",
+            title: "Nextra / MDX 위키의 한계 분석 및 Notion 기반 전환",
             details: [
-              "파편화된 기술 문서와 온보딩 가이드 통합을 위한 Nextra와 MDX 기반 위키 시스템 직접 설계 및 개발.",
-              "문서 수정 시 GitHub PR을 통해 검토 후 반영되는 Git-based Workflow 정착, 문서 신뢰도 향상 및 체계적인 히스토리 관리 환경 구축.",
+              "Nextra / MDX 기반 사내 위키를 구축했지만, 개발자 중심의 작성·배포 방식으로 모든 조직원이 편하게 사용하기 어려운 한계를 확인.",
+              "전 조직원이 업무 중 자연스럽게 기록하고 기존 자료도 쉽게 정리할 수 있도록 Notion 기반 업무 데이터 공간으로 전환하는 방향을 제안.",
+              "업무 문서와 온보딩 자료를 한곳에 모아 검색·재사용할 수 있도록 데이터베이스와 문서화 흐름을 정리.",
             ],
           },
           {
-            title: "전사적 온보딩 및 협업 효율 극대화",
+            title: "Notion·미러 DB·Slack 기반 내부 에이전트봇 구축 및 응답 시간 개선",
             details: [
-              "신규 입사자를 위한 가이드라인과 기술 스택 문서 표준화로 초기 온보딩 리소스 단축.",
-              "개발자뿐만 아니라 비개발 직군도 마크다운 기반 협업 흐름에 참여할 수 있도록 가이드, 팀 간 정보 비대칭 해소.",
+              "팀원이 자연어로 질문하면 Notion과 미러 DB를 읽고 필요한 업무 답변을 제공하는 내부 에이전트봇을 구축했습니다.",
+              "Slack 스레드에서 공유된 유용한 이야기와 업무 인사이트를 토막 지식으로 저장할 수 있도록 해, 대화 속 정보가 업무 데이터로 축적되게 함.",
+              "초기에는 답변 시간이 오래 걸렸지만, 실제 사용 요구사항을 수집하며 Skills와 MCP를 활용한 처리 흐름으로 개선.",
+              "반복적인 탐색·정리 과정을 자동화하고 답변 시간을 1분 이내로 단축해 사내 AX 활용성을 높임.",
             ],
           },
         ],

@@ -11,9 +11,9 @@
   font-family: var(--font-sans);
 }
 
-.cjResume {
-  --cj-body-copy-size: 8.7pt;
-  --cj-small-copy-size: 8.3pt;
+.skResume {
+  --sk-body-copy-size: 8.7pt;
+  --sk-small-copy-size: 8.3pt;
 }
 
 .toolbar {
@@ -522,10 +522,10 @@
   font-weight: 700;
 }
 
-.cjResume .outcomeGrid li,
-.cjResume .workItem li,
-.cjResume .plainBullet,
-.cjResume .capabilityBox li {
+.skResume .outcomeGrid li,
+.skResume .workItem li,
+.skResume .plainBullet,
+.skResume .capabilityBox li {
   display: grid;
   grid-template-columns: 1.8mm minmax(0, 1fr);
   gap: 0 2.2mm;
@@ -533,42 +533,42 @@
   padding-left: 0;
 }
 
-.cjResume .outcomeGrid li::before,
-.cjResume .workItem li::before,
-.cjResume .plainBullet::before,
-.cjResume .capabilityBox li::before {
+.skResume .outcomeGrid li::before,
+.skResume .workItem li::before,
+.skResume .plainBullet::before,
+.skResume .capabilityBox li::before {
   position: static;
   width: 1.55mm;
   height: 1.55mm;
   margin-top: 0.54em;
 }
 
-.cjResume .capabilityBox li {
+.skResume .capabilityBox li {
   font-size: 9.5pt;
 }
 
-.cjResume .outcomeGrid li {
+.skResume .outcomeGrid li {
   font-size: 9.3pt;
 }
 
-.cjResume .workTitle {
+.skResume .workTitle {
   font-size: 9pt;
 }
 
-.cjResume .workItem li,
-.cjResume .plainBullet {
-  font-size: var(--cj-body-copy-size);
+.skResume .workItem li,
+.skResume .plainBullet {
+  font-size: var(--sk-body-copy-size);
 }
 
-.cjResume .activityList strong,
-.cjResume .timeline span {
-  font-size: var(--cj-small-copy-size);
+.skResume .activityList strong,
+.skResume .timeline span {
+  font-size: var(--sk-small-copy-size);
 }
 
-.cjResume .activityList p,
-.cjResume .activityList span,
-.cjResume .timeline p {
-  font-size: var(--cj-small-copy-size);
+.skResume .activityList p,
+.skResume .activityList span,
+.skResume .timeline p {
+  font-size: var(--sk-small-copy-size);
 }
 
 @media screen and (max-width: 900px) {
