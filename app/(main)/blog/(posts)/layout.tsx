@@ -98,13 +98,19 @@ export default function PostLayout({ children }: { children: React.ReactNode }) 
 
             const syncActiveLink = () => {
               const offset = 128;
+              const isAtBottom =
+                window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1;
               let activeItem = tocItems[0];
 
-              for (const item of tocItems) {
-                if (item.heading.getBoundingClientRect().top <= offset) {
-                  activeItem = item;
-                } else {
-                  break;
+              if (isAtBottom) {
+                activeItem = tocItems[tocItems.length - 1];
+              } else {
+                for (const item of tocItems) {
+                  if (item.heading.getBoundingClientRect().top <= offset) {
+                    activeItem = item;
+                  } else {
+                    break;
+                  }
                 }
               }
 
@@ -146,6 +152,8 @@ export default function PostLayout({ children }: { children: React.ReactNode }) 
                   userToggledOnMobile = false;
                   setExpanded(false);
                 }
+
+                requestAnimationFrame(syncActiveLink);
               });
             }
 
