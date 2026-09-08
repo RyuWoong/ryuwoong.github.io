@@ -1,114 +1,201 @@
 .page {
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   min-height: 100svh;
-  padding: 80px 24px;
-  position: relative;
-  overflow: hidden;
+  padding: 36px clamp(24px, 6vw, 96px);
   background: var(--bg-primary);
-}
-
-.background {
-  position: absolute;
-  inset: 0;
+  color: var(--text-primary);
   overflow: hidden;
-  pointer-events: none;
 }
 
-.glassOrbit {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: min(76vw, 900px);
-  aspect-ratio: 1;
-  border: 1px solid var(--glass-edge);
-  border-radius: 50%;
-  transform: translate(-50%, -50%) rotate(-28deg) scaleY(0.68);
-  background: linear-gradient(155deg, var(--glass-highlight), transparent 35%, var(--glass-tint));
-  box-shadow: inset 0 2px 4px var(--glass-highlight), 0 32px 70px rgb(0 0 0 / 8%);
+.signature {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-right: 48px;
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
 }
 
-.glassOrbit::after {
-  content: "";
-  position: absolute;
-  inset: 36px;
-  border: 1px solid var(--border-subtle);
-  border-radius: inherit;
+.signature span {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 .content {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 580px);
-}
-
-.enterLink {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5rem;
-  padding: clamp(40px, 7vw, 80px) 24px;
-  border: 1px solid var(--glass-edge);
-  border-radius: 40px;
-  background: var(--glass-fill);
-  box-shadow: var(--glass-shadow);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.enterLink:hover {
-  transform: translateY(-5px);
-  border-color: var(--border-strong);
-}
-
-.titleWrapper {
-  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 64px auto;
+  text-align: center;
 }
 
 .title {
-  font-family: var(--font-sans);
-  font-size: clamp(4.5rem, 12vw, 8rem);
-  font-weight: 600;
+  margin: 0;
+  font-size: clamp(76px, 16vw, 210px);
+  font-weight: 750;
   letter-spacing: -0.075em;
-  line-height: 0.95;
-  text-align: center;
-  color: var(--text-primary);
+  line-height: 1.2;
 }
 
-.titleLine {
+.sequence {
+  position: relative;
   display: block;
+  height: 1.35em;
+  overflow: hidden;
 }
 
-.titleLine:nth-child(2) {
-  color: var(--text-secondary);
-}
-
-.subtitle {
+.word {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
-  gap: 12px;
-  color: var(--text-secondary);
-  font-size: var(--text-sm);
-  text-align: center;
+  justify-content: center;
+  transform-origin: center;
+  white-space: nowrap;
+  opacity: 0;
+  animation: wordPass 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.subtitle::after {
-  content: "↗";
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--border-default);
-  border-radius: 50%;
-  background: var(--glass-tint);
+.hello {
+  font-size: 0.62em;
+  letter-spacing: -0.065em;
+  animation-name: greeting;
+  animation-duration: 1200ms;
+}
+
+.app { animation-delay: 1200ms; }
+.web { animation-delay: 1900ms; }
+.ax { animation-delay: 2600ms; }
+
+.me {
+  opacity: 1;
+  animation: arrive 800ms cubic-bezier(0.16, 1, 0.3, 1) 3300ms both;
+}
+
+.introduction {
+  margin: 20px 0 36px;
+  animation: reveal 650ms ease 3650ms both;
+}
+
+.name {
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.name span {
+  margin-left: 8px;
+  color: var(--text-muted);
+  font-size: 0.65em;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.description {
+  margin-top: 12px;
+  font-size: clamp(14px, 1.6vw, 18px);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+.enterLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 36px;
+  min-height: 48px;
+  padding: 0 0 6px;
+  border-bottom: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.enterLink span {
+  font-size: 24px;
+  transition: transform 180ms ease;
+}
+
+.enterLink:hover span {
+  transform: translateX(6px);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  color: var(--text-muted);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+.track {
+  display: block;
+  width: 100px;
+  height: 1px;
+  background: var(--border-default);
+  overflow: hidden;
+}
+
+.track > span {
+  display: block;
+  height: 100%;
+  background: var(--text-secondary);
+  transform-origin: left;
+  animation: progress 4100ms linear both;
+}
+
+.accessibleTitle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@keyframes greeting {
+  0%, 70% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-80%); }
+}
+
+@keyframes wordPass {
+  0% { opacity: 0; transform: translateY(85%) rotate(3deg); }
+  25%, 65% { opacity: 1; transform: translateY(0) rotate(0); }
+  100% { opacity: 0; transform: translateY(-85%) rotate(-3deg); }
+}
+
+@keyframes arrive {
+  from { opacity: 0; transform: translateY(90%) rotate(3deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 @media (max-width: 640px) {
-  .glassOrbit {
-    width: 140vw;
-  }
-  .enterLink {
-    border-radius: 32px;
-  }
+  .page { padding: 28px 24px; }
+  .content { margin: 72px auto; }
+  .title { font-size: clamp(70px, 19vw, 120px); }
+  .hello { font-size: 0.58em; }
+  .introduction { margin: 24px 0 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word { display: none; animation: none; }
+  .me { display: flex; opacity: 1; transform: none; }
+  .introduction, .track > span { animation: none; }
 }

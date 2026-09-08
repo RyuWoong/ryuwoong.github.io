@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Script from "next/script";
 
 import styles from "./page.module.css";
 
@@ -35,38 +34,30 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className={styles.page}>
-      <div className={styles.background} aria-hidden="true">
-        <div className={styles.glassOrbit} />
-      </div>
-
+      <header className={styles.signature}>RyuWoong<span>Software Developer</span></header>
       <main className={styles.content}>
+        <h1 className={styles.title}>
+          <span className={styles.accessibleTitle}>Hello, World. App, Web, AX. It’s me. 박정륭.</span>
+          <span className={styles.sequence} aria-hidden="true">
+            <span className={`${styles.word} ${styles.hello}`}>Hello, World.</span>
+            <span className={`${styles.word} ${styles.app}`}>App</span>
+            <span className={`${styles.word} ${styles.web}`}>Web</span>
+            <span className={`${styles.word} ${styles.ax}`}>AX</span>
+            <span className={`${styles.word} ${styles.me}`}>It’s me.</span>
+          </span>
+        </h1>
+        <div className={styles.introduction}>
+          <p className={styles.name}>박정륭 <span>/ RyuWoong</span></p>
+          <p className={styles.description}>더 나은 경험을 만들고, 문제를 해결하는 사람</p>
+        </div>
         <Link href="/profile" className={styles.enterLink}>
-          <div className={styles.titleWrapper}>
-            <h1 className={styles.title}>
-              <span className={styles.titleLine}>Hello</span>
-              <span className={styles.titleLine}>World</span>
-            </h1>
-          </div>
-          <div className={styles.subtitle}>프로필 살펴보기</div>
+          알아보기 <span aria-hidden="true">→</span>
         </Link>
       </main>
-
-      <Script
-        id="enter-key-handler"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-              function handleKeyPress(event) {
-                if (event.key === 'Enter') {
-                  window.location.href = '/profile';
-                }
-              }
-              window.addEventListener('keydown', handleKeyPress);
-            })();
-          `,
-        }}
-      />
+      <footer className={styles.footer} aria-hidden="true">
+        <span>APP / WEB / AX</span>
+        <span className={styles.track}><span /></span>
+      </footer>
     </div>
   );
 }
