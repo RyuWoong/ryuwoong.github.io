@@ -37,10 +37,10 @@ export const metadata: Metadata = {
     description: "문제를 함께 해결하며 사용자 경험과 개발 생산성을 높이는 프론트엔드 개발자 박정륭의 포트폴리오와 기록입니다.",
     images: [
       {
-        url: "/profile.png",
-        width: 1000,
-        height: 1000,
-        alt: "박정륭 프로필 캐릭터",
+        url: "/og/ryuwoong.png",
+        width: 1200,
+        height: 630,
+        alt: "RyuWoong의 후드 입은 카디건 웰시코기 캐릭터",
       },
     ],
   },
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "RyuWoong | A Developer Worth Working With",
     description: "문제를 함께 해결하며 사용자 경험과 개발 생산성을 높이는 프론트엔드 개발자 박정륭의 포트폴리오와 기록입니다.",
-    images: ["/profile.png"],
+    images: ["/og/ryuwoong.png"],
   },
 };
 

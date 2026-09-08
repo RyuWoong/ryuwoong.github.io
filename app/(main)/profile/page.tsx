@@ -32,10 +32,10 @@ export const metadata: Metadata = {
       "React / React Native 기반 모바일 서비스를 개발해온 프론트엔드 개발자 박정륭의 경력, 기술 스택, 오픈소스 활동을 정리한 프로필입니다.",
     images: [
       {
-        url: "/profile.png",
-        width: 1000,
-        height: 1000,
-        alt: "박정륭 프로필 캐릭터",
+        url: "/og/ryuwoong.png",
+        width: 1200,
+        height: 630,
+        alt: "RyuWoong의 후드 입은 카디건 웰시코기 캐릭터",
       },
     ],
   },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "박정륭 | 효율을 만드는 개발자",
     description:
       "React / React Native 기반 모바일 서비스를 개발해온 프론트엔드 개발자 박정륭의 경력, 기술 스택, 오픈소스 활동을 정리한 프로필입니다.",
-    images: ["/profile.png"],
+    images: ["/og/ryuwoong.png"],
   },
 };
 
