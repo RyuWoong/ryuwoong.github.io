@@ -26,186 +26,147 @@ export type Experience = {
 
 export const profile = {
   name: "박정륭",
-  role: "6년차 Front/React Native 개발자",
+  role: "6년 차 React Native / Frontend 개발자",
   email: "wjdfbd1121@gmail.com",
   location: "Seoul, Korea",
   website: "https://ryuwoong.me",
-  github: "https://github.com/RyuWoong",
+  github: "https://github.com/RyuWoong"
 };
 
 export const whatIDo = [
-  "6년차 React Native 개발자로 모바일 앱 화면과 기능을 구현합니다.",
-  "프로젝트 요구사항을 정리하고 일정, 우선순위, 기술 방향을 리딩합니다.",
-  "앱 구조, 상태 관리, 네이티브 연동, 배포 방식을 설계합니다.",
-  "성능 최적화, OTA 배포 자동화, 퍼널 분석 기반 개선을 수행합니다.",
-  "사내 AX 도입을 위해 Notion과 미러 DB에 업무 데이터를 모으고 내부 에이전트가 활용할 수 있는 기반을 만듭니다.",
+  "6년 차 React Native 개발자로, 타이어 판매와 장착 매장을 연결하는 타이어픽의 앱 리드를 맡고 있습니다.",
+  "앱·OTA 번들 경량화와 배포 자동화를 통해 업데이트 경험과 운영 과정을 개선해왔습니다.",
+  "마케팅·디자인팀과 협업해 딥링크 운영 체계, 구매 퍼널, 공통 UI 컴포넌트를 개선했습니다."
+];
+
+export const selectedOutcomes = [
+  "Android·iOS 앱 실행 후 OTA 번들 다운로드 시간 4~5초 → 1~2초로 단축",
+  "앱 크기 70~80MB → 50MB 이하, CodePush 번들 30~40MB → 약 10MB로 경량화",
+  "HotUpdater 기반 OTA 인프라 전환 및 GitHub Actions·Fastlane 배포 자동화",
+  "마케팅팀이 캠페인 링크를 직접 생성·운영할 수 있도록 딥링크 규칙과 가이드 정리"
 ];
 
 export const skillGroups = [
-  { label: "Frontend", items: ["React", "React Native", "TypeScript", "JavaScript"] },
-  { label: "UI/UX", items: ["Reanimated", "Design System", "Reusable Component", "Interaction"] },
-  { label: "Delivery", items: ["GitHub Actions", "Fastlane", "CodePush", "HotUpdater"] },
-  { label: "Collaboration", items: ["Product / Design / Marketing 협업", "문서화", "Notion·미러 DB / Agent", "운영 자동화"] },
+  {
+    label: "Frontend / Mobile",
+    items: [
+      "React",
+      "React Native",
+      "TypeScript",
+      "JavaScript",
+      "Reanimated",
+      "TanStack Query"
+    ]
+  },
+  {
+    label: "Delivery",
+    items: [
+      "GitHub Actions",
+      "Fastlane",
+      "CodePush",
+      "HotUpdater",
+      "AWS S3",
+      "AWS Lambda"
+    ]
+  },
+  {
+    label: "Analytics",
+    items: [
+      "Firebase Analytics",
+      "Amplitude",
+      "딥링크",
+      "유니버설 링크"
+    ]
+  },
+  {
+    label: "Collaboration",
+    items: [
+      "공통 UI 컴포넌트",
+      "ESLint 공통 설정",
+      "기술 문서화",
+      "Notion",
+      "사내 에이전트봇"
+    ]
+  }
 ];
 
 export const experiences: Experience[] = [
   {
     company: "딜러타이어",
-    role: "Software Developer",
+    role: "앱 리드 · 타이어픽",
     period: "2024.08 - 현재",
-    note: "카티니 영업양수도 이후 근무",
+    note: "카티니 영업양수도 이후 타이어픽 앱 개발·운영 지속",
     bullets: [
       {
-        groupTitle: "클라우드 인프라 최적화 및 배포 자동화",
-        items: [
-          {
-            title: "배포 인프라 Serverless 전환을 통한 고정 비용 및 관리 리소스 절감",
-            details: [
-              "Microsoft App Center 서비스 종료 대응을 위해 초기 CodePush Standalone 서버 구축 후, EC2 인프라 유지 비용 절감을 위한 HotUpdater 기반 아키텍처 재설계.",
-              "기존 AWS ECS 기반 구조를 AWS S3 + Lambda 중심의 Serverless 환경으로 개편, 인프라 관리 포인트 최소화 및 운영 비용 절감.",
-            ],
-          },
-          {
-            title: "OTA(Over-the-Air) 배포 프로세스 고도화 및 속도 최적화",
-            details: [
-              "OTA 배포 속도를 기존 4~5초에서 1~2초대로 50% 이상 단축, 긴급 대응 및 서비스 운영 효율 극대화.",
-              "GitHub Actions와 Fastlane을 결합한 CI/CD 파이프라인 구축, 빌드부터 Firebase App Distribution / TestFlight 배포, Slack 알림까지 전 과정 자동화 및 안정성 개선.",
-            ],
-          },
-        ],
+        title: "OTA 인프라 전환 및 모바일 배포 자동화",
+        details: [
+          "Microsoft App Center 서비스 종료에 대응해 CodePush Standalone 서버를 구축하고 운영했습니다.",
+          "서버 유지 비용과 관리 부담을 줄이기 위해 HotUpdater를 도입하고, AWS ECS 기반 배포 인프라를 S3·Lambda 중심으로 전환했습니다.",
+          "Android·iOS에서 앱 실행 후 OTA 업데이트 번들을 내려받는 시간을 4~5초에서 1~2초로 단축했습니다.",
+          "GitHub Actions와 Fastlane으로 앱 빌드부터 Firebase App Distribution·TestFlight 배포, Slack 알림까지 자동화했습니다."
+        ]
       },
       {
-        groupTitle: "아키텍처 현대화 및 개발 표준 수립",
-        items: [
-          {
-            title: "뉴 아키텍처(New Architecture) 대응 및 의존성 최적화",
-            details: [
-              "React Native 0.76+ 환경 도입에 맞춰 업데이트가 중단되거나 호환성이 낮은 외부 라이브러리 제거, 핵심 기능 직접 구현으로 프레임워크 안정성 확보.",
-              "런타임 에러 가능성 축소 및 외부 의존성 최소화로 유지보수 비용 절감.",
-            ],
-          },
-          {
-            title: "AI-Native 개발 환경을 위한 패턴 기반 구조(Pattern-based Structure) 설계",
-            details: [
-              "LLM(Cursor, Copilot 등)이 코드 맥락을 정확히 파악할 수 있도록 예측 가능한 폴더 구조와 모듈화 컨벤션 설계, 변경점 인지 속도 및 코드 생성 정확도 향상.",
-            ],
-            href: "/blog/2",
-            linkLabel: "보러가기",
-          },
-          {
-            title: "팀 개발 표준 공통화 (ESLint & Convention 라이브러리화)",
-            details: [
-              "팀 내 일관된 코드 품질 유지를 위한 코딩 컨벤션 및 ESLint 설정 자체 라이브러리(NPM 패키지 등) 구축.",
-              "신규 프로젝트 세팅 시간 단축, 코드 리뷰 효율 향상으로 팀 전체의 기술 부채 발생 사전 방지.",
-            ],
-          },
-        ],
+        title: "React Native New Architecture 대응",
+        details: [
+          "React Native 0.76+ 도입 과정에서 호환성 문제가 있고 버전 업데이트가 제공되지 않는 라이브러리를 제거했습니다.",
+          "React Native Paper로 구현했던 프로그레스바와 일부 UI 컴포넌트를 직접 구현한 컴포넌트로 대체해 UI 라이브러리 의존성을 줄였습니다."
+        ]
       },
       {
-        groupTitle: "데이터 기반의 구매 퍼널 최적화 및 비즈니스 성장",
-        items: [
-          {
-            title: "퍼포먼스 마케팅 협업을 통한 유입-전환 퍼널 분석",
-            details: [
-              "Firebase Analytics 및 Amplitude를 활용한 사용자 행동 로그 설계, 구매 여정 전반의 이탈 지점 정량 분석.",
-              "특정 단계에서 발생하는 이탈 원인을 기술적/UX적 관점에서 파악, 가설 수립 및 실험 진행.",
-            ],
-          },
-          {
-            title: "UI/UX 개선을 통한 전환율(CVR) 및 ROAS 효율 증대",
-            details: [
-              "퍼널 분석 결과를 바탕으로 이탈이 심한 구간의 UI 개편, 로딩 성능 최적화 병행으로 사용자 경험 개선.",
-              "최종 결제 전환율 향상, 마케팅 비용 효율(ROAS) 극대화로 서비스 성장에 실질적 기여.",
-            ],
-          },
+        title: "프로젝트 구조와 개발 규칙 표준화",
+        details: [
+          "기능 단위 응집도를 참고해 화면 전용 코드와 공용 코드를 구분하고, 폴더 구조와 모듈 배치 규칙을 정리했습니다.",
+          "ESLint 설정과 코딩 컨벤션을 공통 라이브러리로 만들어 프로젝트에서 재사용하도록 했습니다."
         ],
+        href: "/blog/2",
+        linkLabel: "프로젝트 구조 설계 글"
       },
       {
-        groupTitle: "사내 지식 자산화 및 AX 기반 협업 프로세스 혁신",
-        items: [
-          {
-            title: "Nextra / MDX 위키의 한계 분석 및 Notion 기반 전환",
-            details: [
-              "Nextra / MDX 기반 사내 위키를 구축했지만, 개발자 중심의 작성·배포 방식으로 모든 조직원이 편하게 사용하기 어려운 한계를 확인.",
-              "전 조직원이 업무 중 자연스럽게 기록하고 기존 자료도 쉽게 정리할 수 있도록 Notion 기반 업무 데이터 공간으로 전환하는 방향을 제안.",
-              "업무 문서와 온보딩 자료를 한곳에 모아 검색·재사용할 수 있도록 데이터베이스와 문서화 흐름을 정리.",
-            ],
-          },
-          {
-            title: "Notion·미러 DB·Slack 기반 내부 에이전트봇 구축 및 응답 시간 개선",
-            details: [
-              "팀원이 자연어로 질문하면 Notion과 미러 DB를 읽고 필요한 업무 답변을 제공하는 내부 에이전트봇을 구축했습니다.",
-              "Slack 스레드에서 공유된 유용한 이야기와 업무 인사이트를 토막 지식으로 저장할 수 있도록 해, 대화 속 정보가 업무 데이터로 축적되게 함.",
-              "초기에는 답변 시간이 오래 걸렸지만, 실제 사용 요구사항을 수집하며 Skills와 MCP를 활용한 처리 흐름으로 개선.",
-              "반복적인 탐색·정리 과정을 자동화하고 답변 시간을 1분 이내로 단축해 사내 AX 활용성을 높임.",
-            ],
-          },
-        ],
+        title: "구매 퍼널 분석과 화면 개선",
+        details: [
+          "Firebase Analytics와 Amplitude로 사용자 행동 로그를 설계하고 구매 여정의 이탈 지점을 분석했습니다.",
+          "퍼포먼스 마케팅팀과 유입·구매 흐름을 검토하고, 이탈 구간의 화면 구성과 로딩 경험을 개선하는 실험을 진행했습니다."
+        ]
       },
-    ],
+      {
+        title: "사내 문서화 방식 개선 및 업무 검색 에이전트 구축",
+        details: [
+          "Nextra·MDX 위키를 구축한 뒤 비개발 직군이 작성·배포 과정에서 겪는 한계를 확인하고, Notion 중심의 문서화 방식을 제안했습니다.",
+          "Notion과 미러 DB에서 업무 정보를 찾아 자연어로 답변하고, Slack 스레드의 업무 지식을 저장하는 내부 에이전트봇을 구축했습니다.",
+          "사용 요구사항을 수집하고 Skills와 MCP를 활용한 처리 흐름으로 개선했습니다."
+        ]
+      }
+    ]
   },
   {
     company: "카티니",
-    role: "Software Developer",
+    role: "앱 리드 · 타이어픽",
     period: "2023.04 - 2024.07",
     bullets: [
       {
-        groupTitle: "앱 성능 최적화 및 리소스 경량화",
-        items: [
-          {
-            title: "앱 빌드 크기 및 OTA 번들 최적화 (30% 이상 경량화)",
-            details: [
-              "불필요한 UI 라이브러리 제거 및 고해상도 에셋 최적화로 기존 70~80MB 수준의 앱 크기를 50MB 이하로 경량화.",
-              "중복 의존성 제거 및 에셋 관리 체계 개선으로 30~40MB에 달하던 CodePush 번들을 10MB 수준으로 70% 이상 축소.",
-            ],
-          },
-          {
-            title: "배포 속도 및 운영 안정성 강화",
-            details: [
-              "번들 크기 최적화로 사용자 측면의 초기 업데이트 다운로드 속도를 평균 10초에서 3~4초대로 단축.",
-              "업데이트 과정의 사용자 이탈 감소, 앱 진입 경험 개선 및 CodePush 롤백 발생 건수 약 50% 감소.",
-            ],
-          },
-        ],
+        title: "앱·OTA 번들 경량화",
+        details: [
+          "불필요한 UI 라이브러리와 고해상도 에셋을 정리해 앱 크기를 70~80MB에서 50MB 이하로 줄였습니다.",
+          "중복 의존성을 제거하고 에셋 관리 방식을 개선해 CodePush 번들을 30~40MB에서 약 10MB로 줄였습니다.",
+          "초기 업데이트 번들 다운로드 시간을 약 10초에서 3~4초로 단축했습니다."
+        ]
       },
       {
-        groupTitle: "비즈니스 협업 효율 및 딥링크(DeepLink) 시스템 구축",
-        items: [
-          {
-            title: "마케팅 자율성 확보를 위한 딥링크(DeepLink) 시스템 설계 및 문서화",
-            details: [
-              "복잡한 앱 진입 시나리오 체계화, 커스텀 딥링크 스킴(Scheme) 및 유니버설 링크(Universal Links) 구조 설계.",
-              "마케팅팀이 개발자 추가 지원 없이 캠페인 링크를 직접 생성하고 운영할 수 있도록 딥링크 가이드라인 문서화.",
-              "캠페인 실행 리드타임 단축, 마케팅 유입 데이터의 정확한 트래킹 환경 마련으로 전사적 협업 효율 향상.",
-            ],
-          },
-        ],
+        title: "마케팅팀이 직접 운영할 수 있는 딥링크 체계 구축",
+        details: [
+          "앱 진입 시나리오를 정리하고 커스텀 딥링크 스킴과 유니버설 링크 구조를 설계했습니다.",
+          "링크 생성 규칙과 검수 기준을 문서화해 마케팅팀이 개발자의 추가 지원 없이 캠페인 링크를 생성·운영할 수 있도록 했습니다."
+        ]
       },
       {
-        groupTitle: "디자인 시스템(Design System) 구축 및 생산성 제고",
-        items: [
-          {
-            title: "컴포넌트 중심의 디자인 시스템(Design System) 토대 마련",
-            details: [
-              "디자이너와의 긴밀한 협업을 통해 색상 팔레트, Typography, Button, Label 등 원자 단위(Atomic)의 재사용 가능한 공통 컴포넌트 라이브러리 구축.",
-              "디자인 시스템 도입으로 신규 화면 개발 속도 향상, 서비스 전반의 UI 일관성 확보 및 팀 전체의 협업 효율과 생산성 향상.",
-            ],
-          },
-        ],
-      },
-      {
-        groupTitle: "데이터 관리 최적화 및 앱 성능 고도화",
-        items: [
-          {
-            title: "React Query 기반의 효율적인 데이터 페칭(Fetching) 및 캐싱 전략 수립",
-            details: [
-              "무분별한 API 호출 방지를 위한 React Query(TanStack Query) 도입, 정교한 캐싱 로직과 서버 상태 관리 구조 설계.",
-              "불필요한 네트워크 요청 축소로 데이터 소모량 절감 및 앱 성능 향상.",
-            ],
-          },
-        ],
-      },
-    ],
+        title: "공통 UI 컴포넌트와 서버 상태 관리 정리",
+        details: [
+          "디자이너와 명명 규칙·상태·사용 기준을 맞추고 색상, 타이포그래피, Button, Label 등 공통 UI 요소를 구축했습니다.",
+          "TanStack Query를 도입해 서버 상태 관리, 캐싱, API 호출 정책을 정리했습니다."
+        ]
+      }
+    ]
   },
   {
     company: "디몬스터",
@@ -213,80 +174,60 @@ export const experiences: Experience[] = [
     period: "2021.04 - 2022.12",
     bullets: [
       {
-        groupTitle: "멀티 도메인 서비스 개발 및 고도화 (e-Commerce & Fintech)",
-        items: [
-          {
-            title: "다양한 비즈니스 도메인의 React Native 앱 서비스 구축",
-            details: [
-              "오픈마켓, 쇼핑몰, 예약 시스템 등 4~5개의 다양한 도메인 프로젝트 참여, 서비스 특성에 최적화된 앱 구조 설계 및 구현.",
-              "실시간 채팅, 구독 모델 기반 결제 시스템, App Store/Play Store 인앱 결제(IAP) 등 복잡한 서버 연동과 클라이언트 로직 구현.",
-            ],
-          },
-          {
-            title: "빠른 시장 진입을 위한 애자일(Agile) 개발 및 병행 업무 수행",
-            details: [
-              "여러 프로젝트 동시 병행, 요구사항 분석과 서비스 성격에 맞는 기술 스택(Context API, Redux 등)의 유연한 적용으로 개발 리드타임 단축.",
-            ],
-          },
-        ],
+        title: "커머스·예약 서비스의 React Native 앱 개발",
+        details: [
+          "오픈마켓, 쇼핑몰, 예약 시스템 등 여러 프로젝트에서 React Native 앱을 개발했습니다.",
+          "실시간 채팅, 구독 결제, App Store·Play Store 인앱 결제의 클라이언트 로직과 서버 연동을 구현했습니다.",
+          "프로젝트 요구사항에 맞춰 Context API, Redux 등 상태 관리 방식을 적용했습니다."
+        ]
       },
       {
-        groupTitle: "개발 생산성 최적화 및 인프라 표준화",
-        items: [
-          {
-            title: "React Native WebApp Boilerplate 자체 제작 및 도입",
-            details: [
-              "프로젝트 초기 세팅 비용 절감을 위한 WebApp 전용 Boilerplate 직접 구축.",
-              "공통 컴포넌트, 네이티브 브릿지 통신 규격, 인증 로직 표준화로 신규 프로젝트 착수 리소스 약 30% 이상 절감.",
-            ],
-          },
-          {
-            title: "협업 프로세스 체계화 (Notion 도입 및 템플릿 설계)",
-            details: [
-              "파편화된 업무 히스토리 통합을 위한 Notion 기반 프로젝트 관리 체계 제안.",
-              "기획-개발-QA 단계를 연결하는 프로젝트 템플릿 제작, 내부 커뮤니케이션 비용 절감 및 협업 효율 향상.",
-            ],
-          },
-        ],
+        title: "React Native WebApp 공통 개발 기반 구축",
+        details: [
+          "신규 프로젝트에서 반복되는 초기 설정을 줄이기 위해 WebApp 보일러플레이트를 제작했습니다.",
+          "공통 컴포넌트, 인증 로직, 네이티브 브릿지 통신 규격을 표준화해 재사용할 수 있도록 정리했습니다."
+        ]
       },
       {
-        groupTitle: "기술 리더십 및 지식 공유",
-        items: [
-          {
-            title: "사내 기술 세미나 주도 및 프론트엔드 역량 강화",
-            details: [
-              "동료 개발자(프론트엔드/백엔드)를 대상으로 React의 렌더링 원리 및 최신 프론트엔드 트렌드 공유 세미나 진행.",
-              "팀 전체의 기술 상향 평준화 도모, 백엔드 개발자와의 원활한 소통을 위한 API 설계 컨벤션 가이드라인 제시.",
-            ],
-          },
-        ],
-      },
-    ],
-  },
+        title: "프로젝트 문서화와 기술 공유",
+        details: [
+          "기획·개발·QA의 요구사항과 이력을 함께 관리할 수 있는 Notion 프로젝트 템플릿을 제작했습니다.",
+          "React 렌더링 원리를 주제로 사내 세미나를 진행하고, 백엔드 개발자와 API 설계 컨벤션을 공유했습니다."
+        ]
+      }
+    ]
+  }
 ];
 
 export const openSourceActivities = [
   {
     name: "react-native-naver-login",
-    description: "기능 추가, 오류 수정, 에러 핸들링 개선 기여.",
+    description: "기능 추가, 오류 수정, 에러 핸들링 개선에 기여했습니다.",
     linkLabel: "Repository",
-    href: "https://github.com/crossplatformkorea/react-native-naver-login",
+    href: "https://github.com/crossplatformkorea/react-native-naver-login"
   },
   {
     name: "react-native-naver-map",
-    description: "앱 크래시를 유발할 수 있는 엣지 케이스 이슈 제보.",
+    description: "앱 크래시를 유발할 수 있는 엣지 케이스를 이슈로 제보했습니다.",
     linkLabel: "Issue",
-    href: "https://github.com/mym0404/react-native-naver-map/issues/143",
-  },
+    href: "https://github.com/mym0404/react-native-naver-map/issues/143"
+  }
 ];
 
 export const education = [
-  { period: "2013.03", detail: "대학교 입학" },
-  { period: "2019.02", detail: "경제학 학사 졸업" },
-  { period: "2019.05", detail: "정보처리기사 취득" },
+  {
+    period: "2019.02",
+    detail: "경제학 학사 졸업"
+  },
+  {
+    period: "2019.05",
+    detail: "정보처리기사 취득"
+  }
 ];
 
 export const militaryService = [
-  { period: "2014.03", detail: "해군 입대" },
-  { period: "2016.02", detail: "해군 병장 만기 전역" },
+  {
+    period: "2014.03 - 2016.02",
+    detail: "해군 병장 만기 전역"
+  }
 ];

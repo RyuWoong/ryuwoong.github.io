@@ -8,6 +8,7 @@ import {
   militaryService,
   openSourceActivities,
   profile,
+  selectedOutcomes,
   skillGroups,
   whatIDo,
   type Experience,
@@ -27,16 +28,6 @@ export const metadata: Metadata = {
     canonical: "/profile/pdf",
   },
 };
-
-const selectedOutcomes = [
-  "OTA 배포 속도 4~5초에서 1~2초대로 50% 이상 단축",
-  "딥링크 시스템 구축으로 마케팅 캠페인 운영 리드타임 단축",
-  "앱 크기 70~80MB 수준에서 50MB 이하로 경량화",
-  "GitHub Actions와 Fastlane 기반 앱 배포 자동화 구축",
-  "Firebase Analytics와 Amplitude 기반 구매 퍼널 이탈 지점 분석",
-  "퍼널 분석 기반 UI/UX 개선으로 결제 전환과 ROAS 효율 개선",
-  "Notion·미러 DB·Slack 기반 내부 에이전트봇 구축 및 응답 시간 1분 이내 개선",
-];
 
 function MailIcon() {
   return (

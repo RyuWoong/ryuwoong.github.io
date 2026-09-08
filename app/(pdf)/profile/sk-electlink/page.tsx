@@ -9,7 +9,7 @@ import PrintButton from "./PrintButton";
 import ProfileVisual from "./ProfileVisual";
 import ScrollTopButton from "./ScrollTopButton";
 import {
-  skCoreStrengths,
+  skSelectedOutcomes,
   skEducation,
   skExperiences,
   skGrowthDirection,
@@ -169,9 +169,9 @@ export default function SkElectlinkResumePage() {
         </section>
 
         <section className={styles.section}>
-          <h2>매칭 포인트</h2>
+          <h2>주요 성과</h2>
           <ul className={styles.outcomeGrid}>
-            {skCoreStrengths.map((strength) => (
+            {skSelectedOutcomes.map((strength) => (
               <li key={strength}>{strength}</li>
             ))}
           </ul>
