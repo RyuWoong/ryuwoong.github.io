@@ -4,16 +4,19 @@
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  border-radius: 16px;
-  padding: 16px;
-  transition: all 0.3s ease;
+  border: 1px solid var(--glass-edge);
+  background: var(--glass-fill);
+  box-shadow: var(--glass-shadow);
+  border-radius: 24px;
+  padding: 24px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
   opacity: 0;
   animation: fadeInUp 0.6s ease-out forwards;
   animation-delay: calc(var(--card-index) * 100ms);
 }
 
 .postCardContainer:hover {
-  background-color: var(--bg-elevated);
+  border-color: var(--border-strong);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   transform: translateY(-3px);
 }
@@ -78,5 +81,19 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .postCardContainer {
+    padding: 18px;
+    gap: 14px;
+  }
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+  }
+  .contentContainer {
+    min-width: 0;
   }
 }

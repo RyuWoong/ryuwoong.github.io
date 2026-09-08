@@ -77,17 +77,17 @@
 }
 
 .post-toc {
-  --toc-accent: var(--primary-8);
-  --toc-shell: color-mix(in srgb, var(--gray-1) 92%, var(--success-1));
-  --toc-shell-top: color-mix(in srgb, var(--gray-3) 88%, var(--success-3));
-  --toc-shell-border: color-mix(in srgb, var(--primary-8) 32%, var(--border-default));
-  --toc-shell-muted: color-mix(in srgb, var(--primary-10) 48%, var(--text-muted));
+  --toc-accent: var(--interactive-default);
+  --toc-shell: var(--glass-solid);
+  --toc-shell-top: var(--bg-elevated);
+  --toc-shell-border: color-mix(in srgb, var(--interactive-default) 32%, var(--border-default));
+  --toc-shell-muted: color-mix(in srgb, var(--text-secondary) 48%, var(--text-muted));
   position: sticky;
-  top: 84px;
+  top: 104px;
   width: 240px;
   max-width: 100%;
   min-width: 0;
-  max-height: calc(100vh - 96px);
+  max-height: calc(100vh - 120px);
   overflow: hidden;
   padding-top: 32px;
   align-self: start;
@@ -99,8 +99,7 @@
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--toc-shell-top) 100%, transparent), var(--toc-shell));
   box-shadow:
-    0 18px 38px color-mix(in srgb, var(--success-1) 38%, transparent),
-    inset 0 1px 0 color-mix(in srgb, white 8%, transparent);
+    var(--glass-shadow);
 }
 
 .post-toc[hidden] {

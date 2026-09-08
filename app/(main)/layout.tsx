@@ -10,7 +10,7 @@ export default function RootLayout({
   return (
     <div id="main" className={styles.container}>
       <header className={styles.header}>
-        <span className={styles.title}>Hello Wold</span>
+        <Link href="/" className={styles.title}>RyuWoong</Link>
         <ul className={styles.nav}>
           <li>
             <Link href="/profile">Profile</Link>

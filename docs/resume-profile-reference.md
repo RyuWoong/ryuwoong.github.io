@@ -2,7 +2,7 @@
 
 6년 차 React Native / Frontend 개발자
 
-- 이메일: wjdfbd1121@gmail.com
+- 이메일: ryuwoong.dev@gmail.com
 - 프로필: https://ryuwoong.me/profile
 - GitHub: https://github.com/RyuWoong
 

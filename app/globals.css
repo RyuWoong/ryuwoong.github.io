@@ -1,9 +1,6 @@
 @import "../styles/tokens/colors.css";
 @import "../styles/tokens/typography.css";
-
-:root {
-  --bounce-font: "Birthstone Bounce", Arial, Helvetica, sans-serif;
-}
+@import "../styles/tokens/glass.css";
 
 html,
 body {
@@ -55,5 +52,42 @@ code {
 @media print {
   button[aria-label^="Switch to"] {
     display: none !important;
+  }
+}
+
+:where(a, button):focus-visible {
+  outline: 2px solid var(--interactive-default);
+  outline-offset: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body:has(#main) {
+  --site-header-top: 20px;
+  --site-header-height: 64px;
+  --theme-toggle-top: calc(var(--site-header-top) + (var(--site-header-height) - 44px) / 2);
+  --theme-toggle-right: max(20px, calc((100vw - 1200px) / 2 + 20px));
+}
+
+@media (max-width: 640px) {
+  body:has(#main) {
+    --site-header-top: 12px;
+    --site-header-height: 56px;
+    --theme-toggle-right: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  body:has(#main) {
+    --site-header-height: 76px;
   }
 }

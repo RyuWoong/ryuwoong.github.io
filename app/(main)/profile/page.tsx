@@ -230,7 +230,7 @@ export default function Profile() {
                 rel="noreferrer"
                 className={`${styles.infoLink} ${styles.terminalLink}`}
               >
-                cd 블로그
+                블로그 보기
               </Link>
               <Link
                 href="https://tistory.ryuwoong.me"
@@ -238,7 +238,7 @@ export default function Profile() {
                 rel="noreferrer"
                 className={`${styles.infoLink} ${styles.terminalLink}`}
               >
-                cd (구)블로그
+                이전 블로그
               </Link>
             </div>
           </FadeInSection>

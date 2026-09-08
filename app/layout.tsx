@@ -1,7 +1,6 @@
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Birthstone_Bounce } from "next/font/google";
 import localFont from "next/font/local";
 
 import "./reset.css";
@@ -14,8 +13,6 @@ const pretendard = localFont({
   weight: "100 900",
   variable: "--font-pretendard",
 });
-
-const birthstoneBounce = Birthstone_Bounce({ weight: "400", variable: "--font-bounce", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ryuwoong.me"),
@@ -62,7 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${pretendard.variable} ${birthstoneBounce.variable}`}>
+      <body className={pretendard.variable}>
         <ThemeToggle />
         {children}
         <Analytics />

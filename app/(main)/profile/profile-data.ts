@@ -27,7 +27,7 @@ export type Experience = {
 export const profile = {
   name: "박정륭",
   role: "6년 차 React Native / Frontend 개발자",
-  email: "wjdfbd1121@gmail.com",
+  email: "ryuwoong.dev@gmail.com",
   location: "Seoul, Korea",
   website: "https://ryuwoong.me",
   github: "https://github.com/RyuWoong"

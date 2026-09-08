@@ -35,9 +35,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className={styles.page}>
-      <div className={styles.background}>
-        <div className={styles.gradientOrb} />
-        <div className={styles.grain} />
+      <div className={styles.background} aria-hidden="true">
+        <div className={styles.glassOrbit} />
       </div>
 
       <main className={styles.content}>
@@ -48,7 +47,7 @@ export default function Home() {
               <span className={styles.titleLine}>World</span>
             </h1>
           </div>
-          <div className={styles.subtitle}>Press Enter or Click to Continue</div>
+          <div className={styles.subtitle}>프로필 살펴보기</div>
         </Link>
       </main>
 

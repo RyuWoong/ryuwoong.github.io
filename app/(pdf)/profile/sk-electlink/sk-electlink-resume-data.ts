@@ -10,7 +10,7 @@ import {
 export const skProfile = {
   name: "박정륭",
   role: "React Native / Frontend Developer",
-  email: "wjdfbd1121@gmail.com",
+  email: "ryuwoong.dev@gmail.com",
   website: "https://ryuwoong.me",
   github: "https://github.com/RyuWoong"
 };
