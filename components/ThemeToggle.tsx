@@ -1,6 +1,8 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 type Theme = "dark" | "light";
 
@@ -47,7 +49,17 @@ function MoonIcon() {
 }
 
 export default function ThemeToggle() {
+  const pathname = usePathname();
+  const [toolbarSlot, setToolbarSlot] = useState<HTMLElement | null>(null);
   const [theme, setTheme] = useState<Theme | null>(null);
+
+  useEffect(() => {
+    const frameId = window.requestAnimationFrame(() => {
+      setToolbarSlot(document.getElementById("pdf-theme-toggle"));
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [pathname]);
 
   useEffect(() => {
     const saved = (localStorage.getItem("theme") as Theme) || "dark";
@@ -72,12 +84,13 @@ export default function ThemeToggle() {
     localStorage.setItem("theme", next);
   };
 
-  return (
+  const button = (
     <button
       onClick={toggleTheme}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       style={{
-        position: "fixed",
+        position: toolbarSlot ? "static" : "fixed",
+        flexShrink: 0,
         top: "var(--theme-toggle-top, 1rem)",
         right: "var(--theme-toggle-right, 1rem)",
         padding: "0.5rem",
@@ -103,4 +116,6 @@ export default function ThemeToggle() {
       {theme === "dark" ? <SunIcon /> : <MoonIcon />}
     </button>
   );
+
+  return toolbarSlot ? createPortal(button, toolbarSlot) : button;
 }

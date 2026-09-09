@@ -130,7 +130,10 @@ export default function ResumePdfPage() {
         <Link href="/profile" className={styles.backLink}>
           프로필로 돌아가기
         </Link>
-        <PrintButton />
+        <div className={styles.toolbarActions}>
+          <PrintButton />
+          <div id="pdf-theme-toggle" className={styles.themeToggleSlot} />
+        </div>
       </div>
       <ScrollTopButton />
 
@@ -199,7 +202,7 @@ export default function ResumePdfPage() {
           </div>
         </section>
 
-        <footer className={styles.pageFooter}>1 / 4</footer>
+        <footer className={styles.pageFooter}>1 / 3</footer>
       </section>
 
       <section className={styles.sheet} aria-label="현재 경력 상세">
@@ -208,25 +211,17 @@ export default function ResumePdfPage() {
           <span>{profile.name}</span>
         </div>
         {renderExperience(experiences[0])}
-        <footer className={styles.pageFooter}>2 / 4</footer>
+        <footer className={styles.pageFooter}>2 / 3</footer>
       </section>
 
-      <section className={styles.sheet} aria-label="이전 경력 상세">
+      <section className={styles.sheet} aria-label="이전 경력 및 기타 활동">
         <div className={styles.sheetHeader}>
           <p>Previous Experience</p>
           <span>{profile.name}</span>
         </div>
 
         <div className={styles.compactCareer}>{experiences.slice(1).map((experience) => renderExperience(experience, true))}</div>
-        <footer className={styles.pageFooter}>3 / 4</footer>
-      </section>
-
-      <section className={`${styles.sheet} ${styles.activitiesSheet}`} aria-label="기타 활동 및 학력">
-        <header className={styles.sheetHeader}>
-          <p>Activities & Background</p>
-          <span>{profile.name}</span>
-        </header>
-
+        <div className={styles.backgroundGrid}>
         <section className={styles.sideSection}>
           <h3>Open Source</h3>
           <ul className={styles.activityList}>
@@ -234,16 +229,19 @@ export default function ResumePdfPage() {
               <li key={activity.name}>
                 <strong>{activity.name}</strong>
                 <p>{activity.description}</p>
-                <span>{activity.href.replace("https://github.com/", "github.com/")}</span>
+                <a href={activity.href}>{activity.href.replace("https://github.com/", "github.com/")}</a>
               </li>
             ))}
           </ul>
         </section>
 
+        <div className={styles.backgroundTimeline}>
         {renderTimeline("Education", education)}
         {renderTimeline("Military Service", militaryService)}
 
-        <footer className={styles.pageFooter}>4 / 4</footer>
+        </div>
+        </div>
+        <footer className={styles.pageFooter}>3 / 3</footer>
       </section>
     </main>
   );

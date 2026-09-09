@@ -136,7 +136,10 @@ export default function SkElectlinkResumePage() {
         <Link href="/profile/pdf" className={styles.backLink}>
           기본 PDF 보기
         </Link>
-        <PrintButton />
+        <div className={styles.toolbarActions}>
+          <PrintButton />
+          <div id="pdf-theme-toggle" className={styles.themeToggleSlot} />
+        </div>
       </div>
       <ScrollTopButton />
 
@@ -189,7 +192,19 @@ export default function SkElectlinkResumePage() {
           </div>
         </section>
 
-        <footer className={styles.pageFooter}>1 / 4</footer>
+        <section className={styles.section}>
+          <h2>Career Snapshot</h2>
+          <div className={styles.snapshotList}>
+            {skExperiences.map((experience) => (
+              <article key={experience.company} className={styles.snapshotItem}>
+                <div><h3>{experience.company}</h3><p>{experience.role}</p></div>
+                <span>{experience.period}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <footer className={styles.pageFooter}>1 / 3</footer>
       </section>
 
       <section className={styles.sheet} aria-label="현재 경력 상세">
@@ -198,19 +213,6 @@ export default function SkElectlinkResumePage() {
           <span>{skProfile.name}</span>
         </div>
         {renderExperience(currentExperience, true)}
-        <footer className={styles.pageFooter}>2 / 4</footer>
-      </section>
-
-      <section className={styles.sheet} aria-label="이전 경력 상세">
-        <div className={styles.sheetHeader}>
-          <p>Previous Experience</p>
-          <span>{skProfile.name}</span>
-        </div>
-        <div className={styles.compactCareer}>{skExperiences.slice(1).map((experience) => renderExperience(experience, true))}</div>
-        <footer className={styles.pageFooter}>3 / 4</footer>
-      </section>
-
-      <section className={`${styles.sheet} ${styles.activitiesSheet}`} aria-label="기타 활동 및 성장 방향">
         <section className={styles.sideSection}>
           <h3>Growth Direction</h3>
           <ul className={styles.activityList}>
@@ -222,6 +224,16 @@ export default function SkElectlinkResumePage() {
           </ul>
         </section>
 
+        <footer className={styles.pageFooter}>2 / 3</footer>
+      </section>
+
+      <section className={styles.sheet} aria-label="이전 경력 및 기타 활동">
+        <div className={styles.sheetHeader}>
+          <p>Previous Experience</p>
+          <span>{skProfile.name}</span>
+        </div>
+        <div className={styles.compactCareer}>{skExperiences.slice(1).map((experience) => renderExperience(experience, true))}</div>
+        <div className={styles.backgroundGrid}>
         <section className={styles.sideSection}>
           <h3>Open Source</h3>
           <ul className={styles.activityList}>
@@ -229,16 +241,19 @@ export default function SkElectlinkResumePage() {
               <li key={activity.name}>
                 <strong>{activity.name}</strong>
                 <p>{activity.description}</p>
-                <span>{activity.href.replace("https://github.com/", "github.com/")}</span>
+                <a href={activity.href}>{activity.href.replace("https://github.com/", "github.com/")}</a>
               </li>
             ))}
           </ul>
         </section>
 
+        <div className={styles.backgroundTimeline}>
         {renderTimeline("Education / Certification", skEducation)}
         {renderTimeline("Military Service", skMilitaryService)}
 
-        <footer className={styles.pageFooter}>4 / 4</footer>
+        </div>
+        </div>
+        <footer className={styles.pageFooter}>3 / 3</footer>
       </section>
     </main>
   );

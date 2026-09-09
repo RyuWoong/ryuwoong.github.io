@@ -4,15 +4,32 @@
 }
 
 .page {
+  --pdf-canvas: #d9dde3;
+  --pdf-surface: #ffffff;
+  --pdf-inset: #f5f6f7;
+  --pdf-text: #151515;
+  --pdf-strong: #303640;
+  --pdf-body: #2e343b;
+  --pdf-muted: #454d56;
+  --pdf-faint: #68717c;
+  --pdf-border: #c7ced8;
+  --pdf-border-hover: #94a3b8;
+  --pdf-link: #3c5674;
+  --pdf-link-hover: #263d57;
+  --pdf-button: #303640;
+  --pdf-button-hover: #171b21;
+  --pdf-on-button: #ffffff;
+  width: 100%;
   min-height: 100vh;
   padding: 32px 0;
-  background: #d9dde3;
-  color: #151515;
+  margin: 0 auto;
+  background: var(--pdf-canvas);
+  color: var(--pdf-text);
   font-family: var(--font-sans);
 }
 
 .skResume {
-  --sk-body-copy-size: 8.7pt;
+  --sk-body-copy-size: 9pt;
   --sk-small-copy-size: 8.3pt;
 }
 
@@ -20,6 +37,8 @@
   display: flex;
   width: 210mm;
   justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
   margin: 0 auto 16px;
 }
@@ -31,33 +50,33 @@
   justify-content: center;
   min-height: 36px;
   padding: 0 14px;
-  border: 1px solid #c7ced8;
+  border: 1px solid var(--pdf-border);
   border-radius: 8px;
-  background: #ffffff;
-  color: #151515;
+  background: var(--pdf-surface);
+  color: var(--pdf-text);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
 }
 
 .printButton {
-  border-color: #0f6b36;
-  background: #0f6b36;
-  color: #ffffff;
+  border-color: var(--pdf-button);
+  background: var(--pdf-button);
+  color: var(--pdf-on-button);
 }
 
 .toolbar .backLink:hover,
 .toolbar .backLink:focus-visible {
-  border-color: #94a3b8;
-  background: #f8fafc;
-  color: #101214;
+  border-color: var(--pdf-border-hover);
+  background: var(--pdf-inset);
+  color: var(--pdf-text);
 }
 
 .toolbar .printButton:hover,
 .toolbar .printButton:focus-visible {
-  border-color: #0b5a2d;
-  background: #0b5a2d;
-  color: #ffffff;
+  border-color: var(--pdf-button-hover);
+  background: var(--pdf-button-hover);
+  color: var(--pdf-on-button);
 }
 
 .scrollTopButton {
@@ -70,10 +89,10 @@
   height: 44px;
   align-items: center;
   justify-content: center;
-  border: 1px solid #0f6b36;
+  border: 1px solid var(--pdf-button);
   border-radius: 999px;
-  background: #0f6b36;
-  color: #ffffff;
+  background: var(--pdf-button);
+  color: var(--pdf-on-button);
   font-size: 20px;
   font-weight: 800;
   line-height: 1;
@@ -92,7 +111,7 @@
   margin: 0 auto 24px;
   overflow: hidden;
   break-after: page;
-  background: #ffffff;
+  background: var(--pdf-surface);
   box-shadow: 0 20px 60px rgb(16 24 40 / 22%);
 }
 
@@ -110,12 +129,12 @@
   grid-template-columns: minmax(0, 1fr) 39mm;
   gap: 8mm;
   padding-bottom: 7mm;
-  border-bottom: 2px solid #151515;
+  border-bottom: 2px solid var(--pdf-text);
 }
 
 .eyebrow,
 .sheetHeader p {
-  color: #0f6b36;
+  color: var(--pdf-strong);
   font-size: 8.5pt;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -124,7 +143,7 @@
 
 .hero h1 {
   margin-top: 2mm;
-  color: #101214;
+  color: var(--pdf-text);
   font-size: 31pt;
   line-height: 1;
   letter-spacing: 0;
@@ -133,7 +152,7 @@
 .role {
   max-width: 112mm;
   margin-top: 3mm;
-  color: #2d333a;
+  color: var(--pdf-strong);
   font-size: 12pt;
   font-weight: 700;
   line-height: 1.45;
@@ -145,7 +164,7 @@
   flex-wrap: wrap;
   gap: 2mm 5mm;
   margin-top: 4mm;
-  color: #454d56;
+  color: var(--pdf-muted);
   font-size: 8.8pt;
   font-style: normal;
   font-weight: 700;
@@ -156,7 +175,7 @@
   display: inline-flex;
   align-items: center;
   gap: 1.2mm;
-  color: #0f6b36;
+  color: var(--pdf-link);
 }
 
 .heroContact svg {
@@ -191,8 +210,8 @@
   flex-direction: column;
   gap: 2.8mm;
   padding: 4.8mm 5mm;
-  border: 1px solid #dfe4ea;
-  background: #f7faf8;
+  border: 1px solid var(--pdf-border);
+  background: var(--pdf-inset);
 }
 
 .capabilityBox ul {
@@ -205,7 +224,7 @@
 .capabilityBox li {
   position: relative;
   padding-left: 4mm;
-  color: #2e343b;
+  color: var(--pdf-body);
   font-size: 9.2pt;
   font-weight: 600;
   line-height: 1.5;
@@ -220,7 +239,7 @@
   width: 1.5mm;
   height: 1.5mm;
   border-radius: 999px;
-  background: #0f8f45;
+  background: var(--pdf-faint);
 }
 
 .section {
@@ -231,7 +250,7 @@
 
 .section h2,
 .capabilityBox h2 {
-  color: #101214;
+  color: var(--pdf-text);
   font-size: 11pt;
   font-weight: 800;
   line-height: 1.2;
@@ -248,10 +267,10 @@
 .outcomeGrid li {
   position: relative;
   padding-left: 4mm;
-  color: #23282e;
+  color: var(--pdf-strong);
   font-size: 9pt;
-  font-weight: 600;
-  line-height: 1.42;
+  font-weight: 750;
+  line-height: 1.5;
   word-break: keep-all;
 }
 
@@ -265,7 +284,7 @@
   width: 1.6mm;
   height: 1.6mm;
   border-radius: 999px;
-  background: #0f8f45;
+  background: var(--pdf-faint);
 }
 
 .skillGrid {
@@ -276,11 +295,11 @@
 
 .skillGroup {
   padding: 3mm;
-  border: 1px solid #dfe4ea;
+  border: 1px solid var(--pdf-border);
 }
 
 .skillGroup h3 {
-  color: #0f6b36;
+  color: var(--pdf-strong);
   font-size: 8.2pt;
   font-weight: 800;
   letter-spacing: 0.05em;
@@ -289,7 +308,7 @@
 
 .skillGroup p {
   margin-top: 1.6mm;
-  color: #242a31;
+  color: var(--pdf-strong);
   font-size: 9pt;
   font-weight: 600;
   line-height: 1.4;
@@ -298,7 +317,7 @@
 .snapshotList {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid #dfe4ea;
+  border-top: 1px solid var(--pdf-border);
 }
 
 .snapshotItem {
@@ -306,24 +325,24 @@
   grid-template-columns: minmax(0, 1fr) 32mm;
   gap: 6mm;
   padding: 2.6mm 0;
-  border-bottom: 1px solid #dfe4ea;
+  border-bottom: 1px solid var(--pdf-border);
 }
 
 .snapshotItem h3 {
-  color: #151515;
+  color: var(--pdf-text);
   font-size: 10.5pt;
   line-height: 1.25;
 }
 
 .snapshotItem p,
 .snapshotItem span {
-  color: #5a626b;
+  color: var(--pdf-muted);
   font-size: 8.6pt;
   line-height: 1.35;
 }
 
 .snapshotItem span {
-  color: #242a31;
+  color: var(--pdf-strong);
   font-weight: 700;
   text-align: right;
 }
@@ -333,11 +352,11 @@
   align-items: flex-start;
   justify-content: space-between;
   padding-bottom: 4mm;
-  border-bottom: 1px solid #151515;
+  border-bottom: 1px solid var(--pdf-text);
 }
 
 .sheetHeader span {
-  color: #4a535d;
+  color: var(--pdf-muted);
   font-size: 8.4pt;
   font-weight: 700;
 }
@@ -355,7 +374,7 @@
 }
 
 .experienceHeader h3 {
-  color: #101214;
+  color: var(--pdf-text);
   font-size: 16pt;
   line-height: 1.12;
   letter-spacing: 0;
@@ -363,7 +382,7 @@
 
 .experienceHeader p {
   margin-top: 1mm;
-  color: #3c444d;
+  color: var(--pdf-body);
   font-size: 9.5pt;
   font-weight: 700;
 }
@@ -372,7 +391,7 @@
   display: flex;
   flex-direction: column;
   gap: 1mm;
-  color: #20262c;
+  color: var(--pdf-strong);
   font-size: 9pt;
   font-weight: 800;
   line-height: 1.35;
@@ -380,7 +399,7 @@
 }
 
 .periodBlock small {
-  color: #68717c;
+  color: var(--pdf-faint);
   font-size: 7.8pt;
   font-weight: 600;
 }
@@ -389,7 +408,7 @@
 .compactGroups {
   display: flex;
   flex-direction: column;
-  gap: 3mm;
+  gap: 5mm;
 }
 
 .compactCareer {
@@ -400,7 +419,7 @@
 
 .compactCareer .experience + .experience {
   padding-top: 4mm;
-  border-top: 1px solid #dfe4ea;
+  border-top: 1px solid var(--pdf-border);
 }
 
 .compactCareer .experienceHeader h3 {
@@ -417,12 +436,12 @@
 
 .workGroup {
   padding-left: 4mm;
-  border-left: 1.5px solid #cbd5df;
+  border-left: 1.5px solid var(--pdf-border);
 }
 
 .workGroup h4 {
   margin-bottom: 1.8mm;
-  color: #0f6b36;
+  color: var(--pdf-strong);
   font-size: 9.4pt;
   font-weight: 800;
   line-height: 1.35;
@@ -434,8 +453,8 @@
 }
 
 .workTitle {
-  color: #151515;
-  font-size: 8.8pt;
+  color: var(--pdf-text);
+  font-size: 10pt;
   font-weight: 800;
   line-height: 1.35;
   word-break: keep-all;
@@ -453,9 +472,9 @@
 .plainBullet {
   position: relative;
   padding-left: 3.4mm;
-  color: #343b43;
-  font-size: 8.2pt;
-  line-height: 1.42;
+  color: var(--pdf-body);
+  font-size: 9pt;
+  line-height: 1.5;
   word-break: keep-all;
 }
 
@@ -468,11 +487,11 @@
   flex-direction: column;
   gap: 2.4mm;
   padding-top: 3mm;
-  border-top: 1px solid #e5e9ee;
+  border-top: 1px solid var(--pdf-border);
 }
 
 .sideSection h3 {
-  color: #101214;
+  color: var(--pdf-text);
   font-size: 11pt;
   font-weight: 800;
 }
@@ -492,24 +511,24 @@
 
 .activityList strong,
 .timeline span {
-  color: #151515;
+  color: var(--pdf-text);
   font-size: 8.2pt;
   font-weight: 800;
 }
 
 .activityList p,
-.activityList span,
+.activityList a,
 .timeline p {
   margin-top: 0.6mm;
-  color: #4d5660;
+  color: var(--pdf-muted);
   font-size: 7.8pt;
   line-height: 1.35;
 }
 
-.activityList span {
+.activityList a {
   display: block;
-  color: #0f6b36;
-  font-weight: 700;
+  color: var(--pdf-link);
+  font-weight: 600;
   overflow-wrap: anywhere;
 }
 
@@ -517,7 +536,7 @@
   position: absolute;
   right: 15mm;
   bottom: 7mm;
-  color: #7b858f;
+  color: var(--pdf-faint);
   font-size: 7.5pt;
   font-weight: 700;
 }
@@ -552,7 +571,7 @@
 }
 
 .skResume .workTitle {
-  font-size: 9pt;
+  font-size: 10pt;
 }
 
 .skResume .workItem li,
@@ -566,7 +585,7 @@
 }
 
 .skResume .activityList p,
-.skResume .activityList span,
+.skResume .activityList a,
 .skResume .timeline p {
   font-size: var(--sk-small-copy-size);
 }
@@ -591,7 +610,7 @@
   .page {
     min-height: auto;
     padding: 0;
-    background: #ffffff;
+    background: var(--pdf-surface);
   }
 
   .toolbar,
@@ -603,7 +622,76 @@
     width: 210mm;
     height: 297mm;
     padding: 14mm 15mm 12mm;
-    margin: 0;
+    margin: 0 auto;
     box-shadow: none;
   }
+}
+
+.backgroundGrid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 6mm;
+  margin-top: 2mm;
+}
+
+.backgroundTimeline {
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+}
+
+.backgroundGrid .sideSection h3 {
+  font-size: 9.5pt;
+}
+
+.page a:hover {
+  color: var(--pdf-link-hover);
+}
+
+@media print {
+  .page {
+    color-scheme: light;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .sheet > * {
+    flex-shrink: 0;
+  }
+}
+
+@media screen {
+  .page {
+    --pdf-canvas: var(--bg-primary);
+    --pdf-surface: var(--bg-elevated);
+    --pdf-inset: var(--bg-secondary);
+    --pdf-text: var(--text-primary);
+    --pdf-strong: var(--text-primary);
+    --pdf-body: var(--text-secondary);
+    --pdf-muted: var(--text-secondary);
+    --pdf-faint: var(--text-muted);
+    --pdf-border: var(--border-default);
+    --pdf-border-hover: var(--border-strong);
+    --pdf-link: var(--interactive-default);
+    --pdf-link-hover: var(--interactive-hover);
+    --pdf-button: var(--interactive-default);
+    --pdf-button-hover: var(--interactive-hover);
+    --pdf-on-button: var(--interactive-on-primary);
+  }
+
+  .toolbar {
+    min-height: 44px;
+  }
+}
+
+.themeToggleSlot {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+}
+
+.toolbarActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
