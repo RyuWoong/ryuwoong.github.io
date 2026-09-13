@@ -74,8 +74,7 @@ export const skillGroups = [
     items: [
       "Firebase Analytics",
       "Amplitude",
-      "딥링크",
-      "유니버설 링크"
+      "deeplink"
     ]
   },
   {

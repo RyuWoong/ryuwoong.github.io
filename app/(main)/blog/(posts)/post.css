@@ -234,16 +234,14 @@
   }
 
   .post-toc {
+    order: -1;
+    align-self: stretch;
     position: relative;
     top: auto;
     width: auto;
     max-height: min(40vh, 280px);
     margin: 0 16px;
     padding-top: 32px;
-  }
-
-  .post-toc.is-inline {
-    margin: 16px 0 8px;
   }
 
   .post-toc-body {
